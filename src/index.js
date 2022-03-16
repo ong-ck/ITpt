@@ -19,8 +19,21 @@ const firebaseApp = initializeApp({
 // const auth = getAuth(firebaseApp);
 const provider = new GoogleAuthProvider(firebaseApp);
 const auth = getAuth();
+const user = auth.currentUser;
 
-document.getElementById("signout").style.visibility = "hidden";
+$(document).ready(function () {
+  //document.getElementById("signout").style.visibility = "hidden";
+  $(".signout").hide();
+  $('ul.navbar-nav > li')
+          .click(function (e) {
+      $('ul.navbar-nav > li')
+          .removeClass('active');
+      $(this).addClass('active');
+  });
+});
+
+
+
 
 document.getElementById("signin").addEventListener("click", () => {
   signInWithPopup(auth, provider)
@@ -31,8 +44,11 @@ document.getElementById("signin").addEventListener("click", () => {
     // The signed-in user info.
     const user = result.user;
     // ...
-    document.getElementById("signin").style.visibility = 'hidden';
-    document.getElementById("signout").style.visibility = 'visible';
+    //document.getElementById("signin").style.visibility = 'hidden';
+    //document.getElementById("signout").style.visibility = 'visible';
+    $(".signin").hide();
+    $(".signout").show();
+    $("#welcome").append(user.displayName);
   }).catch((error) => {
     // Handle Errors here.
     const errorCode = error.code;
@@ -48,8 +64,10 @@ document.getElementById("signin").addEventListener("click", () => {
 document.getElementById("signout").addEventListener("click", () => {
   signOut(auth).then(() => {
     // Sign-out successful.
-    document.getElementById("signin").style.visibility = 'visible';
-    document.getElementById("signout").style.visibility = 'hidden';
+    //document.getElementById("signin").style.visibility = 'visible';
+    //document.getElementById("signout").style.visibility = 'hidden';
+    $(".signin").show();
+    $(".signout").hide();
   }).catch((error) => {
     // An error happened.
   });
