@@ -1,10 +1,11 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js'; // https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js
-import { getAuth, 
-         onAuthStateChanged,
-         GoogleAuthProvider,
-         signInWithPopup,
-         signOut,
-       } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js'; // https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js
+import {
+  getAuth,
+  onAuthStateChanged,
+  GoogleAuthProvider,
+  signInWithPopup,
+  signOut,
+} from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js'; // https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js
 
 
 const firebaseApp = initializeApp({
@@ -21,44 +22,54 @@ const provider = new GoogleAuthProvider(firebaseApp);
 const auth = getAuth();
 const user = auth.currentUser;
 
+// does not work
+/*
+$("button").click(function () {
+  fetch('https://ippt.vercel.app/api?age=18&situps=40&pushups=20&run=720', { method: "GET", mode: 'no-cors', headers: { 'Content-Type': 'application/json',}})
+     .then( response => response.json() )
+     .then( data => console.log(data) )
+
+});
+*/
+
 $(document).ready(function () {
   //document.getElementById("signout").style.visibility = "hidden";
   $(".signout").hide();
   $('ul.navbar-nav > li')
-          .click(function (e) {
+    .click(function (e) {
       $('ul.navbar-nav > li')
-          .removeClass('active');
+        .removeClass('active');
       $(this).addClass('active');
-  });
+    });
+
+
 });
-
-
 
 
 document.getElementById("signin").addEventListener("click", () => {
   signInWithPopup(auth, provider)
-  .then((result) => {
-    // This gives you a Google Access Token. You can use it to access the Google API.
-    const credential = GoogleAuthProvider.credentialFromResult(result);
-    const token = credential.accessToken;
-    // The signed-in user info.
-    const user = result.user;
-    // ...
-    //document.getElementById("signin").style.visibility = 'hidden';
-    //document.getElementById("signout").style.visibility = 'visible';
-    $(".signin").hide();
-    $(".signout").show();
-    $("#welcome").append(user.displayName);
-  }).catch((error) => {
-    // Handle Errors here.
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // The email of the user's account used.
-    const email = error.email;
-    // The AuthCredential type that was used.
-    const credential = GoogleAuthProvider.credentialFromError(error);
-    // ...
-  });
+    .then((result) => {
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+      // The signed-in user info.
+      const user = result.user;
+      // ...
+      //document.getElementById("signin").style.visibility = 'hidden';
+      //document.getElementById("signout").style.visibility = 'visible';
+      $(".signin").hide();
+      $(".signout").show();
+      $("#welcome").append(user.displayName);
+    }).catch((error) => {
+      // Handle Errors here.
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // The email of the user's account used.
+      const email = error.email;
+      // The AuthCredential type that was used.
+      const credential = GoogleAuthProvider.credentialFromError(error);
+      // ...
+    });
 });
 
 document.getElementById("signout").addEventListener("click", () => {
