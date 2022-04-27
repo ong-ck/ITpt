@@ -35,16 +35,31 @@ $("button").click(function () {
 $(document).ready(function () {
   //document.getElementById("signout").style.visibility = "hidden";
   $(".signout").hide();
+  $(".cal").hide();
   $('ul.navbar-nav > li')
     .click(function (e) {
       $('ul.navbar-nav > li')
         .removeClass('active');
       $(this).addClass('active');
     });
-
-
 });
 
+$("#brand_link").click(function () {
+  $(".cal").hide();
+  $("#cal_link").removeClass('active');
+  $(".home").show();
+  $("#home_link").addClass('active');
+});
+
+$("#home_link").click(function () {
+  $(".cal").hide();
+  $(".home").show();
+});
+
+$("#cal_link").click(function () {
+  $(".home").hide();
+  $(".cal").show();
+});
 
 document.getElementById("signin").addEventListener("click", () => {
   signInWithPopup(auth, provider)

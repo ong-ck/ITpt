@@ -11,3 +11,13 @@
   background-color: #C0C0C0;
   color: purple;
 }
+
+.center {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+.body_center {
+  border: 3px solid green;
+}

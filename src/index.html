@@ -15,18 +15,17 @@
 </head>
 
 <body>
-  <button>Press me!</button>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">ITpt</a>
+        <a id="brand_link" class="navbar-brand" href="#">ITpt</a>
       </div>
-      
+
       <ul class="nav navbar-nav navbar-left">
-        <li class="nav-item active"><a class="nav-link" href="#">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">IPPT Calculator</a></li>
+        <li id="home_link" class="nav-item active"><a class="nav-link" href="#">Home</a></li>
+        <li id="cal_link" class="nav-item"><a class="nav-link" href="#">IPPT Calculator</a></li>
       </ul>
-    
+
       <ul class="nav navbar-nav navbar-right">
         <li><button id="signin" class="btn btn-primary signin">Sign in</button></li>
         <li><button id="signout" class="btn btn-primary signout">Sign out</button></li>
@@ -34,13 +33,24 @@
     </div>
   </nav>
 
-  <div class="signin container">
-    <p>Please sign in!</p>
+  <div class="container center">
+    <div class="signin container">
+      <p>Please sign in!</p>
+    </div>
+
+    <div class="signout container">
+      <p id="welcome">Welcome </p>
+    </div>
+    
+    <div class="home body_center container">
+      <p>Home</p>
+    </div>
+
+    <div class="cal body_center container">
+      <p>Calculator</p>
+    </div>
   </div>
 
-  <div class="signout container">
-    <p id="welcome">Welcome </p>
-  </div>
 </body>
 
 </html>
