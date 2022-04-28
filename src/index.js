@@ -36,12 +36,22 @@ $(document).ready(function () {
   //document.getElementById("signout").style.visibility = "hidden";
   $(".signout").hide();
   $(".cal").hide();
+
   $('ul.navbar-nav > li')
     .click(function (e) {
       $('ul.navbar-nav > li')
         .removeClass('active');
       $(this).addClass('active');
     });
+
+  $("form").submit(function(event){
+    event.preventDefault();
+    var age = $("input[name='age']",this).val();
+    var pushups = $("input[name='pushups']",this).val();
+    var situps = $("input[name='situps']",this).val();
+    var run = $("input[name='run']",this).val();
+    alert(age);
+  });
 });
 
 $("#brand_link").click(function () {
