@@ -7,6 +7,7 @@ import {
   signOut,
 } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js'; // https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js
 
+import { score } from "./calculator.js";
 
 const firebaseApp = initializeApp({
   apiKey: "AIzaSyAabIrGuFwV69dJ2XsB5S5tEZ5vijR2Mc8",
@@ -22,6 +23,108 @@ const provider = new GoogleAuthProvider(firebaseApp);
 const auth = getAuth();
 const user = auth.currentUser;
 
+// register templates
+var templates = {
+  popupIsAllDay: function() {
+    return 'All Day';
+  },
+  popupStateFree: function() {
+    return 'Free';
+  },
+  popupStateBusy: function() {
+    return 'Busy';
+  },
+  titlePlaceholder: function() {
+    return 'Subject';
+  },
+  locationPlaceholder: function() {
+    return 'Location';
+  },
+  startDatePlaceholder: function() {
+    return 'Start date';
+  },
+  endDatePlaceholder: function() {
+    return 'End date';
+  },
+  popupSave: function() {
+    return 'Save';
+  },
+  popupUpdate: function() {
+    return 'Update';
+  },
+  popupDetailDate: function(isAllDay, start, end) {
+    var isSameDate = moment(start).isSame(end);
+    var endFormat = (isSameDate ? '' : 'YYYY.MM.DD ') + 'hh:mm a';
+
+    if (isAllDay) {
+      return moment(start).format('YYYY.MM.DD') + (isSameDate ? '' : ' - ' + moment(end).format('YYYY.MM.DD'));
+    }
+
+    return (moment(start).format('YYYY.MM.DD hh:mm a') + ' - ' + moment(end).format(endFormat));
+  },
+  popupDetailLocation: function(schedule) {
+    return 'Location : ' + schedule.location;
+  },
+  popupDetailUser: function(schedule) {
+    return 'User : ' + (schedule.attendees || []).join(', ');
+  },
+  popupDetailState: function(schedule) {
+    return 'State : ' + schedule.state || 'Busy';
+  },
+  popupDetailRepeat: function(schedule) {
+    return 'Repeat : ' + schedule.recurrenceRule;
+  },
+  popupDetailBody: function(schedule) {
+    return 'Body : ' + schedule.body;
+  },
+  popupEdit: function() {
+    return 'Edit';
+  },
+  popupDelete: function() {
+    return 'Delete';
+  }
+};
+
+var cal = new tui.Calendar('#calendar', {
+  defaultView: 'month',
+  template: templates,
+  useCreationPopup: true,
+  useDetailPopup: true
+})
+
+/*
+// jquery wrapper
+var $calEl = $('#calendar').tuiCalendar({
+  defaultView: 'month',
+  taskView: true,
+  template: {
+    monthDayname: function(dayname) {
+      return '<span class="calendar-week-dayname-name">' + dayname.label + '</span>';
+    }
+  }
+});
+
+// You can get calendar instance
+var calendarInstance = $calEl.data('tuiCalendar');
+
+$("#add_e").click(function () {
+  score();
+  calendarInstance.createSchedules([{
+    id: '1',
+    calendarId: '1',
+    title: 'my schedule',
+    category: 'time',
+    dueDateClass: '',
+    start: '2022-05-15T22:30:00+09:00',
+    end: '2022-05-19T02:30:00+09:00'
+  }]);
+});
+
+$("#del_e").click(function () {
+  calendarInstance.deleteSchedule("1", "1", false);
+});
+*/
+
 // does not work
 /*
 $("button").click(function () {
@@ -36,8 +139,9 @@ $(document).ready(function () {
   //document.getElementById("signout").style.visibility = "hidden";
   $(".signout").hide();
   $(".cal").hide();
+  $(".rewards").hide();
 
-  $('ul.navbar-nav > li')
+  $('ul.navbar-left > li')
     .click(function (e) {
       $('ul.navbar-nav > li')
         .removeClass('active');
@@ -57,18 +161,28 @@ $(document).ready(function () {
 $("#brand_link").click(function () {
   $(".cal").hide();
   $("#cal_link").removeClass('active');
+  $(".rewards").hide();
+  $("#rewards_link").removeClass('active');
   $(".home").show();
   $("#home_link").addClass('active');
 });
 
 $("#home_link").click(function () {
   $(".cal").hide();
+  $(".rewards").hide();
   $(".home").show();
 });
 
 $("#cal_link").click(function () {
   $(".home").hide();
+  $(".rewards").hide();
   $(".cal").show();
+});
+
+$("#rewards_link").click(function () {
+  $(".home").hide();
+  $(".cal").hide();
+  $(".rewards").show();
 });
 
 document.getElementById("signin").addEventListener("click", () => {
