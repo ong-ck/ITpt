@@ -32,6 +32,10 @@ input[type=text], select {
   box-sizing: border-box;
 }
 
+#calendar {
+  margin: 20px auto;
+}
+
 /* from here taken from https://www.w3schools.com/css/css_form.asp */
 input[type=submit] {
   width: 100%;
