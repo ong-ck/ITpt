@@ -15,11 +15,11 @@
 .center {
   margin: auto;
   width: 50%;
-  padding: 10px;
 }
 
 .body_center {
   border: 3px solid green;
+  padding: 10px;
 }
 
 input[type=text], select {
@@ -33,7 +33,14 @@ input[type=text], select {
 }
 
 #calendar {
-  margin: 20px auto;
+  margin: auto;
+}
+
+#result {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
 }
 
 /* from here taken from https://www.w3schools.com/css/css_form.asp */
@@ -58,3 +65,43 @@ div > form {
   padding: 20px;
 }
 /* until here taken from https://www.w3schools.com/css/css_form.asp */
+
+.tg {
+  margin: 20px;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.tg td {
+  border-color: black;
+  border-style: solid;
+  border-width: 1px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  overflow: hidden;
+  padding: 10px 5px;
+  word-break: normal;
+}
+
+.tg th {
+  border-color: black;
+  border-style: solid;
+  border-width: 1px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  overflow: hidden;
+  padding: 10px 5px;
+  word-break: normal;
+}
+
+.tg .tg-0lab {
+  font-weight: bold;
+  text-align: center;
+  vertical-align: top;
+}
+
+.tg .tg-0lax {
+  text-align: center;
+  vertical-align: top;
+}

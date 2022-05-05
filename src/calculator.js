@@ -1,5 +1,5 @@
 function score() {
-  console.log("Hello");
+  return 85;
 }
 
 export { score };

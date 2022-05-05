@@ -6,7 +6,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ITpt</title>
-  <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA/4QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAEAAAAAAAAAAQEAAAAAAAABAQABAAAAAAEBAAEAARERAQEAAQAAAQABAREBAAABAAEAAQEAAAEBEREBAQAAAQAAAAEBAAABAAAREQEAARERAAAAAQAAAAAAABEREQAAAAAAAAAAD//wAA//8AAP3/AAD9/wAA/X8AAP13AAD9dwAABXcAAN0XAADd1wAA0FcAAN/XAADeFwAAB/cAAP+BAAD//wAA" rel="icon" type="image/x-icon" />
+  <link
+    href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA/4QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAEAAAAAAAAAAQEAAAAAAAABAQABAAAAAAEBAAEAARERAQEAAQAAAQABAREBAAABAAEAAQEAAAEBEREBAQAAAQAAAAEBAAABAAAREQEAARERAAAAAQAAAAAAABEREQAAAAAAAAAAD//wAA//8AAP3/AAD9/wAA/X8AAP13AAD9dwAABXcAAN0XAADd1wAA0FcAAN/XAADeFwAAB/cAAP+BAAD//wAA"
+    rel="icon" type="image/x-icon" />
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -46,21 +48,57 @@
     <div class="signout container">
       <p id="welcome">Welcome </p>
     </div>
-    
+
     <div class="home body_center container">
       <div id='calendar'></div>
     </div>
 
     <div class="cal body_center container">
-      <p>Calculator</p>
-      <form action="">
+      <form id="cal_form" action="">
         <label>Age:</label> <input type="text" name="age"><br>
         <label>Push Ups:</label> <input type="text" name="pushups"><br>
         <label>Sit Ups:</label> <input type="text" name="situps"><br>
         <label>2.4km Run:</label> <input type="text" name="run"><br>
         <input type="submit" value="Submit" class="submit">
       </form>
-      <p>Result: </p>
+
+      <div id="result">
+        <h1 id="points"></h1>
+        <h1 id="gold" style="display: none; color: gold;">GOLD</h1>
+        <h1 id="silver" style="display: none; color: silver;">SILVER</h1>
+        <h1 id="pass" style="display: none; color: green;">PASS</h1>
+        <h1 id="fail" style="display: none; color: red;">FAIL</h1>
+        <table class="tg">
+          <thead>
+            <tr>
+              <th class="tg-0lab">Age</th>
+              <th class="tg-0lax" colspan="3">22</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="tg-0lab">Push Ups</td>
+              <td class="tg-0lax">54</td>
+              <td class="tg-0lax">23 Points</td>
+              <td class="tg-0lax">1 more rep to 24 Points</td>
+            </tr>
+            <tr>
+              <td class="tg-0lab">Sit Ups</td>
+              <td class="tg-0lax">52</td>
+              <td class="tg-0lax">23 Points</td>
+              <td class="tg-0lax">3 more reps to 24 Points</td>
+            </tr>
+            <tr>
+              <td class="tg-0lab">2.4 km Run</td>
+              <td class="tg-0lax">10:00</td>
+              <td class="tg-0lax">42 Points</td>
+              <td class="tg-0lax">10s to 43 Points</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <button id="cal_agn" type="button" class="btn btn-dark">CALCULATE AGAIN</button>
+      </div>
     </div>
 
     <div class="rewards body_center container">

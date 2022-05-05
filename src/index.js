@@ -62,6 +62,7 @@ $(document).ready(function () {
   $(".signout").hide();
   $(".cal").hide();
   $(".rewards").hide();
+  $("#result").hide();
 
   $('ul.navbar-left > li')
     .click(function (e) {
@@ -76,8 +77,28 @@ $(document).ready(function () {
     var pushups = $("input[name='pushups']",this).val();
     var situps = $("input[name='situps']",this).val();
     var run = $("input[name='run']",this).val();
-    alert(age);
+    $("form").hide();
+    $("#result").show();
+
+    var s = score();
+    $("#points").empty().prepend(s + " POINTS")
+
+    if (s >= 85) {
+      $("#gold").css({ 'display': 'inline' });
+    } else if (s >= 75) {
+      $("#silver").css({ 'display': 'inline' });
+    } else if (s >= 61) {
+      $("#pass").css({ 'display': 'inline' });
+    } else {
+      $("#fail").css({ 'display': 'inline' });
+    }
+    
   });
+});
+
+$("#cal_agn").click(function () {
+  $("form").show();
+  $("#result").hide();
 });
 
 $("#brand_link").click(function () {
