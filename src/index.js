@@ -76,11 +76,12 @@ $(document).ready(function () {
     var age = $("input[name='age']",this).val();
     var pushups = $("input[name='pushups']",this).val();
     var situps = $("input[name='situps']",this).val();
-    var run = $("input[name='run']",this).val();
+    var run_min = $("input[name='run_min']",this).val();
+    var run_sec = $("input[name='run_sec']",this).val();
     $("form").hide();
     $("#result").show();
 
-    var s = score();
+    var s = score(age, pushups, situps, run_min, run_sec);
     $("#points").empty().prepend(s + " POINTS")
 
     if (s >= 85) {
