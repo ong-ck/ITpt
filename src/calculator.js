@@ -532,4 +532,9 @@ function score(age, push_ups, sit_ups, run_time_m, run_time_s) {
   return total_score;
 }
 
-export { score };
+export { score,
+         get_age_group,
+         get_push_up,
+         get_sit_up,
+         get_run_row,
+         get_run_score };

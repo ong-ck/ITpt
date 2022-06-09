@@ -7,7 +7,14 @@ import {
   signOut,
 } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js'; // https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js
 
-import { score } from "./calculator.js";
+import { 
+  score, 
+  get_age_group, 
+  get_push_up, 
+  get_sit_up, 
+  get_run_row, 
+  get_run_score 
+} from "./calculator.js";
 
 const firebaseApp = initializeApp({
   apiKey: "AIzaSyAabIrGuFwV69dJ2XsB5S5tEZ5vijR2Mc8",
@@ -78,11 +85,26 @@ $(document).ready(function () {
     var situps = $("input[name='situps']",this).val();
     var run_min = $("input[name='run_min']",this).val();
     var run_sec = $("input[name='run_sec']",this).val();
+
+    if (run_sec == 0) {
+      run_sec = "00";
+    }
+
     $("form").hide();
     $("#result").show();
 
     var s = score(age, pushups, situps, run_min, run_sec);
     $("#points").empty().prepend(s + " POINTS")
+    $("#age").empty().prepend(age)
+    $("#pushup_num").empty().prepend(pushups);
+    $("#pushup_points").empty().prepend(get_push_up(get_age_group(age), pushups));
+    $("#pushup_rec").empty();
+    $("#situp_num").empty().prepend(situps);
+    $("#situp_points").empty().prepend(get_sit_up(get_age_group(age), situps));
+    $("#situp_rec").empty();
+    $("#run_num").empty().prepend(run_min + " : " + run_sec);
+    $("#run_points").empty().prepend(get_run_score(get_age_group(age), get_run_row(run_min, run_sec)));
+    $("#run_rec").empty();
 
     if (s >= 85) {
       $("#gold").css({ 'display': 'inline' });
@@ -100,6 +122,10 @@ $(document).ready(function () {
 $("#cal_agn").click(function () {
   $("form").show();
   $("#result").hide();
+  $("#gold").css({ 'display': 'none' });
+  $("#silver").css({ 'display': 'none' });
+  $("#pass").css({ 'display': 'none' });
+  $("#fail").css({ 'display': 'none' });
 });
 
 $("#brand_link").click(function () {

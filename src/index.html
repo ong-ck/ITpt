@@ -55,10 +55,11 @@
 
     <div class="cal body_center container">
       <form id="cal_form" action="">
-        <label>Age:</label> <input type="text" name="age"><br>
-        <label>Push Ups:</label> <input type="text" name="pushups"><br>
-        <label>Sit Ups:</label> <input type="text" name="situps"><br>
-        <label>2.4km Run:</label> <input type="text" name="run_min"><input type="text" name="run_sec"><br>
+        <label style="font-weight: bold;">Age:</label> <input type="number" name="age" min="16" max="60" required>
+        <label style="font-weight: bold;">Push Ups:</label> <input type="number" name="pushups" min="0" max="60" required>
+        <label style="font-weight: bold;">Sit Ups:</label> <input type="number" name="situps" min="0" max="60" required>
+        <label style="font-weight: bold;">2.4km Run:</label> <input type="number" name="run_min" min="8" max="18" required> Min 
+        <input type="number" name="run_sec" required min="0" max="60" step="10" required> Seconds <br>
         <input type="submit" value="Submit" class="submit">
       </form>
 
@@ -72,27 +73,27 @@
           <thead>
             <tr>
               <th class="tg-0lab">Age</th>
-              <th class="tg-0lax" colspan="3">22</th>
+              <th id="age" class="tg-0lax" colspan="3">22</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td class="tg-0lab">Push Ups</td>
-              <td class="tg-0lax">54</td>
-              <td class="tg-0lax">23 Points</td>
-              <td class="tg-0lax">1 more rep to 24 Points</td>
+              <td id="pushup_num" class="tg-0lax">54</td>
+              <td id="pushup_points" class="tg-0lax">23 Points</td>
+              <td id="pushup_rec" class="tg-0lax">1 more rep to 24 Points</td>
             </tr>
             <tr>
               <td class="tg-0lab">Sit Ups</td>
-              <td class="tg-0lax">52</td>
-              <td class="tg-0lax">23 Points</td>
-              <td class="tg-0lax">3 more reps to 24 Points</td>
+              <td id="situp_num" class="tg-0lax">52</td>
+              <td id="situp_points" class="tg-0lax">23 Points</td>
+              <td id="situp_rec" class="tg-0lax">3 more reps to 24 Points</td>
             </tr>
             <tr>
               <td class="tg-0lab">2.4 km Run</td>
-              <td class="tg-0lax">10:00</td>
-              <td class="tg-0lax">42 Points</td>
-              <td class="tg-0lax">10s to 43 Points</td>
+              <td id="run_num" class="tg-0lax">10:00</td>
+              <td id="run_points" class="tg-0lax">42 Points</td>
+              <td id="run_rec" class="tg-0lax">10s to 43 Points</td>
             </tr>
           </tbody>
         </table>
