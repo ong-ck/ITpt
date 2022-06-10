@@ -537,4 +537,5 @@ export { score,
          get_push_up,
          get_sit_up,
          get_run_row,
-         get_run_score };
+         get_run_score 
+};

@@ -7,6 +7,11 @@ import {
   signOut,
 } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js'; // https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js
 
+import { getFirestore,
+         collection, 
+         addDoc
+} from "https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js";
+
 import { 
   score, 
   get_age_group, 
@@ -29,6 +34,8 @@ const firebaseApp = initializeApp({
 const provider = new GoogleAuthProvider(firebaseApp);
 const auth = getAuth();
 const user = auth.currentUser;
+
+const db = getFirestore();
 
 var e = [
   {
@@ -64,6 +71,17 @@ $("button").click(function () {
 */
 
 $(document).ready(function () {
+  /* Sample code to add data to database from 
+  https://firebase.google.com/docs/firestore/quickstart#web-version-9_2
+  
+  const docRef = addDoc(collection(db, "users"), {
+    first: "Ada",
+    last: "Lovelace",
+    born: 1815
+  });
+  console.log("Document written with ID: ", docRef.id);
+  */
+
   draw(e);
   //document.getElementById("signout").style.visibility = "hidden";
   $(".signout").hide();
