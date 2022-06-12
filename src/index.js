@@ -18,7 +18,10 @@ import {
   get_push_up, 
   get_sit_up, 
   get_run_row, 
-  get_run_score 
+  get_run_score,
+  get_add_push_up,
+  get_add_sit_up,
+  get_run_time_cut,
 } from "./calculator.js";
 
 const firebaseApp = initializeApp({
@@ -112,17 +115,23 @@ $(document).ready(function () {
     $("#result").show();
 
     var s = score(age, pushups, situps, run_min, run_sec);
+    var age_group = get_age_group(age);
+    var push_up_points = get_push_up(age_group, pushups);
+    var sit_up_points = get_sit_up(age_group, situps);
+    var run_row = get_run_row(run_min, run_sec);
+    var run_points = get_run_score(age_group, run_row);
+
     $("#points").empty().prepend(s + " POINTS")
     $("#age").empty().prepend(age)
     $("#pushup_num").empty().prepend(pushups);
-    $("#pushup_points").empty().prepend(get_push_up(get_age_group(age), pushups));
-    $("#pushup_rec").empty();
+    $("#pushup_points").empty().prepend(push_up_points);
+    $("#pushup_rec").empty().prepend(get_add_push_up(age_group, pushups, push_up_points));
     $("#situp_num").empty().prepend(situps);
-    $("#situp_points").empty().prepend(get_sit_up(get_age_group(age), situps));
-    $("#situp_rec").empty();
+    $("#situp_points").empty().prepend(sit_up_points);
+    $("#situp_rec").empty().prepend(get_add_sit_up(age_group, situps, sit_up_points));
     $("#run_num").empty().prepend(run_min + " : " + run_sec);
-    $("#run_points").empty().prepend(get_run_score(get_age_group(age), get_run_row(run_min, run_sec)));
-    $("#run_rec").empty();
+    $("#run_points").empty().prepend(run_points);
+    $("#run_rec").empty().prepend(get_run_time_cut(age_group, run_min, run_sec, run_row, run_points));
 
     if (s >= 85) {
       $("#gold").css({ 'display': 'inline' });
