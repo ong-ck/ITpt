@@ -870,7 +870,7 @@ function convert_sec_min(run_time_s) {
   let time_to_cut = initial_time - improved_time;
   console.log("New 2.4 points: " +(running_table_2[i][age_group]));
   console.log("Timing to cut: " +time_to_cut);
-  return ((convert_sec_min(time_to_cut)) + "to " + (run_score + 1) + " points.");
+  return ((convert_sec_min(time_to_cut)) + "to " + (run_score + 1) + " point(s).");
 }
 
 export { score,

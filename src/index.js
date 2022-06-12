@@ -107,8 +107,8 @@ $(document).ready(function () {
     var run_min = $("input[name='run_min']",this).val();
     var run_sec = $("input[name='run_sec']",this).val();
 
-    if (run_sec == 0) {
-      run_sec = "00";
+    if (run_sec < 10) {
+      run_sec = "0" + String(run_sec);
     }
 
     $("form").hide();
