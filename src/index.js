@@ -39,11 +39,11 @@ const auth = getAuth();
 const user = auth.currentUser;
 
 const db = getFirestore();
-
+/*
 var e = [
   {
     title: 'All Day Event',
-    start: '2022-05-03',
+    start: '2022-06-03',
     description: "description for All Day Event"
   }];
 
@@ -62,7 +62,7 @@ function draw(e) {
   });
   calendar.render();
 }
-
+*/
 // does not work
 /*
 $("button").click(function () {
@@ -85,7 +85,7 @@ $(document).ready(function () {
   console.log("Document written with ID: ", docRef.id);
   */
 
-  draw(e);
+  //draw(e);
   //document.getElementById("signout").style.visibility = "hidden";
   $(".signout").hide();
   $(".cal").hide();
