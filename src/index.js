@@ -108,7 +108,7 @@ function initCalendar(allEvents) {
     initialDate: '2022-06-01',
     headerToolbar: {
       left: 'prev,next today',
-      centre: 'title',
+      center: 'title',
       right: 'exportCalendar dayGridMonth,timeGridWeek,timeGridDay'
     },
     selectable: true,
@@ -148,6 +148,9 @@ function initCalendar(allEvents) {
     //Select and Delete events
     eventClick: function(info) {
       let a = calendar.getEventById(info.event.id);
+
+      //Updates title in event popup
+      $("#activity_title").empty().prepend("Title: "+ info.event.title);
 
       //Toggles modal which dispalys the event info.
       $('#eventForm').modal('toggle');
