@@ -46,7 +46,7 @@ const db = getFirestore();
  */
 
 //Array to hold all the events.
-var allEvents = [{}];
+var allEvents = [];
 
 /**
  * This functions generates a random number to be the event's ID
@@ -61,29 +61,31 @@ function UIDgen() {
 }
 
 function exportCalendar() {
-  // Update these variables to take in every event
-  var eventname = "NOTHING";
-  var eventdesc = "NOTHING";
-  var eventloc = "NOTHING";
-  var eventuid = "NOTHING";
-  var startdate = "NOTHING";
-  var enddate = "NOTHING";
-  var filenametrue = eventname.split(" ").join("_");
+  var filenametrue = "myCalendar";
   filenametrue = filenametrue.replace(/[_\W]+/g, "_") + ".ics";
-  var icsContent =
-    "BEGIN:VCALENDAR\r\nPRODID:-//Microsoft Corporation//Outlook 12.0 MIMEDIR//EN\r\nVERSION:2.0\r\nMETHOD:PUBLISH\r\nX-MS-OLK-FORCEINSPECTOROPEN:TRUE\r\nBEGIN:VEVENT\r\nCLASS:PUBLIC\r\nDESCRIPTION:" +
-    eventdesc +
-    "\r\nDTEND:" +
-    enddate +
-    "\r\nDTSTART:" +
-    startdate +
-    "\r\nLOCATION:" +
-    eventloc +
-    "\r\nPRIORITY:5\r\nSEQUENCE:0\r\nSUMMARY;LANGUAGE=en-us:" +
-    eventname +
-    "\r\nTRANSP:OPAQUE\r\nUID:" +
-    eventuid +
-    "\r\nX-MICROSOFT-CDO-BUSYSTATUS:BUSY\r\nX-MICROSOFT-CDO-IMPORTANCE:1\r\nX-MICROSOFT-DISALLOW-COUNTER:FALSE\r\nX-MS-OLK-ALLOWEXTERNCHECK:TRUE\r\nX-MS-OLK-AUTOFILLLOCATION:FALSE\r\nX-MS-OLK-CONFTYPE:0\r\nBEGIN:VALARM\r\nTRIGGER:-PT1440M\r\nACTION:DISPLAY\r\nDESCRIPTION:Reminder\r\nEND:VALARM\r\nEND:VEVENT\r\nEND:VCALENDAR";
+  var icsContent = "BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//itpt.ml//ITpt\r\n" + 
+                   "CALSCALE:GREGORIAN\r\nBEGIN:VTIMEZONE\r\nTZID:Asia/Shanghai\r\n" + 
+                   "LAST-MODIFIED:20220622T051600Z\r\n" + 
+                   "TZURL:http://tzurl.org/zoneinfo-outlook/Asia/Shanghai\r\n" + 
+                   "X-LIC-LOCATION:Asia/Shanghai\r\nBEGIN:STANDARDTZNAME:CST\r\n" + 
+                   "TZOFFSETFROM:+0800\r\nTZOFFSETTO:+0800\r\nDTSTART:19700101T000000\r\n" + 
+                   "END:STANDARD\r\nEND:VTIMEZONE\r\n";
+                   
+  for (let i = 0; i < allEvents.length; i += 1) {
+    console.log(allEvents[i]);
+    let timestamp = allEvents[i]["start"].replaceAll("-", "") + "T000000Z"; // example format: 20220621T210536Z
+    let start = allEvents[i]["start"].replaceAll("-", "");
+    let title = allEvents[i]["title"];
+    let uid = allEvents[i]["id"];
+
+    icsContent += "BEGIN:VEVENT\r\nDTSTAMP:" + timestamp + "\r\n" + 
+                  "UID:" + uid + "\r\n" + 
+                  "DTSTART;VALUE=DATE:" + start + "\r\nDTEND;VALUE=DATE:" + start + "\r\n" + 
+                  "SUMMARY:Pushup\r\nEND:VEVENT\r\n";
+  }
+
+  icsContent += "END:VCALENDAR";
+
   var hiddenDL = document.createElement("a");
   hiddenDL.setAttribute(
     "href",
