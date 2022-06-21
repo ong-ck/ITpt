@@ -33,6 +33,7 @@ const firebaseApp = initializeApp({
   appId: "1:857224886725:web:14ae557f4292140be973ac",
   measurementId: "G-6J0EX5MG30"
 });
+
 // const auth = getAuth(firebaseApp);
 const provider = new GoogleAuthProvider(firebaseApp);
 const auth = getAuth();
@@ -40,38 +41,127 @@ const user = auth.currentUser;
 
 const db = getFirestore();
 
-var e = [
-  {
-    title: 'All Day Event',
-    start: '2022-05-03',
-    description: "description for All Day Event"
-  }];
+/**
+ * Calendar function
+ */
 
-function draw(e) {
+//Array to hold all the events.
+var allEvents = [{}];
+
+/**
+ * This functions generates a random number to be the event's ID
+ * @returns The randomly generated event ID.
+ */
+function UIDgen() {
+  var eventUIDN = "";
+  for (var i = 0; i < 16; i++) {
+    eventUIDN += Math.floor(Math.random() * (10 - 1 + 1) + 1);
+  }
+  return eventUIDN;
+}
+
+function exportCalendar() {
+  // Update these variables to take in every event
+  var eventname = "NOTHING";
+  var eventdesc = "NOTHING";
+  var eventloc = "NOTHING";
+  var eventuid = "NOTHING";
+  var startdate = "NOTHING";
+  var enddate = "NOTHING";
+  var filenametrue = eventname.split(" ").join("_");
+  filenametrue = filenametrue.replace(/[_\W]+/g, "_") + ".ics";
+  var icsContent =
+    "BEGIN:VCALENDAR\r\nPRODID:-//Microsoft Corporation//Outlook 12.0 MIMEDIR//EN\r\nVERSION:2.0\r\nMETHOD:PUBLISH\r\nX-MS-OLK-FORCEINSPECTOROPEN:TRUE\r\nBEGIN:VEVENT\r\nCLASS:PUBLIC\r\nDESCRIPTION:" +
+    eventdesc +
+    "\r\nDTEND:" +
+    enddate +
+    "\r\nDTSTART:" +
+    startdate +
+    "\r\nLOCATION:" +
+    eventloc +
+    "\r\nPRIORITY:5\r\nSEQUENCE:0\r\nSUMMARY;LANGUAGE=en-us:" +
+    eventname +
+    "\r\nTRANSP:OPAQUE\r\nUID:" +
+    eventuid +
+    "\r\nX-MICROSOFT-CDO-BUSYSTATUS:BUSY\r\nX-MICROSOFT-CDO-IMPORTANCE:1\r\nX-MICROSOFT-DISALLOW-COUNTER:FALSE\r\nX-MS-OLK-ALLOWEXTERNCHECK:TRUE\r\nX-MS-OLK-AUTOFILLLOCATION:FALSE\r\nX-MS-OLK-CONFTYPE:0\r\nBEGIN:VALARM\r\nTRIGGER:-PT1440M\r\nACTION:DISPLAY\r\nDESCRIPTION:Reminder\r\nEND:VALARM\r\nEND:VEVENT\r\nEND:VCALENDAR";
+  var hiddenDL = document.createElement("a");
+  hiddenDL.setAttribute(
+    "href",
+    "data:text/plain;charset=utf-8," + encodeURIComponent(icsContent)
+  );
+  hiddenDL.setAttribute("download", filenametrue);
+  hiddenDL.setAttribute("target", "_blank");
+  hiddenDL.style.display = "none";
+  document.body.appendChild(hiddenDL);
+  hiddenDL.click();
+  document.body.removeChild(hiddenDL);
+}
+
+/**
+ * This function initializes the FullCalendar.
+ * @param {*} allEvents Array that holds all the event objects that will be added by the user.
+ */
+function initCalendar(allEvents) {
   var calendarEl = document.getElementById('calendar');
-
   var calendar = new FullCalendar.Calendar(calendarEl, {
     initialView: 'dayGridMonth',
+    initialDate: '2022-06-01',
     headerToolbar: {
       left: 'prev,next today',
-      center: 'title',
-      right: 'dayGridMonth,timeGridWeek,timeGridDay'
+      centre: 'title',
+      right: 'exportCalendar dayGridMonth,timeGridWeek,timeGridDay'
     },
-    events: e,
-    editable: true
+    selectable: true,
+    events: allEvents,
+    editable: true,
+    customButtons: {
+      //Export calendar
+      exportCalendar: {
+        text: "Export",
+        click: function () {
+          exportCalendar();
+        },
+      },
+    },
+
+    //Add events
+    select: function(info) {
+      let titleStr = prompt('Enter the activity');
+      let start_date = moment(info.startStr).format('YYYY-MM-DD');
+      console.log(start_date);
+      
+      let e = {
+        title: titleStr,
+        start: start_date,
+        //end: end_date,
+        id: UIDgen(),
+      };
+
+      if (e.title != null) {
+        allEvents.push(e);
+        calendar.addEvent({
+          ...e
+        });
+      }
+    },
+
+    //Select and Delete events
+    eventClick: function(info) {
+      let a = calendar.getEventById(info.event.id);
+
+      //Toggles modal which dispalys the event info.
+      $('#eventForm').modal('toggle');
+      
+      //Delete Event
+      $('#delBtn').click(function(){  
+        a.remove();
+        allEvents = allEvents.filter(data => data.id != info.event.id); 
+        $('#eventForm').modal('toggle');
+      });     
+    },
   });
   calendar.render();
 }
-
-// does not work
-/*
-$("button").click(function () {
-  fetch('https://ippt.vercel.app/api?age=18&situps=40&pushups=20&run=720', { method: "GET", mode: 'no-cors', headers: { 'Content-Type': 'application/json',}})
-     .then( response => response.json() )
-     .then( data => console.log(data) )
-
-});
-*/
 
 $(document).ready(function () {
   /* Sample code to add data to database from 
@@ -85,7 +175,8 @@ $(document).ready(function () {
   console.log("Document written with ID: ", docRef.id);
   */
 
-  draw(e);
+  initCalendar(allEvents);
+
   //document.getElementById("signout").style.visibility = "hidden";
   $(".signout").hide();
   $(".cal").hide();
