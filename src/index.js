@@ -151,6 +151,7 @@ function initCalendar(allEvents) {
 
       //Updates title in event popup
       $("#activity_title").empty().prepend("Title: "+ info.event.title);
+      $("#activity_date").empty().prepend("Title: "+ info.event.start);
 
       //Toggles modal which dispalys the event info.
       $('#eventForm').modal('toggle');
