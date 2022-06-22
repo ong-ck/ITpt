@@ -130,13 +130,17 @@ function initCalendar(allEvents) {
     select: function(info) {
       let titleStr = prompt('Enter the activity');
       let start_date = moment(info.startStr).format('YYYY-MM-DD');
-      console.log(start_date);
+      let timeStr = prompt('Enter the time of the activity in 24hrs format');
+      let descriptStr = prompt('Enter the details of the activity');
       
       let e = {
         title: titleStr,
         start: start_date,
-        //end: end_date,
-        id: UIDgen(),
+        extendedProps: {
+          time: timeStr,
+          description: (descriptStr == null) ? "Nill" : descriptStr,
+          id: UIDgen(),
+        }
       };
 
       if (e.title != null) {
@@ -151,10 +155,12 @@ function initCalendar(allEvents) {
     eventClick: function(info) {
       let a = calendar.getEventById(info.event.id);
 
-      //Updates title in event popup
-      $("#activity_title").empty().prepend("Title: "+ info.event.title);
-      $("#activity_date").empty().prepend("Date: "+ info.event.start);
-
+      //Updates details in event popup
+      $("#modalLabel").empty().prepend(info.event.title);
+      $("#activity_date").empty().prepend("Date: "+ moment(info.event.start).format('Do MMMM YYYY'));
+      $("#activity_time").empty().prepend("Time: "+ info.event.extendedProps.time);
+      $("#activity_description").empty().prepend("Details: "+ info.event.extendedProps.description);
+      
       //Toggles modal which dispalys the event info.
       $('#eventForm').modal('toggle');
       
