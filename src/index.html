@@ -15,7 +15,9 @@
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <link rel="stylesheet" href="/style.css">
   <script type="module" src="/index.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script> 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+    integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
+    crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -69,12 +71,36 @@
     </div>
 
     <!--Calendar-->
-    <div class="home body_center container">
-      <div id="calendar" style="height: 600px; width: 100%"></div>
+    <div class="home">
+      <div id="calendar" class="body_center container" style="height: 600px; width: 100%"></div>
       <script src='https://cdn.jsdelivr.net/npm/moment@2.27.0/min/moment.min.js'></script>
       <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js"></script>
       <script src='https://cdn.jsdelivr.net/npm/@fullcalendar/moment@5.5.0/main.global.min.js'></script>
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.css">
+
+      <!--Calendar instructions-->
+      <br>
+      <div id="calendar_instructions">
+        <h2>How to use:</h2>
+        <h4>Inserting an activity:</h4>
+        <ol>
+          <li>Click on the day you want to insert an activity.</li>
+          <li>Key in the name of the activity</li>
+          <li>Key in the time of the activity in 24 hrs format (e.g. 0800)</li>
+          <li>Key in the details of the activity.</li>
+        </ol>
+        <p></p>
+        <h4>Rescheduling the activity:</h4>
+        <ol>
+          <li>Drag the activity to the new date.</li>
+        </ol>
+        <p></p>
+        <h4>Deleting an activity:</h4>
+        <ol>
+          <li>Click on the activity to view its details.</li>
+          <li>Click on "delete activity" button to delete the activity.</li>
+        </ol>
+      </div>
     </div>
 
     <div class="cal body_center container">
@@ -82,8 +108,9 @@
         <label style="font-weight: bold;">Age:</label> <input type="number" name="age" min="0" required>
         <label style="font-weight: bold;">Push Ups:</label> <input type="number" name="pushups" min="0" required>
         <label style="font-weight: bold;">Sit Ups:</label> <input type="number" name="situps" min="0" required>
-        <label style="font-weight: bold;">2.4km Run:</label> Minutes: <input type="number" name="run_min" min="0" required>  
-        Seconds: <input type="number" name="run_sec" required min="0" max="60" required>  <br>
+        <label style="font-weight: bold;">2.4km Run:</label> Minutes: <input type="number" name="run_min" min="0"
+          required>
+        Seconds: <input type="number" name="run_sec" required min="0" max="60" required> <br>
         <input type="submit" value="Submit" class="submit">
       </form>
 
@@ -124,29 +151,6 @@
 
         <button id="cal_agn" type="button" class="btn btn-dark">CALCULATE AGAIN</button>
       </div>
-    </div>
-    <p></p>
-    <!--Calendar instructions-->
-    <div id="calendar_instructions">
-      <h2>How to use:</h2>
-      <h4>Inserting an activity:</h4>
-      <ol>
-        <li>Click on the day you want to insert an activity.</li>
-        <li>Key in the name of the activity</li>
-        <li>Key in the time of the activity in 24 hrs format (e.g. 0800)</li>
-        <li>Key in the details of the activity.</li>
-      </ol>
-      <p></p>
-      <h4>Rescheduling the activity:</h4>
-      <ol>
-        <li>Drag the activity to the new date.</li>
-      </ol>
-      <p></p>
-      <h4>Deleting an activity:</h4>
-      <ol>
-        <li>Click on the activity to view its details.</li>
-        <li>Click on "delete activity" button to delete the activity.</li>
-      </ol>
     </div>
 
     <div class="rewards body_center container">
