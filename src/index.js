@@ -46,6 +46,10 @@ var user_id = null;
 
 const db = getFirestore();
 
+/**
+ * 
+ * @param {*} activity 
+ */
 function db_add(activity) {
   let activity_title = activity["title"];
   let activity_start = activity["start"];
@@ -83,6 +87,9 @@ function UIDgen() {
   return eventUIDN;
 }
 
+/**
+ * This functions exports the calender into a .ics file for the user to download.
+ */
 function exportCalendar() {
   var filenametrue = "myCalendar";
   filenametrue = filenametrue.replace(/[_\W]+/g, "_") + ".ics";
@@ -269,6 +276,7 @@ $(document).ready(function () {
     $(this).addClass("active");
   });
 
+  //Get the information from the form.
   $("form").submit(function (event) {
     event.preventDefault();
     var age = $("input[name='age']", this).val();
@@ -284,6 +292,7 @@ $(document).ready(function () {
     $("form").hide();
     $("#result").show();
 
+    //Calculate the respective IPPT scores.
     var s = score(age, pushups, situps, run_min, run_sec);
     var age_group = get_age_group(age);
     var push_up_points = get_push_up(age_group, pushups);
@@ -291,6 +300,7 @@ $(document).ready(function () {
     var run_row = get_run_row(run_min, run_sec);
     var run_points = get_run_score(age_group, run_row);
 
+    //Display the results.
     $("#points")
       .empty()
       .prepend(s + " POINTS");
@@ -363,6 +373,14 @@ $("#rewards_link").click(function () {
   $(".rewards").show();
 });
 
+
+/**
+ * Sign in out function.
+ */
+
+/**
+ * Sign in feature.
+ */
 document.getElementById("signin").addEventListener("click", () => {
   signInWithPopup(auth, provider)
     .then((result) => {
@@ -392,6 +410,9 @@ document.getElementById("signin").addEventListener("click", () => {
     });
 });
 
+/**
+ * Sign out feature.
+ */
 document.getElementById("signout").addEventListener("click", () => {
   signOut(auth)
     .then(() => {
