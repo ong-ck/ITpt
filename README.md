@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/ong-ck/ITpt">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="images/logo.png" alt="Logo">
   </a>
 
 <h3 align="center">ITpt</h3>
@@ -22,6 +22,7 @@
     <a href="https://github.com/ong-ck/ITpt/issues">Request Feature</a>
   </p>
 </div>
+
 
 <!-- TABLE OF CONTENTS -->
 <details>
@@ -67,8 +68,8 @@
   </ol>
 </details>
 
-<!-- ABOUT THE PROJECT -->
 
+<!-- ABOUT THE PROJECT -->
 ## About The Project
 
 ### Level of Achievement
@@ -85,122 +86,122 @@ Many of the males in Singapore are required to take the IPPT annually. Failing t
 
 ### User Stories
 
-- As an Nsmen with IPPT coming soon, I want to be able to clear my annual IPPT requirement and get the monetary rewards and not have to go for the NS FIT program.
+* As an Nsmen with IPPT coming soon, I want to be able to clear my annual IPPT requirement and get the monetary rewards and not have to go for the NS FIT program.
 
-- As a student with many commitments, I want a personally curated fitness plan where I can adjust the intensity of my training schedule to be able to keep up with my commitments and still be able to meet my IPPT goals.
+* As a student with many commitments, I want a personally curated fitness plan where I can adjust the intensity of my training schedule to be able to keep up with my commitments and still be able to meet my IPPT goals.
 
-- As a fitness enthusiast, I want to be able to challenge myself to get a better score for ym IPPT. I want to have a training programme that is specially tailored for IPPT.
+* As a fitness enthusiast, I want to be able to challenge myself to get a better score for ym IPPT. I want to have a training programme that is specially tailored for IPPT.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-<!-- SYSTEN DESIGN -->
 
+<!-- SYSTEN DESIGN -->
 ## System Design
 
 ### Core Features
 
-- <u>Login Feature</u>. A login feature was included to provide users with a personalised planning experience. Users would sign in using their Gmail account by clicking the “Sign in” button. This login feature was implemented using Firebase authentication.
+* <u>Login Feature</u>. A login feature was included to provide users with a personalised planning experience. Users would sign in using their Gmail account by clicking the “Sign in” button. This login feature was implemented using Firebase authentication.
 
-- <u>Fully Customizable Training Plan</u>. Users are able to use the calendar in the homepage to plan their workouts. Users can insert a new event by clicking on the desired date and key in the details of the activity. To reschedule the activities, users can simply drag the “event block” to another date. This is implemented using FullCalendar which handles the user interface as well as the creation of event objects.
+* <u>Fully Customizable Training Plan</u>. Users are able to use the calendar in the homepage to plan their workouts. Users can insert a new event by clicking on the desired date and key in the details of the activity. To reschedule the activities, users can simply drag the “event block” to another date. This is implemented using FullCalendar which handles the user interface as well as the creation of event objects.
 
-- <u>In-built IPPT Calculator</u>. Users are able to calculate their IPPT scores using the calculator whenever they need. It displays the points breakdown for each exercise, together with the total score and the corresponding achievement. Furthermore, the IPPT calculator provides feedback to the users on the number of additional reps needed/ amount of time to cut for them to improve their score for each station by one point.
+* <u>In-built IPPT Calculator</u>. Users are able to calculate their IPPT scores using the calculator whenever they need. It displays the points breakdown for each exercise, together with the total score and the corresponding achievement. Furthermore, the IPPT calculator provides feedback to the users on the number of additional reps needed/ amount of time to cut for them to improve their score for each station by one point.
 
-- <u>Gamification</u> (In progress). Points will be given after the users complete each of the activities that set for themselves, with which they can purchase avatars to customise their profile page. As such, users can be incentivised to work towards their fitness goals as they seek to gather customizable items purchasable by their collected points.
+* <u>Gamification</u> (In progress). Points will be given after the users complete each of the activities that set for themselves, with which they can purchase avatars to customise their profile page. As such, users can be incentivised to work towards their fitness goals as they seek to gather customizable items purchasable by their collected points.
 
 ### Tech Stack
 
-- <a href="https://html.spec.whatwg.org/">HTML</a>/<a href="https://www.w3.org/TR/CSS/#css">CSS</a>/<a href="http://www.ecma-international.org/publications-and-standards/standards/ecma-262/">JS</a>
-  - HTML will be used to produce the frontend UI of the website
-  - [Bootstrap](https://getbootstrap.com)
-    - Provides the design components used in the website
-  - Javascript Libraries
-    - [JQuery](https://jquery.com)
-      - Program the interactions between the frontend UI with the user, producing the UX of the website
-    - <a href="https://fullcalendar.io/">FullCalendar</a>/<a href="https://momentjs.com/">Moment.js</a>
-      - FullCalendar library is used to implement the basic features of our fitness planning function. It provides us with the basic UI for the calendar and allows users to easily create and manipulate event objects when inserting their workout plan into the calendar.
-      - Moment.js library is used to manipulate the formats of the dates in the event objects generated in the FullCalendar library.
-- [Firebase](https://firebase.google.com/)
-  - Firebase Authentication will be used to implement the login feature of the website, letting users login to the website using their google accounts.
-  - Firebase Cloud Firestore will be used as the database of the website, storing the user data (such as the calendar events). This allows for a customised experience for the users.
+* <a href="https://html.spec.whatwg.org/">HTML</a>/<a href="https://www.w3.org/TR/CSS/#css">CSS</a>/<a href="http://www.ecma-international.org/publications-and-standards/standards/ecma-262/">JS</a>
+	* HTML will be used to produce the frontend UI of the website
+	* [Bootstrap](https://getbootstrap.com)
+		* Provides the design components used in the website
+	* Javascript Libraries
+		* [JQuery](https://jquery.com)
+			* Program the interactions between the frontend UI with the user, producing the UX of the website
+		* <a href="https://fullcalendar.io/">FullCalendar</a>/<a href="https://momentjs.com/">Moment.js</a>
+			* FullCalendar library is used to implement the basic features of our fitness planning function. It provides us with the basic UI for the calendar and allows users to easily create and manipulate event objects when inserting their workout plan into the calendar.
+			* Moment.js library is used to manipulate the formats of the dates in the event objects generated in the FullCalendar library.
+* [Firebase](https://firebase.google.com/)
+	* Firebase Authentication will be used to implement the login feature of the website, letting users login to the website using their google accounts.
+	* Firebase Cloud Firestore will be used as the database of the website, storing the user data (such as the calendar events). This allows for a customised experience for the users.
 
 ### Architecture Diagram
 
-<img src="images/architecture_diagram.png" alt="Architecture Diagram" width="80" height="80">
+<img src="images/architecture_diagram.png" alt="Architecture Diagram">
 
 ### Software Engineering Practices
 
-- Version Control
-  - Changes to the source code are tracked and managed through the use of Github. Storing the source code in a remote repository allows us to work separately on different features, while maintaining the original version of the source code.
-  - New features implemented are pushed into a different branch to be deconflicted before merging into the main branch for the website to update.
-- Code Organisation
-  - Source code written for the website are documented to ensure that we will be able to understand the code, thus allowing us to be able to maintain and develop the code efficiently.
-- Coding Standards
-  - HTML, JavaScript and CSS codes were written with reference to [w3schools](https://www.w3schools.com). Following proper standards when writing code allows us to ensure code readability and efficiency.
+* Version Control
+	* Changes to the source code are tracked and managed through the use of Github. Storing the source code in a remote repository allows us to work separately on different features, while maintaining the original version of the source code.
+	* New features implemented are pushed into a different branch to be deconflicted before merging into the main branch for the website to update.
+* Code Organisation
+	* Source code written for the website are documented to ensure that we will be able to understand the code, thus allowing us to be able to maintain and develop the code efficiently.
+* Coding Standards
+	* HTML, JavaScript and CSS codes were written with reference to [w3schools](https://www.w3schools.com). Following proper standards when writing code allows us to ensure code readability and efficiency.
 
 ### Mockup
 
-<img src="images/homepage_mockup.png" alt="Homepage Mockup" width="80" height="80"><br />
-<img src="images/calculator_mockup.png" alt="IPPT Calculator Mockup" width="80" height="80"><br />
-<img src="images/results_mockup.png" alt="IPPT Calculator Results Page Mockup" width="80" height="80">
+<img src="images/homepage_mockup.png" alt="Homepage Mockup"><br />
+<img src="images/calculator_mockup.png" alt="IPPT Calculator Mockup"><br />
+<img src="images/results_mockup.png" alt="IPPT Calculator Results Page Mockup">
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-<!-- USAGE EXAMPLES -->
 
+<!-- USAGE EXAMPLES -->
 ## Usage
 
 ### Technical Proof of Concept
 
 The following are screenshots of the website.
 
-<img src="images/homepage.png" alt="Homepage" width="80" height="80"><br />
-<img src="images/calendar_event_details_popup.png" alt="Calendar Event Details Popup" width="80" height="80"><br />
-<img src="images/calculator.png" alt="IPPT Calculator" width="80" height="80"><br />
-<img src="images/results.png" alt="IPPT Calculator Results Page" width="80" height="80">
+<img src="images/homepage.png" alt="Homepage"><br />
+<img src="images/calendar_event_details_popup.png" alt="Calendar Event Details Popup"><br />
+<img src="images/calculator.png" alt="IPPT Calculator"><br />
+<img src="images/results.png" alt="IPPT Calculator Results Page">
 
 To access the website, simply go to https://www.itpt.ml (or https://itpt-d53e0.web.app/).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-<!-- EVALUATION-->
 
+<!-- EVALUATION-->
 ## Evaluation
 
 ### Testing
 
-- Unit & GUI Testing
-  _ [Cypress](https://www.cypress.io/) was used to execute Unit & GUI Testing.
-  _ Testing code is written to check that all elements expected are visible on the webpage and the buttons navigate to the expected locations in the website.
-  <img src="./images/unit_testing.gif" alt="Unit & GUI Testing Results GIF" width="500" height="600">
+* Unit & GUI Testing
+	* [Cypress](https://www.cypress.io/) was used to execute Unit & GUI Testing.
+	* Testing code is written to check that all elements expected are visible on the webpage and the buttons navigate to the expected locations in the website.
+<br /><img src="./images/unit_testing.gif" alt="Unit & GUI Testing Results GIF">
 
-- Compatability Testing
-  _ The website was checked to be working with different browsers. After every update, the website will also be tested to ensure it is still working.
-  _ [PowerMapper](https://www.powermapper.com/products/sortsite/checks/browser-compatibility/) was used to determine the compatibility of our website to numerous browsers.
-  <img src="./images/compatibility_testing.png" alt="Compatibility Testing Results" width="80" height="80">
+* Compatability Testing
+	* The website was checked to be working with different browsers. After every update, the website will also be tested to ensure it is still working.
+	* [PowerMapper](https://www.powermapper.com/products/sortsite/checks/browser-compatibility/) was used to determine the compatibility of our website to numerous browsers.
+<br /><img src="./images/compatibility_testing.png" alt="Compatibility Testing Results">
 
-- Volumn & Stress Testing
-  _ The website was checked on whether it can handle large amount of data and multiple users concurrently.
-  _ [Webpagetest](https://www.webpagetest.org/) was also used to run a performance test on the website.
-  <img src="./images/performance_testing.png" alt="Performance Testing Results" width="80" height="80">
+* Volumn & Stress Testing
+	* The website was checked on whether it can handle large amount of data and multiple users concurrently.
+	* [Webpagetest](https://www.webpagetest.org/) was also used to run a performance test on the website.
+<br /><img src="./images/performance_testing.png" alt="Performance Testing Results">
 
-- Usability Testing
-  - Use of Google Forms to gather feedback from users. The results from the google form can be found [here](https://docs.google.com/spreadsheets/d/1qMynrZXA_k1VouUbMau5k2STGvG7DffJsFqBFAwsb7s/edit?usp=sharing).
+* Usability Testing
+	* Use of Google Forms to gather feedback from users. The results from the google form can be found [here](https://docs.google.com/spreadsheets/d/1qMynrZXA_k1VouUbMau5k2STGvG7DffJsFqBFAwsb7s/edit?usp=sharing).
 
 ### Interpretation of results
 
-- Improvements to Fitness Calendar
-  - The survey indicates that our users are having difficulty with using out fitness planner. Thus we added instructions to the bottom of the page.
-- Highlight Important Functionalities
-  - From the survey, users feel that the more important functions are the Calculator and the monthly view in the Fitness Calendar.
-- Improvements to User Interface
-  - While the general feedback are positive, improvements could be made to the layout of the elements on the page for a better user experience.
-- Improvements to User Experience
-  - The survey indicates that we need to increase the functionalities of the website so that users will be more willing to recommend it to their friends.
+* Improvements to Fitness Calendar
+	* The survey indicates that our users are having difficulty with using out fitness planner. Thus we added instructions to the bottom of the page.
+* Highlight Important Functionalities
+	* From the survey, users feel that the more important functions are the Calculator and the monthly view in the Fitness Calendar.
+* Improvements to User Interface
+	* While the general feedback are positive, improvements could be made to the layout of the elements on the page for a better user experience.
+* Improvements to User Experience
+	* The survey indicates that we need to increase the functionalities of the website so that users will be more willing to recommend it to their friends.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-<!-- ROADMAP -->
 
+<!-- ROADMAP -->
 ## Roadmap
 
 ### Scope of Project
@@ -209,41 +210,39 @@ A Website that helps users plan their fitness schedule to meet their fitness goa
 
 #### Features to be completed by the mid of June
 
-- A Website that the users can access to interact with the features implemented.
+* A Website that the users can access to interact with the features implemented.
+	* A header bar that contains the links to other pages in the website, also containing the login feature where users can login with their google accounts through a popup.
+	* A homepage that contains the calendar that allows users to create their exercise plan.
+	* A calculator page that contains the in-built IPPT calculator that users can use to calculate their IPPT scores on-the-go.
+	* A rewards page that is part of the gamification feature that will be elaborated further in the section on July features below.
 
-  - A header bar that contains the links to other pages in the website, also containing the login feature where users can login with their google accounts through a popup.
-  - A homepage that contains the calendar that allows users to create their exercise plan.
-  - A calculator page that contains the in-built IPPT calculator that users can use to calculate their IPPT scores on-the-go.
-  - A rewards page that is part of the gamification feature that will be elaborated further in the section on July features below.
+* Login feature powered by Firebase Authentication to allow users to sign in using their Gmail account.
 
-- Login feature powered by Firebase Authentication to allow users to sign in using their Gmail account.
+* Fitness Planning feature where users can visualise their workout plan with the calendar. 
+	* Users can toggle the calendar view between month, week and day by clicking on the respective buttons.
+	* To insert an event, users can click on the desired date and key in the details.
+	* To view the event details, users can click on the “event block”.
+	* They can drag the “event block” around to reschedule their workouts to fit into their personal schedule. 
+	* They are also able to export the calendar to .ics format to load into their personal calendars.
 
-- Fitness Planning feature where users can visualise their workout plan with the calendar.
-
-  - Users can toggle the calendar view between month, week and day by clicking on the respective buttons.
-  - To insert an event, users can click on the desired date and key in the details.
-  - To view the event details, users can click on the “event block”.
-  - They can drag the “event block” around to reschedule their workouts to fit into their personal schedule.
-  - They are also able to export the calendar to .ics format to load into their personal calendars.
-
-- IPPT Calculator allows users to gauge their current fitness levels based on the latest IPPT scoring requirements.
-  - This calculator also displays the scores for each station.
-  - Lets the user know the additional requirements to improve their score by 1 point for each station. This will aid users in prioritising which station to focus on to improve their overall score.
+* IPPT Calculator allows users to gauge their current fitness levels based on the latest IPPT scoring requirements. 
+	* This calculator also displays the scores for each station.
+	* Lets the user know the additional requirements to improve their score by 1 point for each station. This will aid users in prioritising which station to focus on to improve their overall score.
 
 #### Features to be completed by the mid of July
 
-- Gamification system. A trust-based, self-governed system that provides additional motivation for the user to meet their fitness goals through the gifting of points that can be used.
-  - Reward points will be given to the user every time they complete an exercise in their exercise plan from the calendar.
-  - The points given can be used to purchase avatars to customise the user profile.
-- User profile
-  - Contains general information about the user such as age, gender, name, etc.
-  - Contains an avatar that represents the user (can be customised).
-  - IPPT Goal setting
-    - Users can set their desired ippt score.
-    - They can also view their past IPPT scores to track the progress towards the goal.
-- Recommended exercises to improve for each station in the IPPT.
-  - Users can view a set of exercises to help them improve each station.
-  - They can then add them to the calendar.
+* Gamification system. A trust-based, self-governed system that provides additional motivation for the user to meet their fitness goals through the gifting of points that can be used. 
+	* Reward points will be given to the user every time they complete an exercise in their exercise plan from the calendar.
+	* The points given can be used to purchase avatars to customise the user profile.
+* User profile
+	* Contains general information about the user such as age, gender, name, etc.
+	* Contains an avatar that represents the user (can be customised).
+	* IPPT Goal setting
+		* Users can set their desired ippt score.
+		* They can also view their past IPPT scores to track the progress towards the goal.
+* Recommended exercises to improve for each station in the IPPT.
+	* Users can view a set of exercises to help them improve each station.
+	* They can then add them to the calendar.
 
 ### Development Plan
 
@@ -308,11 +307,11 @@ See the [open issues](https://github.com/ong-ck/ITpt/issues) for a full list of 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-<!-- ACKNOWLEDGMENTS -->
 
+<!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-- [Readme Template referenced from othneildrew](https://github.com/othneildrew/Best-README-Template)
-- [w3schools](https://www.w3schools.com/default.asp)
+* [Readme Template referenced from othneildrew](https://github.com/othneildrew/Best-README-Template)
+* [w3schools](https://www.w3schools.com/default.asp)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
