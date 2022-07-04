@@ -107,3 +107,34 @@ div > form {
   text-align: center;
   vertical-align: top;
 }
+
+/* from here modified from https://blog.hubspot.com/website/html-dropdown */
+.dropdown {
+  display: inline-block;
+  position: relative;
+}
+#profile_dropdown {
+  width: 100px;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  width: 100%;
+}
+.dropdown:hover .dropdown-content {
+  display: block;  
+  width: 100%;
+}
+.dropdown-content button {
+  display: block;
+  color: #000000;
+  padding: 5px;
+  text-decoration: none;
+  width: 100%;
+}
+.dropdown-content button:hover {
+  color: #FFFFFF;
+  background-color: #00A4BD;
+  width: 100%;
+}
+/* until here modified from https://blog.hubspot.com/website/html-dropdown */

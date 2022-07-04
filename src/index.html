@@ -34,8 +34,14 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><button id="signin" class="btn btn-primary signin">Sign in</button></li>
-        <li><button id="signout" class="btn btn-primary signout">Sign out</button></li>
+        <li><button id="signin" class="signin">Sign in</button></li>
+          <div class="dropdown">
+            <button class="signout" id="profile_dropdown">Profile</button>
+            <div class="dropdown-content">
+              <button id="profile_link" class="signout">My Profile</button>
+              <button id="signout" class="signout">Sign out</button>
+            </div>
+          </div>
       </ul>
     </div>
   </nav>
@@ -103,6 +109,7 @@
       </div>
     </div>
 
+    <!-- IPPT Calcular -->
     <div class="cal body_center container">
       <form id="cal_form" action="">
         <label style="font-weight: bold;">Age:</label> <input type="number" name="age" min="0" required>
@@ -114,6 +121,7 @@
         <input type="submit" value="Submit" class="submit">
       </form>
 
+      <!-- IPPT Calculator Results Page -->
       <div id="result">
         <h1 id="points"></h1>
         <h1 id="gold" style="display: none; color: gold;">GOLD</h1>
@@ -153,8 +161,14 @@
       </div>
     </div>
 
+    <!-- ITPT Rewards Page -->
     <div class="rewards body_center container">
       <p>Coming Soon!</p>
+    </div>
+
+    <!-- Profile Page -->
+    <div class="profile body_center container">
+      <p>User profile is here</p>
     </div>
   </div>
 

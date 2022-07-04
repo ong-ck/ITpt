@@ -270,6 +270,7 @@ $(document).ready(function () {
   $(".cal").hide();
   $(".rewards").hide();
   $("#result").hide();
+  $(".profile").hide();
 
   $("ul.navbar-left > li").click(function (e) {
     $("ul.navbar-nav > li").removeClass("active");
@@ -353,24 +354,38 @@ $("#brand_link").click(function () {
   $("#rewards_link").removeClass("active");
   $(".home").show();
   $("#home_link").addClass("active");
+  $(".profile").hide();
 });
 
 $("#home_link").click(function () {
   $(".cal").hide();
   $(".rewards").hide();
   $(".home").show();
+  $(".profile").hide();
 });
 
 $("#cal_link").click(function () {
   $(".home").hide();
   $(".rewards").hide();
   $(".cal").show();
+  $(".profile").hide();
 });
 
 $("#rewards_link").click(function () {
   $(".home").hide();
   $(".cal").hide();
   $(".rewards").show();
+  $(".profile").hide();
+});
+  
+$("#profile_link").click(function () {
+  $(".home").hide();
+  $("#home_link").removeClass("active");
+  $(".cal").hide();
+  $("#cal_link").removeClass("active");
+  $(".rewards").hide();
+  $("#rewards_link").removeClass("active");
+  $(".profile").show();
 });
 
 
@@ -394,6 +409,7 @@ document.getElementById("signin").addEventListener("click", () => {
       //document.getElementById("signout").style.visibility = 'visible';
       $(".signin").hide();
       $(".signout").show();
+      $("#profile_dropdown").empty().prepend(user.displayName);
       $("#welcome")
         .empty()
         .prepend("Welcome " + user.displayName);
@@ -447,7 +463,8 @@ onAuthStateChanged(auth, (user) => {
   } else {
     console.log("No user");
     user_id = null;
-    allEvents = [];
-    initCalendar(allEvents);
+    allEvents = []; // cleans local events
+    initCalendar(allEvents); // re-initialise calendar upon logout to clean slate
+    $("#home_link").click();  // returns to homepage
   }
 });
