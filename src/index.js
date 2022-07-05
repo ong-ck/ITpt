@@ -199,7 +199,8 @@ function initCalendar(allEvents) {
       let descriptStr = prompt("Enter the details of the activity");
       */
 
-      $("#insert_form").submit(function () {
+      $("#insert_form").submit(function(event) {
+        event.preventDefault();
         let titleStr = $("input[name='insert_name']", this).val();
         let start_date = moment(info.startStr).format("YYYY-MM-DD");
         let timeStr = $("input[name='insert_time']", this).val();
