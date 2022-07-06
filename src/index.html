@@ -54,13 +54,41 @@
     <div class="signout container">
       <p id="welcome">Welcome </p>
     </div>
+    
+    <!--Modal to add events-->
+    <div class="modal fade" id="eventInsert" tabindex="-1" aria-labelledby="eventForm" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="insertLabel">Insert Event</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+            <div class="modal-body">
+                <h5>Name of Activity:</h5><h5 id="display_name"></h5>
+                <button type="button" id="insert_name" class="btn btn-primary">Insert Activity Name</button>
+                <p></p>
+                <h5 id="insert_date">Date:</h5>
+                <p></p>
+                <h5>Time:</h5><h5 id="display_time"></h5>
+                <button type="button" id="insert_time" class="btn btn-primary">Insert Activity Time</button>
+                <p></p>
+                <h5>Activity Details:</h5><h5 id="display_details"></h5>
+                <button type="button" id="insert_details" class="btn btn-primary">Insert Activity Details</button>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" id="insertBtn" class="btn btn-primary">Add Event</button>
+            </div>
+        </div>
+      </div>
+    </div>
 
     <!--Modal displays the infromation of the event-->
     <div class="modal fade" id="eventForm" tabindex="-1" aria-labelledby="eventForm" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="modalLabel"></h5>
+            <h5 class="modal-title" id="infoLabel"></h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
@@ -70,7 +98,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" id="delBtn" class="btn btn-primary">Delete Event</button>
+            <button type="button" id="delBtn" class="btn btn-primary" style="background-color: red;">Delete Event</button>
           </div>
         </div>
       </div>

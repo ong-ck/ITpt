@@ -173,7 +173,6 @@ function initCalendar(allEvents) {
     },
     selectable: true,
     events: allEvents,
-    editable: true,
     customButtons: {
       //Export calendar
       exportCalendar: {
@@ -185,31 +184,47 @@ function initCalendar(allEvents) {
     },
 
     //Add events
-    select: function (info) {
+    select: function (info) {   
+      $("#insert_date")
+        .empty()
+        .prepend("Date: " + moment(info.startStr).format("Do MMMM YYYY"));
+
       let titleStr = prompt("Enter the activity");
-      let start_date = moment(info.startStr).format("YYYY-MM-DD");
-      let timeStr = prompt("Enter the time of the activity in 24hrs format");
-      let descriptStr = prompt("Enter the details of the activity");
+      if (titleStr != null) {
+        let start_date = moment(info.startStr).format("YYYY-MM-DD");
+        let timeStr = prompt("Enter the time of the activity in 24hrs format");
+        if (timeStr != null) {
+          let descriptStr = prompt("Enter the details of the activity");
 
-      let e = {
-        id: UIDgen(),
-        title: titleStr,
-        start: start_date,
-        extendedProps: {
-          time: timeStr,
-          description: descriptStr == null ? "Nill" : descriptStr,
-        },
-      };
+          console.log(titleStr);
+          console.log(start_date);
+          console.log(timeStr);
+          console.log(descriptStr);
 
-      if (e.title != null) {
-        allEvents.push(e);
-        calendar.addEvent({
-          ...e,
-        });
+          //Create the event object
+          let e = {
+            id: UIDgen(),
+            title: titleStr,
+            start: start_date,
+            eventBackgroundColor: 'red',
+            extendedProps: {
+              time: timeStr,
+              description: descriptStr == null ? "Nill" : descriptStr,
+            },
+          };
 
-        // Add specific activity to Firestore
-        if (user_id != null) {
-          db_add(e);
+          if (e.title != null) {
+            allEvents.push(e);
+
+            calendar.addEvent({
+              ...e,
+            });
+
+            // Add specific activity to Firestore
+            if (user_id != null) {
+              db_add(e);
+            }
+          }
         }
       }
     },
@@ -219,7 +234,7 @@ function initCalendar(allEvents) {
       let a = calendar.getEventById(info.event.id);
 
       //Updates details in event popup
-      $("#modalLabel").empty().prepend(info.event.title);
+      $("#infoLabel").empty().prepend(info.event.title);
       $("#activity_date")
         .empty()
         .prepend("Date: " + moment(info.event.start).format("Do MMMM YYYY"));
@@ -278,7 +293,7 @@ $(document).ready(function () {
   });
 
   //Get the information from the form.
-  $("form").submit(function (event) {
+  $("#cal_form").submit(function (event) {
     event.preventDefault();
     var age = $("input[name='age']", this).val();
     var pushups = $("input[name='pushups']", this).val();
@@ -290,7 +305,7 @@ $(document).ready(function () {
       run_sec = "0" + String(run_sec);
     }
 
-    $("form").hide();
+    $("#cal_form").hide();
     $("#result").show();
 
     //Calculate the respective IPPT scores.
@@ -339,7 +354,7 @@ $(document).ready(function () {
 });
 
 $("#cal_agn").click(function () {
-  $("form").show();
+  $("#cal_form").show();
   $("#result").hide();
   $("#gold").css({ display: "none" });
   $("#silver").css({ display: "none" });
