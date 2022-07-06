@@ -63,20 +63,22 @@
             <h5 class="modal-title" id="insertLabel">Insert Event</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="modal-body">
-            <form id = "insert_form" action="">
-              <h5>Name of Activity:</h5><input type="text" name="insert_name" required>
-              <p></p>
-              <h5 id="insert_date">Date:</h5>
-              <p></p>
-              <h5>Time:</h5><input type="time" name="insert_time" required>
-              <p></p>
-              <h5>Activity Details:</h5><input type="text" name="insert_details">
-              <input type="submit" value="Submit" class="submit">
-            </form>
-          </div>
-          <div class="modal-footer">
-          </div>
+            <div class="modal-body">
+                <h5>Name of Activity:</h5><h5 id="display_name"></h5>
+                <button type="button" id="insert_name" class="btn btn-primary">Insert Activity Name</button>
+                <p></p>
+                <h5 id="insert_date">Date:</h5>
+                <p></p>
+                <h5>Time:</h5><h5 id="display_time"></h5>
+                <button type="button" id="insert_time" class="btn btn-primary">Insert Activity Time</button>
+                <p></p>
+                <h5>Activity Details:</h5><h5 id="display_details"></h5>
+                <button type="button" id="insert_details" class="btn btn-primary">Insert Activity Details</button>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" id="insertBtn" class="btn btn-primary">Add Event</button>
+            </div>
         </div>
       </div>
     </div>

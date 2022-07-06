@@ -173,7 +173,6 @@ function initCalendar(allEvents) {
     },
     selectable: true,
     events: allEvents,
-    editable: true,
     customButtons: {
       //Export calendar
       exportCalendar: {
@@ -185,57 +184,49 @@ function initCalendar(allEvents) {
     },
 
     //Add events
-    select: function (info) {
-      $("#eventInsert").modal("toggle");
-      
+    select: function (info) {   
       $("#insert_date")
         .empty()
         .prepend("Date: " + moment(info.startStr).format("Do MMMM YYYY"));
 
-      /*
       let titleStr = prompt("Enter the activity");
-      let start_date = moment(info.startStr).format("YYYY-MM-DD");
-      let timeStr = prompt("Enter the time of the activity in 24hrs format");
-      let descriptStr = prompt("Enter the details of the activity");
-      */
-
-      $("#insert_form").submit(function(event) {
-        event.preventDefault();
-        let titleStr = $("input[name='insert_name']", this).val();
+      if (titleStr != null) {
         let start_date = moment(info.startStr).format("YYYY-MM-DD");
-        let timeStr = $("input[name='insert_time']", this).val();
-        let descriptStr = $("input[name='insert_details']", this).val();
+        let timeStr = prompt("Enter the time of the activity in 24hrs format");
+        if (timeStr != null) {
+          let descriptStr = prompt("Enter the details of the activity");
 
-        console.log(titleStr);
-        console.log(start_date);
-        console.log(timeStr);
-        console.log(descriptStr);
+          console.log(titleStr);
+          console.log(start_date);
+          console.log(timeStr);
+          console.log(descriptStr);
 
-        //Create the event object
-        let e = {
-          id: UIDgen(),
-          title: titleStr,
-          start: start_date,
-          eventBackgroundColor: 'red',
-          extendedProps: {
-            time: timeStr,
-            description: descriptStr == null ? "Nill" : descriptStr,
-          },
-        };
+          //Create the event object
+          let e = {
+            id: UIDgen(),
+            title: titleStr,
+            start: start_date,
+            eventBackgroundColor: 'red',
+            extendedProps: {
+              time: timeStr,
+              description: descriptStr == null ? "Nill" : descriptStr,
+            },
+          };
 
-        if (e.title != null) {
-          allEvents.push(e);
-          calendar.addEvent({
-            ...e,
-          });
+          if (e.title != null) {
+            allEvents.push(e);
 
-          // Add specific activity to Firestore
-          if (user_id != null) {
-            db_add(e);
+            calendar.addEvent({
+              ...e,
+            });
+
+            // Add specific activity to Firestore
+            if (user_id != null) {
+              db_add(e);
+            }
           }
         }
-        $("#eventInsert").modal("toggle");
-      });
+      }
     },
 
     //Select and Delete events
