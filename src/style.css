@@ -44,6 +44,15 @@ select {
   justify-content: center;
 }
 
+#cal_result_buttons {
+  display: inline-flex;
+  flex-direction: row;
+}
+
+#cal_result_buttons > button {
+  margin: 30px;
+}
+
 /* from here taken from https://www.w3schools.com/css/css_form.asp */
 input[type="submit"] {
   width: 100%;

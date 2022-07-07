@@ -363,6 +363,12 @@ $("#cal_agn").click(function () {
   $("#fail").css({ display: "none" });
 });
 
+$("#cal_result_buttons").click(function () {
+  alert("Results succesfully saved!");
+  $("#cal_form").show();
+  $("#result").hide();
+});
+
 $("#brand_link").click(function () {
   $(".cal").hide();
   $("#cal_link").removeClass("active");
