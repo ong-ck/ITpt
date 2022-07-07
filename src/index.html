@@ -35,13 +35,13 @@
 
       <ul class="nav navbar-nav navbar-right">
         <li><button id="signin" class="signin">Sign in</button></li>
-          <div class="dropdown">
-            <button class="signout" id="profile_dropdown">Profile</button>
-            <div class="dropdown-content">
-              <button id="profile_link" class="signout">My Profile</button>
-              <button id="signout" class="signout">Sign out</button>
-            </div>
+        <div class="dropdown">
+          <button class="signout" id="profile_dropdown">Profile</button>
+          <div class="dropdown-content">
+            <button id="profile_link" class="signout">My Profile</button>
+            <button id="signout" class="signout">Sign out</button>
           </div>
+        </div>
       </ul>
     </div>
   </nav>
@@ -54,7 +54,7 @@
     <div class="signout container">
       <p id="welcome">Welcome </p>
     </div>
-    
+
     <!--Modal to add events-->
     <div class="modal fade" id="eventInsert" tabindex="-1" aria-labelledby="eventForm" aria-hidden="true">
       <div class="modal-dialog">
@@ -63,22 +63,25 @@
             <h5 class="modal-title" id="insertLabel">Insert Event</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-            <div class="modal-body">
-                <h5>Name of Activity:</h5><h5 id="display_name"></h5>
-                <button type="button" id="insert_name" class="btn btn-primary">Insert Activity Name</button>
-                <p></p>
-                <h5 id="insert_date">Date:</h5>
-                <p></p>
-                <h5>Time:</h5><h5 id="display_time"></h5>
-                <button type="button" id="insert_time" class="btn btn-primary">Insert Activity Time</button>
-                <p></p>
-                <h5>Activity Details:</h5><h5 id="display_details"></h5>
-                <button type="button" id="insert_details" class="btn btn-primary">Insert Activity Details</button>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" id="insertBtn" class="btn btn-primary">Add Event</button>
-            </div>
+          <div class="modal-body">
+            <h5>Name of Activity:</h5>
+            <h5 id="display_name"></h5>
+            <button type="button" id="insert_name" class="btn btn-primary">Insert Activity Name</button>
+            <p></p>
+            <h5 id="insert_date">Date:</h5>
+            <p></p>
+            <h5>Time:</h5>
+            <h5 id="display_time"></h5>
+            <button type="button" id="insert_time" class="btn btn-primary">Insert Activity Time</button>
+            <p></p>
+            <h5>Activity Details:</h5>
+            <h5 id="display_details"></h5>
+            <button type="button" id="insert_details" class="btn btn-primary">Insert Activity Details</button>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" id="insertBtn" class="btn btn-primary">Add Event</button>
+          </div>
         </div>
       </div>
     </div>
@@ -98,7 +101,8 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" id="delBtn" class="btn btn-primary" style="background-color: red;">Delete Event</button>
+            <button type="button" id="delBtn" class="btn btn-primary" style="background-color: red;">Delete
+              Event</button>
           </div>
         </div>
       </div>
@@ -196,7 +200,51 @@
 
     <!-- Profile Page -->
     <div class="profile body_center container">
-      <p>User profile is here</p>
+      <div class="parent">
+        <div class="div1">
+          <img src="" alt="Profile Avatar" />
+        </div>
+        <div class="div2">
+          <p>IPPT Goal:</p>
+          <div>
+            <div class="current">60 Points</div>
+            <div>
+              <progress min="0" max="85" value="60"></progress>
+            </div>
+            <div class="end">85 Points</div>
+          </div>
+        </div>
+        <div class="div3">
+          <p style="display: inline;">Current Credits:</p>
+          <p id="credits_num" style="display: inline;">0</p>
+        </div>
+        <div class="div4">
+          <p>High Score For Each Station:</p>
+          <div>
+            <table class="tg" style="width: 80%;  margin: 0;">
+              <thead>
+                <tr>
+                  <th class="tg-0lax">Push Up</th>
+                  <th class="tg-0lax">45</th>
+                  <th class="tg-0lax">21 Points</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="tg-0lax">Sit Up</td>
+                  <td class="tg-0lax">45</td>
+                  <td class="tg-0lax">21 Points</td>
+                </tr>
+                <tr>
+                  <td class="tg-0lax">2.4km Run</td>
+                  <td class="tg-0lax">12 : 00</td>
+                  <td class="tg-0lax">35 Points</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 

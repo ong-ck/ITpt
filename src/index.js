@@ -47,8 +47,8 @@ var user_id = null;
 const db = getFirestore();
 
 /**
- * 
- * @param {*} activity 
+ *
+ * @param {*} activity
  */
 function db_add(activity) {
   let activity_title = activity["title"];
@@ -172,6 +172,7 @@ function initCalendar(allEvents) {
       right: "exportCalendar dayGridMonth,timeGridWeek,timeGridDay",
     },
     selectable: true,
+    editable: true,
     events: allEvents,
     customButtons: {
       //Export calendar
@@ -184,7 +185,7 @@ function initCalendar(allEvents) {
     },
 
     //Add events
-    select: function (info) {   
+    select: function (info) {
       $("#insert_date")
         .empty()
         .prepend("Date: " + moment(info.startStr).format("Do MMMM YYYY"));
@@ -206,7 +207,7 @@ function initCalendar(allEvents) {
             id: UIDgen(),
             title: titleStr,
             start: start_date,
-            eventBackgroundColor: 'red',
+            eventBackgroundColor: "red",
             extendedProps: {
               time: timeStr,
               description: descriptStr == null ? "Nill" : descriptStr,
@@ -392,7 +393,7 @@ $("#rewards_link").click(function () {
   $(".rewards").show();
   $(".profile").hide();
 });
-  
+
 $("#profile_link").click(function () {
   $(".home").hide();
   $("#home_link").removeClass("active");
@@ -402,7 +403,6 @@ $("#profile_link").click(function () {
   $("#rewards_link").removeClass("active");
   $(".profile").show();
 });
-
 
 /**
  * Sign in out function.
@@ -480,6 +480,6 @@ onAuthStateChanged(auth, (user) => {
     user_id = null;
     allEvents = []; // cleans local events
     initCalendar(allEvents); // re-initialise calendar upon logout to clean slate
-    $("#home_link").click();  // returns to homepage
+    $("#home_link").click(); // returns to homepage
   }
 });
