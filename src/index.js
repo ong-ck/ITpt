@@ -363,7 +363,7 @@ $("#cal_agn").click(function () {
   $("#fail").css({ display: "none" });
 });
 
-$("#cal_result_buttons").click(function () {
+$("#save_result").click(function () {
   alert("Results succesfully saved!");
   $("#cal_form").show();
   $("#result").hide();
