@@ -11,6 +11,7 @@ import {
   getFirestore,
   collection,
   setDoc,
+  addDoc,
   doc,
   deleteDoc,
   getDocs,
@@ -43,12 +44,36 @@ const provider = new GoogleAuthProvider(firebaseApp);
 const auth = getAuth();
 const user = auth.currentUser;
 var user_id = null;
-
 const db = getFirestore();
 
 /**
- * 
- * @param {*} activity 
+ * Global variables used
+ */
+//Array to hold all the events.
+var allEvents = [];
+
+//Variable to hold the user's credits.
+var total_credits = 0;
+
+/**
+ * Calendar function
+ */
+
+/**
+ * This functions generates a random number to be the event's ID
+ * @returns The randomly generated event ID.
+ */
+function UIDgen() {
+  var eventUIDN = "";
+  for (var i = 0; i < 16; i++) {
+    eventUIDN += Math.floor(Math.random() * (10 - 1 + 1) + 1);
+  }
+  return eventUIDN;
+}
+
+/**
+ * This function adds activity added in calendar to the database.
+ * @param {*} activity The event object to be added into the database.
  */
 function db_add(activity) {
   let activity_title = activity["title"];
@@ -66,25 +91,6 @@ function db_add(activity) {
       description: activity_desc,
     },
   });
-}
-
-/**
- * Calendar function
- */
-
-//Array to hold all the events.
-var allEvents = [];
-
-/**
- * This functions generates a random number to be the event's ID
- * @returns The randomly generated event ID.
- */
-function UIDgen() {
-  var eventUIDN = "";
-  for (var i = 0; i < 16; i++) {
-    eventUIDN += Math.floor(Math.random() * (10 - 1 + 1) + 1);
-  }
-  return eventUIDN;
 }
 
 /**
@@ -164,6 +170,7 @@ function exportCalendar() {
 function initCalendar(allEvents) {
   var calendarEl = document.getElementById("calendar");
   var calendar = new FullCalendar.Calendar(calendarEl, {
+    //Calendar settings.
     initialView: "dayGridMonth",
     initialDate: "2022-06-01",
     headerToolbar: {
@@ -184,7 +191,7 @@ function initCalendar(allEvents) {
     },
 
     //Add events
-    select: function (info) {   
+    select: function (info) {
       $("#insert_date")
         .empty()
         .prepend("Date: " + moment(info.startStr).format("Do MMMM YYYY"));
@@ -193,6 +200,7 @@ function initCalendar(allEvents) {
       if (titleStr != null) {
         let start_date = moment(info.startStr).format("YYYY-MM-DD");
         let timeStr = prompt("Enter the time of the activity in 24hrs format");
+
         if (timeStr != null) {
           let descriptStr = prompt("Enter the details of the activity");
 
@@ -206,7 +214,7 @@ function initCalendar(allEvents) {
             id: UIDgen(),
             title: titleStr,
             start: start_date,
-            eventBackgroundColor: 'red',
+            eventBackgroundColor: "red",
             extendedProps: {
               time: timeStr,
               description: descriptStr == null ? "Nill" : descriptStr,
@@ -254,6 +262,26 @@ function initCalendar(allEvents) {
         allEvents = allEvents.filter((data) => data.id != info.event.id); // filter out deleted data
 
         // Deletes clicked activity from Firestore
+        if (user_id != null) {
+          let doc_id = info.event.id;
+          deleteDoc(doc(db, "users", user_id, "activities", doc_id));
+        }
+
+        $("#eventForm").modal("toggle");
+      });
+
+      //Complete Event
+      $("#completeBtn").click(function () {
+
+        //Adds 5 credits to the user's credits
+        addDoc(collection(db, "users", user_id, "credits"), {
+          amount: 5
+        });
+
+        //Removes activity.
+        a.remove();
+        allEvents = allEvents.filter((data) => data.id != info.event.id); // filter out deleted data
+
         if (user_id != null) {
           let doc_id = info.event.id;
           deleteDoc(doc(db, "users", user_id, "activities", doc_id));
@@ -316,7 +344,7 @@ $(document).ready(function () {
     var run_row = get_run_row(run_min, run_sec);
     var run_points = get_run_score(age_group, run_row);
 
-    //Display the results.
+    // Display the results.
     $("#points")
       .empty()
       .prepend(s + " POINTS");
@@ -350,6 +378,24 @@ $(document).ready(function () {
     } else {
       $("#fail").css({ display: "inline" });
     }
+
+    // Save results to database
+    $("#save_result").click(function () {
+      addDoc(collection(db, "users", user_id, "ipptScores"), {
+        pushup: parseInt(pushups),
+        pushupPoints: parseInt(push_up_points),
+        situp: parseInt(situps),
+        situpPoints: parseInt(sit_up_points),
+        run_min: parseInt(run_min),
+        run_sec: parseInt(run_sec),
+        runPoints: parseInt(run_points),
+        points: parseInt(s),
+      }).then(() => {
+        alert("Results succesfully saved!");
+        $("#cal_form").show();
+        $("#result").hide();
+      });
+    });
   });
 });
 
@@ -392,8 +438,73 @@ $("#rewards_link").click(function () {
   $(".rewards").show();
   $(".profile").hide();
 });
-  
+
 $("#profile_link").click(function () {
+  // Updates the profile page with user details.
+  let creditTemp = 0; //This is to prevent the function from incrementing from the previous count.
+  const creditsSnapshot = getDocs(
+    collection(db, "users", user_id, "credits")
+  )
+    .then((creditsSnapshot) => {
+      creditsSnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        creditTemp += parseInt(doc.data()["amount"]);
+        total_credits = creditTemp;
+      });
+    })
+    .then(() => {
+      $("#credits_num").empty().prepend(total_credits); // update current credit amount
+    });
+
+  // add IPPT scores
+  const scoreSnapshot = getDocs(
+    collection(db, "users", user_id, "ipptScores")
+  ).then((scoreSnapshot) => {
+    let largestPoints = 0;
+    let largestPushup = 0;
+    let largestSitup = 0;
+    let largestRunPoints = 0;
+    scoreSnapshot.forEach((doc) => {
+      // doc.data() is never undefined for query doc snapshots
+      if (doc.data()["points"] >= largestPoints) {
+        largestPoints = doc.data()["points"];
+        $("#ipptProgress").prop("value", doc.data()["points"]);
+        $("#currentPointsLabel")
+          .css(
+            "margin-left",
+            String((parseInt(doc.data()["points"]) / 85) * 88) + "%"
+          )
+          .empty()
+          .prepend(doc.data()["points"] + " Point(s)");
+      }
+
+      if (doc.data()["pushup"] >= largestPushup) {
+        largestPushup = doc.data()["pushup"];
+        $("#profile_pushup_num").empty().prepend(doc.data()["pushup"]);
+        $("#profile_pushup_points")
+          .empty()
+          .prepend(doc.data()["pushupPoints"] + " Points");
+      }
+
+      if (doc.data()["situp"] >= largestSitup) {
+        largestSitup = doc.data()["situp"];
+        $("#profile_situp_num").empty().prepend(doc.data()["situp"]);
+        $("#profile_situp_points")
+          .empty()
+          .prepend(doc.data()["situpPoints"] + " Points");
+      }
+
+      if (doc.data()["runPoints"] >= largestRunPoints) {
+        largestRunPoints = doc.data()["runPoints"];
+        $("#profile_run_num")
+          .empty()
+          .prepend(doc.data()["run_min"] + " : " + doc.data()["run_sec"]);
+        $("#profile_run_points")
+          .empty()
+          .prepend(doc.data()["runPoints"] + " Points");
+      }
+    });
+  });
   $(".home").hide();
   $("#home_link").removeClass("active");
   $(".cal").hide();
@@ -402,7 +513,6 @@ $("#profile_link").click(function () {
   $("#rewards_link").removeClass("active");
   $(".profile").show();
 });
-
 
 /**
  * Sign in out function.
@@ -428,6 +538,71 @@ document.getElementById("signin").addEventListener("click", () => {
       $("#welcome")
         .empty()
         .prepend("Welcome " + user.displayName);
+
+      // Updates the profile page with user details
+      // add user credits
+      const creditsSnapshot = getDocs(
+        collection(db, "users", user_id, "credits")
+      )
+        .then((creditsSnapshot) => {
+          creditsSnapshot.forEach((doc) => {
+            // doc.data() is never undefined for query doc snapshots
+            total_credits += parseInt(doc.data()["amount"]);
+          });
+        })
+        .then(() => {
+          $("#credits_num").empty().prepend(total_credits); // update current credit amount
+        });
+
+      // add IPPT scores
+      const scoreSnapshot = getDocs(
+        collection(db, "users", user_id, "ipptScores")
+      ).then((scoreSnapshot) => {
+        let largestPoints = 0;
+        let largestPushup = 0;
+        let largestSitup = 0;
+        let largestRunPoints = 0;
+        scoreSnapshot.forEach((doc) => {
+          // doc.data() is never undefined for query doc snapshots
+          if (doc.data()["points"] >= largestPoints) {
+            largestPoints = doc.data()["points"];
+            $("#ipptProgress").prop("value", doc.data()["points"]);
+            $("#currentPointsLabel")
+              .css(
+                "margin-left",
+                String((parseInt(doc.data()["points"]) / 85) * 88) + "%"
+              )
+              .empty()
+              .prepend(doc.data()["points"] + " Point(s)");
+          }
+
+          if (doc.data()["pushup"] >= largestPushup) {
+            largestPushup = doc.data()["pushup"];
+            $("#profile_pushup_num").empty().prepend(doc.data()["pushup"]);
+            $("#profile_pushup_points")
+              .empty()
+              .prepend(doc.data()["pushupPoints"] + " Points");
+          }
+
+          if (doc.data()["situp"] >= largestSitup) {
+            largestSitup = doc.data()["situp"];
+            $("#profile_situp_num").empty().prepend(doc.data()["situp"]);
+            $("#profile_situp_points")
+              .empty()
+              .prepend(doc.data()["situpPoints"] + " Points");
+          }
+
+          if (doc.data()["runPoints"] >= largestRunPoints) {
+            largestRunPoints = doc.data()["runPoints"];
+            $("#profile_run_num")
+              .empty()
+              .prepend(doc.data()["run_min"] + " : " + doc.data()["run_sec"]);
+            $("#profile_run_points")
+              .empty()
+              .prepend(doc.data()["runPoints"] + " Points");
+          }
+        });
+      });
     })
     .catch((error) => {
       // Handle Errors here.
@@ -458,11 +633,34 @@ document.getElementById("signout").addEventListener("click", () => {
     });
 });
 
+/**
+ * Actions to take upon logging in and logging out.
+ */
 onAuthStateChanged(auth, (user) => {
+  // when user logs in
   if (user != null) {
     console.log("logged in!");
     user_id = user.uid;
+
+    // create empty documents upon login (for first time logging in)
+    // create document with user_id in "users" collection
     setDoc(doc(db, "users", user_id), {});
+    // create initial credits document
+    setDoc(doc(db, "users", user_id, "credits", "initialCredit"), {
+      amount: 0,
+    });
+    // create intial ipptScore document
+    setDoc(doc(db, "users", user_id, "ipptScores", "initialScore"), {
+      pushup: 0,
+      pushupPoints: 0,
+      situp: 0,
+      situpPoints: 0,
+      run_min: 0,
+      run_sec: 0,
+      runPoints: 0,
+      points: 0,
+    });
+
     const querySnapshot = getDocs(
       collection(db, "users", user_id, "activities")
     )
@@ -475,11 +673,17 @@ onAuthStateChanged(auth, (user) => {
       .then(() => {
         initCalendar(allEvents); // re-initialise calendar upon login
       });
-  } else {
+  }
+  // when user logs out
+  else {
     console.log("No user");
     user_id = null;
+
+    // Reset global variables upon logout
     allEvents = []; // cleans local events
+    total_credits = 0;
+
     initCalendar(allEvents); // re-initialise calendar upon logout to clean slate
-    $("#home_link").click();  // returns to homepage
+    $("#home_link").click(); // returns to homepage
   }
 });
