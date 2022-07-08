@@ -175,8 +175,8 @@ progress {
 #currentPointsLabel {
   display: inline;
   margin-left: calc(
-    ((60 / 85)) * 88.9%
-  ); /* 88.9% is an arbitrarily determined number */
+    ((60 / 85)) * 88%
+  ); /* 88% is an arbitrarily determined number */
 }
 
 .end {
