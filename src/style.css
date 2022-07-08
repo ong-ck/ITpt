@@ -172,7 +172,7 @@ progress {
   width: 100%;
 }
 
-.current {
+#currentPointsLabel {
   display: inline;
   margin-left: calc(
     ((60 / 85)) * 88.9%
