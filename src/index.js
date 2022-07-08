@@ -355,6 +355,24 @@ $(document).ready(function () {
     } else {
       $("#fail").css({ display: "inline" });
     }
+
+    // Save results to database
+    $("#save_result").click(function () {
+      addDoc(collection(db, "users", user_id, "ipptScores"), {
+        pushup: parseInt(pushups),
+        pushupPoints: parseInt(push_up_points),
+        situp: parseInt(situps),
+        situpPoints: parseInt(sit_up_points),
+        run_min: parseInt(run_min),
+        run_sec: parseInt(run_sec),
+        runPoints: parseInt(run_points),
+        points: parseInt(s),
+      }).then(() => {
+        alert("Results succesfully saved!");
+        $("#cal_form").show();
+        $("#result").hide();
+      });
+    });
   });
 });
 
@@ -365,12 +383,6 @@ $("#cal_agn").click(function () {
   $("#silver").css({ display: "none" });
   $("#pass").css({ display: "none" });
   $("#fail").css({ display: "none" });
-});
-
-$("#save_result").click(function () {
-  alert("Results succesfully saved!");
-  $("#cal_form").show();
-  $("#result").hide();
 });
 
 $("#brand_link").click(function () {
@@ -470,7 +482,7 @@ document.getElementById("signin").addEventListener("click", () => {
             $("#currentPointsLabel")
               .css(
                 "margin-left",
-                String((parseInt(doc.data()["points"]) / 85) * 88.9) + "%"
+                String((parseInt(doc.data()["points"]) / 85) * 88) + "%"
               )
               .empty()
               .prepend(doc.data()["points"] + " Point(s)");
