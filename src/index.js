@@ -172,11 +172,10 @@ function initCalendar(allEvents) {
   var calendar = new FullCalendar.Calendar(calendarEl, {
     //Calendar settings.
     initialView: "dayGridMonth",
-    initialDate: "2022-06-01",
     headerToolbar: {
       left: "prev,next today",
       center: "title",
-      right: "exportCalendar dayGridMonth,timeGridWeek,timeGridDay",
+      right: "exportCalendar refreshCalendar",
     },
     selectable: true,
     events: allEvents,
@@ -186,6 +185,12 @@ function initCalendar(allEvents) {
         text: "Export",
         click: function () {
           exportCalendar();
+        },
+      },
+      refreshCalendar: {
+        text: "Refresh",
+        click: function () {
+          calendar.changeView('dayGridMonth');
         },
       },
     },
