@@ -48,6 +48,8 @@ const db = getFirestore();
 
 /**
  * Global variables used
+ * Adds activity added in calendar to the database.
+ * @param {*} activity
  */
 //Array to hold all the events.
 var allEvents = [];
@@ -58,6 +60,12 @@ var total_credits = 0;
 /**
  * Calendar function
  */
+
+/**
+ * Global variables used
+ */
+var allEvents = []; // Array to hold all the events
+var total_credits = 0;
 
 /**
  * This functions generates a random number to be the event's ID
