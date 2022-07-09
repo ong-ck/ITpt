@@ -299,6 +299,84 @@ function initCalendar(allEvents) {
   calendar.render();
 }
 
+/**
+ * User Profile
+ */
+
+/**
+ * This function updates the user profile.
+ */
+function updateProfile() {
+  // Updates the profile page with user details.
+  let creditTemp = 0; //This is to prevent the function from incrementing from the previous count.
+  const creditsSnapshot = getDocs(
+    collection(db, "users", user_id, "credits")
+  )
+    .then((creditsSnapshot) => {
+      creditsSnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        creditTemp += parseInt(doc.data()["amount"]);
+        total_credits = creditTemp;
+      });
+    })
+    .then(() => {
+      $("#credits_num").empty().prepend(total_credits); // update current credit amount
+    });
+
+  // add IPPT scores
+  const scoreSnapshot = getDocs(
+    collection(db, "users", user_id, "ipptScores")
+  ).then((scoreSnapshot) => {
+    let largestPoints = 0;
+    let largestPushup = 0;
+    let largestSitup = 0;
+    let largestRunPoints = 0;
+    scoreSnapshot.forEach((doc) => {
+      // doc.data() is never undefined for query doc snapshots
+      if (doc.data()["points"] >= largestPoints) {
+        largestPoints = doc.data()["points"];
+        $("#ipptProgress").prop("value", doc.data()["points"]);
+        $("#currentPointsLabel")
+          .css(
+            "margin-left",
+            String((parseInt(doc.data()["points"] > 85 ? 85 : doc.data()["points"]) / 85) * 88) + "%"
+          )
+          .empty()
+          .prepend(doc.data()["points"] + " Point(s)");
+      }
+
+      if (doc.data()["pushup"] >= largestPushup) {
+        largestPushup = doc.data()["pushup"];
+        $("#profile_pushup_num").empty().prepend(doc.data()["pushup"]);
+        $("#profile_pushup_points")
+          .empty()
+          .prepend(doc.data()["pushupPoints"] + " Points");
+      }
+
+      if (doc.data()["situp"] >= largestSitup) {
+        largestSitup = doc.data()["situp"];
+        $("#profile_situp_num").empty().prepend(doc.data()["situp"]);
+        $("#profile_situp_points")
+          .empty()
+          .prepend(doc.data()["situpPoints"] + " Points");
+      }
+
+      if (doc.data()["runPoints"] >= largestRunPoints) {
+        largestRunPoints = doc.data()["runPoints"];
+        $("#profile_run_num")
+          .empty()
+          .prepend(doc.data()["run_min"] + " : " + doc.data()["run_sec"]);
+        $("#profile_run_points")
+          .empty()
+          .prepend(doc.data()["runPoints"] + " Points");
+      }
+    });
+  });
+}
+
+/**
+ * Main document
+ */
 $(document).ready(function () {
   /* Sample code to add data to database from 
   https://firebase.google.com/docs/firestore/quickstart#web-version-9_2
@@ -445,71 +523,7 @@ $("#rewards_link").click(function () {
 });
 
 $("#profile_link").click(function () {
-  // Updates the profile page with user details.
-  let creditTemp = 0; //This is to prevent the function from incrementing from the previous count.
-  const creditsSnapshot = getDocs(
-    collection(db, "users", user_id, "credits")
-  )
-    .then((creditsSnapshot) => {
-      creditsSnapshot.forEach((doc) => {
-        // doc.data() is never undefined for query doc snapshots
-        creditTemp += parseInt(doc.data()["amount"]);
-        total_credits = creditTemp;
-      });
-    })
-    .then(() => {
-      $("#credits_num").empty().prepend(total_credits); // update current credit amount
-    });
-
-  // add IPPT scores
-  const scoreSnapshot = getDocs(
-    collection(db, "users", user_id, "ipptScores")
-  ).then((scoreSnapshot) => {
-    let largestPoints = 0;
-    let largestPushup = 0;
-    let largestSitup = 0;
-    let largestRunPoints = 0;
-    scoreSnapshot.forEach((doc) => {
-      // doc.data() is never undefined for query doc snapshots
-      if (doc.data()["points"] >= largestPoints) {
-        largestPoints = doc.data()["points"];
-        $("#ipptProgress").prop("value", doc.data()["points"]);
-        $("#currentPointsLabel")
-          .css(
-            "margin-left",
-            String((parseInt(doc.data()["points"]) / 85) * 88) + "%"
-          )
-          .empty()
-          .prepend(doc.data()["points"] + " Point(s)");
-      }
-
-      if (doc.data()["pushup"] >= largestPushup) {
-        largestPushup = doc.data()["pushup"];
-        $("#profile_pushup_num").empty().prepend(doc.data()["pushup"]);
-        $("#profile_pushup_points")
-          .empty()
-          .prepend(doc.data()["pushupPoints"] + " Points");
-      }
-
-      if (doc.data()["situp"] >= largestSitup) {
-        largestSitup = doc.data()["situp"];
-        $("#profile_situp_num").empty().prepend(doc.data()["situp"]);
-        $("#profile_situp_points")
-          .empty()
-          .prepend(doc.data()["situpPoints"] + " Points");
-      }
-
-      if (doc.data()["runPoints"] >= largestRunPoints) {
-        largestRunPoints = doc.data()["runPoints"];
-        $("#profile_run_num")
-          .empty()
-          .prepend(doc.data()["run_min"] + " : " + doc.data()["run_sec"]);
-        $("#profile_run_points")
-          .empty()
-          .prepend(doc.data()["runPoints"] + " Points");
-      }
-    });
-  });
+  updateProfile();
   $(".home").hide();
   $("#home_link").removeClass("active");
   $(".cal").hide();
@@ -543,71 +557,7 @@ document.getElementById("signin").addEventListener("click", () => {
       $("#welcome")
         .empty()
         .prepend("Welcome " + user.displayName);
-
-      // Updates the profile page with user details
-      // add user credits
-      const creditsSnapshot = getDocs(
-        collection(db, "users", user_id, "credits")
-      )
-        .then((creditsSnapshot) => {
-          creditsSnapshot.forEach((doc) => {
-            // doc.data() is never undefined for query doc snapshots
-            total_credits += parseInt(doc.data()["amount"]);
-          });
-        })
-        .then(() => {
-          $("#credits_num").empty().prepend(total_credits); // update current credit amount
-        });
-
-      // add IPPT scores
-      const scoreSnapshot = getDocs(
-        collection(db, "users", user_id, "ipptScores")
-      ).then((scoreSnapshot) => {
-        let largestPoints = 0;
-        let largestPushup = 0;
-        let largestSitup = 0;
-        let largestRunPoints = 0;
-        scoreSnapshot.forEach((doc) => {
-          // doc.data() is never undefined for query doc snapshots
-          if (doc.data()["points"] >= largestPoints) {
-            largestPoints = doc.data()["points"];
-            $("#ipptProgress").prop("value", doc.data()["points"]);
-            $("#currentPointsLabel")
-              .css(
-                "margin-left",
-                String((parseInt(doc.data()["points"]) / 85) * 88) + "%"
-              )
-              .empty()
-              .prepend(doc.data()["points"] + " Point(s)");
-          }
-
-          if (doc.data()["pushup"] >= largestPushup) {
-            largestPushup = doc.data()["pushup"];
-            $("#profile_pushup_num").empty().prepend(doc.data()["pushup"]);
-            $("#profile_pushup_points")
-              .empty()
-              .prepend(doc.data()["pushupPoints"] + " Points");
-          }
-
-          if (doc.data()["situp"] >= largestSitup) {
-            largestSitup = doc.data()["situp"];
-            $("#profile_situp_num").empty().prepend(doc.data()["situp"]);
-            $("#profile_situp_points")
-              .empty()
-              .prepend(doc.data()["situpPoints"] + " Points");
-          }
-
-          if (doc.data()["runPoints"] >= largestRunPoints) {
-            largestRunPoints = doc.data()["runPoints"];
-            $("#profile_run_num")
-              .empty()
-              .prepend(doc.data()["run_min"] + " : " + doc.data()["run_sec"]);
-            $("#profile_run_points")
-              .empty()
-              .prepend(doc.data()["runPoints"] + " Points");
-          }
-        });
-      });
+      updateProfile();
     })
     .catch((error) => {
       // Handle Errors here.
