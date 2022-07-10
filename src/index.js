@@ -210,7 +210,7 @@ function initCalendar(allEvents) {
         let start_date = moment(info.startStr).format("YYYY-MM-DD");
         let timeStr = prompt("Enter the time of the activity in 24hrs format");
 
-        if (timeStr != null) {
+        if (timeStr >= 0 && timeStr < 2400) {
           let descriptStr = prompt("Enter the details of the activity");
 
           console.log(titleStr);
@@ -242,6 +242,9 @@ function initCalendar(allEvents) {
               db_add(e);
             }
           }
+        }
+        else {
+          alert("Please key in a valid time!");
         }
       }
     },
