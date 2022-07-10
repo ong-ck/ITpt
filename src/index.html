@@ -101,8 +101,8 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" id="delBtn" class="btn btn-primary" style="background-color: red;">Delete
-              Event</button>
+            <button type="button" id="completeBtn" class="btn btn-primary" style="background-color: green;">Completed</button>
+            <button type="button" id="delBtn" class="btn btn-primary" style="background-color: red;">Delete Event</button>
           </div>
         </div>
       </div>
@@ -208,21 +208,29 @@
           <img src="" alt="Profile Avatar" />
         </div>
         <div class="div2">
-          <p>IPPT Goal:</p>
+          <h5>IPPT Goal:</h5>
+          <p style="display: inline;">Current Goal:</p>
+          <p id="goal_num" style="display: inline;">0</p>
+          <p></p>
+          <button id="save_goal" type="button" class="btn btn-primary" style="background-color: green;">Update Ippt Goal</button>
+        </div>
+        <div class="div3">
+          <h5>IPPT Goal Progress:</h5>
           <div>
             <div id="currentPointsLabel">60 Points</div>
             <div>
               <progress id="ipptProgress" min="0" max="85" value="60"></progress>
             </div>
-            <div class="end">85 Points</div>
+            <div id="goalLabel">85 Point(s)</div>
           </div>
         </div>
-        <div class="div3">
+        <div class="div4">
+          <h5>User Credits:</h5>
           <p style="display: inline;">Current Credits:</p>
           <p id="credits_num" style="display: inline;">0</p>
         </div>
-        <div class="div4">
-          <p>High Score For Each Station:</p>
+        <div class="div5">
+          <h5>High Score For Each Station:</h5>
           <div>
             <table class="tg" style="width: 80%;  margin: 0;">
               <thead>
