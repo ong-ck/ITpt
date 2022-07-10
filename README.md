@@ -5,7 +5,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/ong-ck/ITpt">
-    <img src="images/logo.png" alt="Logo">
+    <img src="images/readme/logo.png" alt="Logo">
   </a>
 
 <h3 align="center">ITpt</h3>
@@ -127,7 +127,7 @@
 
 ### Architecture Diagram
 
-<img src="images/architecture_diagram.png" alt="Architecture Diagram">
+<img src="images/readme/architecture_diagram.png" alt="Architecture Diagram">
 
 ### Software Engineering Practices
 
@@ -141,9 +141,9 @@
 
 ### Mockup
 
-<img src="images/homepage_mockup.png" alt="Homepage Mockup"><br />
-<img src="images/calculator_mockup.png" alt="IPPT Calculator Mockup"><br />
-<img src="images/results_mockup.png" alt="IPPT Calculator Results Page Mockup">
+<img src="images/readme/homepage_mockup.png" alt="Homepage Mockup"><br />
+<img src="images/readme/calculator_mockup.png" alt="IPPT Calculator Mockup"><br />
+<img src="images/readme/results_mockup.png" alt="IPPT Calculator Results Page Mockup">
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -155,10 +155,10 @@
 
 The following are screenshots of the website.
 
-<img src="images/homepage.png" alt="Homepage"><br />
-<img src="images/calendar_event_details_popup.png" alt="Calendar Event Details Popup"><br />
-<img src="images/calculator.png" alt="IPPT Calculator"><br />
-<img src="images/results.png" alt="IPPT Calculator Results Page">
+<img src="images/readme/homepage.png" alt="Homepage"><br />
+<img src="images/readme/calendar_event_details_popup.png" alt="Calendar Event Details Popup"><br />
+<img src="images/readme/calculator.png" alt="IPPT Calculator"><br />
+<img src="images/readme/results.png" alt="IPPT Calculator Results Page">
 
 To access the website, simply go to https://www.itpt.ml (or https://itpt-d53e0.web.app/).
 
@@ -173,17 +173,17 @@ To access the website, simply go to https://www.itpt.ml (or https://itpt-d53e0.w
 * Unit & GUI Testing
 	* <p align="justify"><a href="https://www.cypress.io/">Cypress</a> was used to execute Unit & GUI Testing.</p>
 	* <p align="justify">Testing code is written to check that all elements expected are visible on the webpage and the buttons navigate to the expected locations in the website.</p>
-<br /><img src="./images/unit_testing.gif" alt="Unit & GUI Testing Results GIF">
+<br /><img src="./images/readme/unit_testing.gif" alt="Unit & GUI Testing Results GIF">
 
 * Compatability Testing
 	* <p align="justify">The website was checked to be working with different browsers. After every update, the website will also be tested to ensure it is still working.</p>
 	* <p align="justify"><a href="https://www.powermapper.com/products/sortsite/checks/browser-compatibility/">PowerMapper</a> was used to determine the compatibility of our website to numerous browsers.</p>
-<br /><img src="./images/compatibility_testing.png" alt="Compatibility Testing Results">
+<br /><img src="./images/readme/compatibility_testing.png" alt="Compatibility Testing Results">
 
 * Volumn & Stress Testing
 	* <p align="justify">The website was checked on whether it can handle large amount of data and multiple users concurrently.</p>
 	* <p align="justify"><a href="https://www.webpagetest.org/">Webpagetest</a> was also used to run a performance test on the website.</p>
-<br /><img src="./images/performance_testing.png" alt="Performance Testing Results">
+<br /><img src="./images/readme/performance_testing.png" alt="Performance Testing Results">
 
 * Usability Testing
 	* <p align="justify">Use of Google Forms to gather feedback from users. The results from the google form can be found <a href="https://docs.google.com/spreadsheets/d/1qMynrZXA_k1VouUbMau5k2STGvG7DffJsFqBFAwsb7s/edit?usp=sharing">here</a>.</p>
