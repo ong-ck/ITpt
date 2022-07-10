@@ -661,7 +661,7 @@ $("#rewards_link").click(function () {
 });
 
 $("#profile_link").click(function () {
-  //updateProfile();
+  updateProfile();
   $(".home").hide();
   $("#home_link").removeClass("active");
   $(".cal").hide();
