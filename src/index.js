@@ -15,6 +15,7 @@ import {
   doc,
   deleteDoc,
   getDocs,
+  getDoc,
 } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js";
 
 import {
@@ -54,6 +55,9 @@ var allEvents = [];
 
 //Variable to hold the user's credits.
 var total_credits = 0;
+
+//Variable to hold the user's IPPT Goal.
+var ippt_goal = 85;
 
 /**
  * Calendar function
@@ -307,6 +311,23 @@ function initCalendar(allEvents) {
  * This function updates the user profile.
  */
 function updateProfile() {
+  //Updates the IPPT Goal
+  const goalSnapshot = getDoc(
+    doc(db, "users", user_id, "ipptGoal", "initialGoal")
+  )
+    .then((doc) => {
+      if (doc.exists()) {
+        console.log("document exist");
+        ippt_goal = doc.data()["goal"];
+      }
+      else {
+        console.log("document does not exist");
+        ippt_goal = 85;
+      }
+      $("#goal_num").empty().prepend(ippt_goal + " Points");
+      console.log(ippt_goal);
+  });
+
   // Updates the profile page with user details.
   let creditTemp = 0; //This is to prevent the function from incrementing from the previous count.
   const creditsSnapshot = getDocs(
@@ -336,13 +357,9 @@ function updateProfile() {
       if (doc.data()["points"] >= largestPoints) {
         largestPoints = doc.data()["points"];
         $("#ipptProgress").prop("value", doc.data()["points"]);
-        $("#currentPointsLabel")
-          .css(
-            "margin-left",
-            String((parseInt(doc.data()["points"] > 85 ? 85 : doc.data()["points"]) / 85) * 88) + "%"
-          )
-          .empty()
-          .prepend(doc.data()["points"] + " Point(s)");
+        $("#ipptProgress").prop("max", ippt_goal);
+        $("#currentPointsLabel").empty().append("Best IPPT Score: " + largestPoints + " Point(s)");
+        $("#goalLabel").empty().append("Desired IPPT Score: " + ippt_goal + " Point(s)")
       }
 
       if (doc.data()["pushup"] >= largestPushup) {
@@ -373,6 +390,22 @@ function updateProfile() {
     });
   });
 }
+
+//Save the ippt goal to database
+$("#save_goal").click(function () {
+  let tempIpptGoal = prompt("Key in your desired IPPT Goal");
+  if (tempIpptGoal > 0 && tempIpptGoal <= 100) {
+    setDoc(doc(db, "users", user_id, "ipptGoal", "initialGoal"), {
+      goal: parseInt(tempIpptGoal),
+    }).then(() => {
+      alert("IPPT Goal succesfully updated!");
+      updateProfile();
+    });
+  }
+  else {
+    alert("Please key in a valid IPPT Score!");
+  }
+});
 
 /**
  * Main document
@@ -557,7 +590,7 @@ document.getElementById("signin").addEventListener("click", () => {
       $("#welcome")
         .empty()
         .prepend("Welcome " + user.displayName);
-      updateProfile();
+      //updateProfile();
     })
     .catch((error) => {
       // Handle Errors here.
