@@ -172,12 +172,14 @@ progress {
   width: 100%;
 }
 
+/**
 #currentPointsLabel {
   display: inline;
   margin-left: calc(
     ((60 / 85)) * 88%
-  ); /* 88% is an arbitrarily determined number */
+  );
 }
+*/
 
 .end {
   float: right;
@@ -192,7 +194,7 @@ progress {
   grid-area: 4 / 1 / 5 / 2;
 }
 
-.div4 > div {
+.div5 > div {
   display: flex;
   flex-flow: column wrap;
   align-items: center;
