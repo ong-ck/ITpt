@@ -31,6 +31,7 @@
         <li id="home_link" class="nav-item active"><a class="nav-link" href="#">Home</a></li>
         <li id="cal_link" class="nav-item"><a class="nav-link" href="#">IPPT Calculator</a></li>
         <li id="rewards_link" class="nav-item"><a class="nav-link" href="#">ITpt Rewards</a></li>
+        <li id="profile_link" class="nav-item"><a class="nav-link" href="#">Profile</a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
@@ -101,8 +102,10 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" id="completeBtn" class="btn btn-primary" style="background-color: green;">Completed</button>
-            <button type="button" id="delBtn" class="btn btn-primary" style="background-color: red;">Delete Event</button>
+            <button type="button" id="completeBtn" class="btn btn-primary"
+              style="background-color: green;">Completed</button>
+            <button type="button" id="delBtn" class="btn btn-primary" style="background-color: red;">Delete
+              Event</button>
           </div>
         </div>
       </div>
@@ -141,7 +144,7 @@
       </div>
     </div>
 
-    <!-- IPPT Calcular -->
+    <!-- IPPT Calculator -->
     <div class="cal body_center container">
       <form id="cal_form" action="">
         <label style="font-weight: bold;">Age:</label> <input type="number" name="age" min="0" required>
@@ -212,7 +215,8 @@
           <p style="display: inline;">Current Goal:</p>
           <p id="goal_num" style="display: inline;">0</p>
           <p></p>
-          <button id="save_goal" type="button" class="btn btn-primary" style="background-color: green;">Update Ippt Goal</button>
+          <button id="save_goal" type="button" class="btn btn-primary" style="background-color: green;">Update Ippt
+            Goal</button>
         </div>
         <div class="div3">
           <h5>IPPT Goal Progress:</h5>
@@ -253,9 +257,89 @@
                 </tr>
               </tbody>
             </table>
+            <button id="recommend" type="button" class="btn btn-primary"
+              style="background-color: green; margin-top: 10px;">Recommend Me!</button>
           </div>
         </div>
       </div>
+
+      <!-- Modal for Exercise Recommendation -->
+      <div id="recommend_modal" class="modal fade" tabindex="-1" aria-labelledby="eventForm" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="infoLabel">Exercise Recommedation</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <!-- Tab to toggle between exercises -->
+              <div class="tab">
+                <button id="pushup_tablink" class="tablinks">Pushup</button>
+                <button id="situp_tablink" class="tablinks">Situp</button>
+                <button id="run_tablink" class="tablinks">2.4km Run</button>
+              </div>
+
+              <!-- Pushup Exercise Recommedation Page -->
+              <div id="pushup" class="tabcontent">
+                <h3>Pushup Recommendation</h3>
+                <p>Choose a difficulty level</p>
+
+                <!-- Tab to toggle between exercise difficulty level -->
+                <div class="tab">
+                  <button id="pushup_easy_tablink" class="tablinks">Easy</button>
+                  <button id="pushup_med_tablink" class="tablinks">Medium</button>
+                  <button id="pushup_hard_tablink" class="tablinks">Hard</button>
+                </div>
+
+                <!-- Pushup recommedation by difficulty -->
+                <div id="pushup_easy_rec" class="tabcontent">Here is the description for Pushup Easy</div>
+                <div id="pushup_med_rec" class="tabcontent">Here is the description for Pushup Medium</div>
+                <div id="pushup_hard_rec" class="tabcontent">Here is the description for Pushup Hard</div>
+              </div>
+
+              <!-- Situp Exercise Recommedation Page -->
+              <div id="situp" class="tabcontent">
+                <h3>Situp Recommedation</h3>
+                <p>Choose a difficulty level</p>
+
+                <!-- Tab to toggle between exercise difficulty level -->
+                <div class="tab">
+                  <button id="situp_easy_tablink" class="tablinks">Easy</button>
+                  <button id="situp_med_tablink" class="tablinks">Medium</button>
+                  <button id="situp_hard_tablink" class="tablinks">Hard</button>
+                </div>
+
+                <!-- Situp recommedation by difficulty -->
+                <div id="situp_easy_rec" class="tabcontent">Here is the description for Situp Easy</div>
+                <div id="situp_med_rec" class="tabcontent">Here is the description for Situp Medium</div>
+                <div id="situp_hard_rec" class="tabcontent">Here is the description for Situp Hard</div>
+              </div>
+
+              <!-- 2.4km Run Exercise Recommedation Page -->
+              <div id="run" class="tabcontent">
+                <h3>2.4km Run Recommedation</h3>
+                <p>Choose a difficulty level</p>
+
+                <!-- Tab to toggle between exercise difficulty level -->
+                <div class="tab">
+                  <button id="run_easy_tablink" class="tablinks">Easy</button>
+                  <button id="run_med_tablink" class="tablinks">Medium</button>
+                  <button id="run_hard_tablink" class="tablinks">Hard</button>
+                </div>
+
+                <!-- Pushup recommedation by difficulty -->
+                <div id="run_easy_rec" class="tabcontent">Here is the description for 2.4km Run Easy</div>
+                <div id="run_med_rec" class="tabcontent">Here is the description for 2.4km Run Medium</div>
+                <div id="run_hard_rec" class="tabcontent">Here is the description for 2.4km Run Hard</div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 

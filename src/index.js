@@ -202,7 +202,7 @@ function initCalendar(allEvents) {
       refreshCalendar: {
         text: "Refresh",
         click: function () {
-          calendar.changeView('dayGridMonth');
+          calendar.changeView("dayGridMonth");
         },
       },
     },
@@ -250,8 +250,7 @@ function initCalendar(allEvents) {
               db_add(e);
             }
           }
-        }
-        else {
+        } else {
           alert("Please key in a valid time!");
         }
       }
@@ -292,10 +291,9 @@ function initCalendar(allEvents) {
 
       //Complete Event
       $("#completeBtn").click(function () {
-
         //Adds 5 credits to the user's credits
         addDoc(collection(db, "users", user_id, "credits"), {
-          amount: 5
+          amount: 5,
         });
 
         //Removes activity.
@@ -325,25 +323,23 @@ function updateProfile() {
   //Updates the IPPT Goal
   const goalSnapshot = getDoc(
     doc(db, "users", user_id, "ipptGoal", "initialGoal")
-  )
-    .then((doc) => {
-      if (doc.exists()) {
-        console.log("document exist");
-        ippt_goal = doc.data()["goal"];
-      }
-      else {
-        console.log("document does not exist");
-        ippt_goal = 85;
-      }
-      $("#goal_num").empty().prepend(ippt_goal + " Points");
-      console.log(ippt_goal);
+  ).then((doc) => {
+    if (doc.exists()) {
+      console.log("document exist");
+      ippt_goal = doc.data()["goal"];
+    } else {
+      console.log("document does not exist");
+      ippt_goal = 85;
+    }
+    $("#goal_num")
+      .empty()
+      .prepend(ippt_goal + " Points");
+    console.log(ippt_goal);
   });
 
   // Updates the profile page with user details.
   let creditTemp = 0; //This is to prevent the function from incrementing from the previous count.
-  const creditsSnapshot = getDocs(
-    collection(db, "users", user_id, "credits")
-  )
+  const creditsSnapshot = getDocs(collection(db, "users", user_id, "credits"))
     .then((creditsSnapshot) => {
       creditsSnapshot.forEach((doc) => {
         // doc.data() is never undefined for query doc snapshots
@@ -369,8 +365,12 @@ function updateProfile() {
         largestPoints = doc.data()["points"];
         $("#ipptProgress").prop("value", doc.data()["points"]);
         $("#ipptProgress").prop("max", ippt_goal);
-        $("#currentPointsLabel").empty().append("Best IPPT Score: " + largestPoints + " Point(s)");
-        $("#goalLabel").empty().append("Desired IPPT Score: " + ippt_goal + " Point(s)")
+        $("#currentPointsLabel")
+          .empty()
+          .append("Best IPPT Score: " + largestPoints + " Point(s)");
+        $("#goalLabel")
+          .empty()
+          .append("Desired IPPT Score: " + ippt_goal + " Point(s)");
       }
 
       if (doc.data()["pushup"] >= largestPushup) {
@@ -412,10 +412,104 @@ $("#save_goal").click(function () {
       alert("IPPT Goal succesfully updated!");
       updateProfile();
     });
-  }
-  else {
+  } else {
     alert("Please key in a valid IPPT Score!");
   }
+});
+
+// toggles the exercise recommendation modal
+$("#recommend").click(function () {
+  $("#pushup").hide();
+  $("#situp").hide();
+  $("#run").hide();
+  $("#recommend_modal").modal("toggle");
+
+  // opens the pushup tab
+  $("#pushup_tablink").click(function () {
+    $("#pushup").show();
+    $("#situp").hide();
+    $("#run").hide();
+
+    $("#pushup_easy_rec").hide();
+    $("#pushup_med_rec").hide();
+    $("#pushup_hard_rec").hide();
+
+    $("#pushup_easy_tablink").click(function () {
+      $("#pushup_easy_rec").show();
+      $("#pushup_med_rec").hide();
+      $("#pushup_hard_rec").hide();
+    });
+
+    $("#pushup_med_tablink").click(function () {
+      $("#pushup_easy_rec").hide();
+      $("#pushup_med_rec").show();
+      $("#pushup_hard_rec").hide();
+    });
+
+    $("#pushup_hard_tablink").click(function () {
+      $("#pushup_easy_rec").hide();
+      $("#pushup_med_rec").hide();
+      $("#pushup_hard_rec").show();
+    });
+  });
+
+  // opens the situp tab
+  $("#situp_tablink").click(function () {
+    $("#pushup").hide();
+    $("#situp").show();
+    $("#run").hide();
+
+    $("#situp_easy_rec").hide();
+    $("#situp_med_rec").hide();
+    $("#situp_hard_rec").hide();
+
+    $("#situp_easy_tablink").click(function () {
+      $("#situp_easy_rec").show();
+      $("#situp_med_rec").hide();
+      $("#situp_hard_rec").hide();
+    });
+
+    $("#situp_med_tablink").click(function () {
+      $("#situp_easy_rec").hide();
+      $("#situp_med_rec").show();
+      $("#situp_hard_rec").hide();
+    });
+
+    $("#situp_hard_tablink").click(function () {
+      $("#situp_easy_rec").hide();
+      $("#situp_med_rec").hide();
+      $("#situp_hard_rec").show();
+    });
+  });
+
+  // opens the 2.4km run tab
+  $("#run_tablink").click(function () {
+    $("#pushup").hide();
+    $("#situp").hide();
+    $("#run").show();
+
+    $("#run_easy_rec").hide();
+    $("#run_med_rec").hide();
+    $("#run_hard_rec").hide();
+
+    $("#run_easy_tablink").click(function () {
+      $("#run_easy_rec").show();
+      $("#run_med_rec").hide();
+      $("#run_hard_rec").hide();
+    });
+
+    $("#run_med_tablink").click(function () {
+      $("#run_easy_rec").hide();
+      $("#run_med_rec").show();
+      $("#run_hard_rec").hide();
+    });
+
+    $("#run_hard_tablink").click(function () {
+      $("#run_easy_rec").hide();
+      $("#run_med_rec").hide();
+      $("#run_hard_rec").show();
+    });
+  });
 });
 
 /**
@@ -567,7 +661,7 @@ $("#rewards_link").click(function () {
 });
 
 $("#profile_link").click(function () {
-  updateProfile();
+  //updateProfile();
   $(".home").hide();
   $("#home_link").removeClass("active");
   $(".cal").hide();
