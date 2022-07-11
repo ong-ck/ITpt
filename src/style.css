@@ -1,3 +1,4 @@
+/* Navigation Bar */
 .nav-link {
   color: green;
 }
@@ -12,6 +13,7 @@
   color: purple;
 }
 
+/* Page containers */
 .center {
   margin: auto;
   width: 50%;
@@ -37,6 +39,7 @@ select {
   margin: auto;
 }
 
+/* Calculator Results page */
 #result {
   display: flex;
   flex-flow: column wrap;
@@ -69,6 +72,7 @@ input[type="submit"]:hover {
   background-color: #45a049;
 }
 
+/* IPPT Calculator Form */
 div > form {
   border-radius: 5px;
   background-color: #f2f2f2;
@@ -78,6 +82,7 @@ div > form {
 }
 /* until here taken from https://www.w3schools.com/css/css_form.asp */
 
+/* IPPT Calculator Results Table & Profile Page IPPT High Score Table */
 .tg {
   margin: 20px;
   border-collapse: collapse;
@@ -118,6 +123,7 @@ div > form {
   vertical-align: top;
 }
 
+/* Dropdown for profile & signout button */
 /* from here modified from https://blog.hubspot.com/website/html-dropdown */
 .dropdown {
   display: inline-block;
@@ -201,6 +207,7 @@ progress {
   justify-content: center;
 }
 
+/* Exercise Recommendation Tabs */
 /* from here modified from https://www.w3schools.com/howto/howto_js_tabs.asp */
 /* Style the tab */
 .tab {
