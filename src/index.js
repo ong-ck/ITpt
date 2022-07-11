@@ -190,6 +190,7 @@ function initCalendar(allEvents) {
       right: "exportCalendar refreshCalendar",
     },
     selectable: true,
+    editable: true,
     events: allEvents,
     customButtons: {
       //Export calendar
@@ -415,6 +416,11 @@ $("#save_goal").click(function () {
   } else {
     alert("Please key in a valid IPPT Score!");
   }
+});
+
+// profile avatar
+$("#avatar_placeholder").click(function () {
+  $("#choose_avatar").modal("toggle");
 });
 
 // toggles the exercise recommendation modal

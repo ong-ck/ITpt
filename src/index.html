@@ -207,7 +207,29 @@
     <div class="profile body_center container">
       <div class="parent">
         <div class="div1">
-          <img src="" alt="Profile Avatar" />
+          <!-- Avatar Image -->
+          <div id="avatar_placeholder">
+            <img src="https://i.ibb.co/fXXwskQ/Yellow-Square-Round-Straight.png" alt="Yellow-Square-Round-Straight">
+          </div>
+
+          <!-- Choosing Avatar Modal -->
+          <div id="choose_avatar" class="modal fade" tabindex="-1" aria-labelledby="eventForm" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="infoLabel">Choose available avatars</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <p>Some text</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
         <div class="div2">
           <h5>IPPT Goal:</h5>
@@ -263,7 +285,8 @@
       </div>
 
       <!-- Modal for Exercise Recommendation -->
-      <div id="recommend_modal" class="modal fade bd-example-modal-lg" tabindex="-1" aria-labelledby="eventForm" aria-hidden="true">
+      <div id="recommend_modal" class="modal fade bd-example-modal-lg" tabindex="-1" aria-labelledby="eventForm"
+        aria-hidden="true">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
             <div class="modal-header">
