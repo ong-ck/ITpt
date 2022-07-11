@@ -314,6 +314,23 @@ function initCalendar(allEvents) {
 }
 
 /**
+ * Rewards Page Game
+ */
+$("#rewards_button").click(function () {
+  // check if user has enough credits to use
+  if (parseInt($("#rewards_credits").text()) > 0) {
+    // deducts 5 credits from user
+    addDoc(collection(db, "users", user_id, "credits"), {
+      amount: -5,
+    });
+  } else {
+    alert("You do not have enough credits!");
+  }
+  $("#home_link").click();
+  $("#rewards_link").click();
+});
+
+/**
  * User Profile
  */
 
@@ -660,6 +677,21 @@ $("#cal_link").click(function () {
 });
 
 $("#rewards_link").click(function () {
+  if (user_id != null) {
+    // Updates the rewards page with user credits details.
+    let creditTemp = 0; //This is to prevent the function from incrementing from the previous count.
+    const creditsSnapshot = getDocs(collection(db, "users", user_id, "credits"))
+      .then((creditsSnapshot) => {
+        creditsSnapshot.forEach((doc) => {
+          // doc.data() is never undefined for query doc snapshots
+          creditTemp += parseInt(doc.data()["amount"]);
+          total_credits = creditTemp;
+        });
+      })
+      .then(() => {
+        $("#rewards_credits").empty().prepend(total_credits); // update current credit amount
+      });
+  }
   $(".home").hide();
   $(".cal").hide();
   $(".rewards").show();

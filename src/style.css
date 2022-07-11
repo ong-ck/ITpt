@@ -250,3 +250,9 @@ progress {
   border-top: none;
 }
 /* until here modified from https://www.w3schools.com/howto/howto_js_tabs.asp */
+
+/* ITpt Rewards Page */
+.rewards_game {
+  display: flex;
+  flex-direction: column;
+}
