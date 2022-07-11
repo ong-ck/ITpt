@@ -485,7 +485,43 @@ $("#save_goal").click(function () {
 
 // profile avatar
 $("#avatar_placeholder").click(function () {
-  $("#choose_avatar").modal("toggle");
+  $("#avatar_list").empty();
+  let url_list = [];
+
+  // obtain avatars available from user database
+  const avatarSnapshot = getDocs(collection(db, "users", user_id, "avatars"))
+    .then((avatarSnapshot) => {
+      avatarSnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        url_list.push(doc.data()["url"]);
+      });
+    })
+    .then(() => {
+      // appends avatar images into modal
+      for (let i = 0; i < url_list.length; i += 1) {
+        $("#avatar_list").append(
+          `<img id="image_${i}" class="avatar_list_item" src="${url_list[i]}" alt="Avatar List Item" style="display: block; margin-left: auto; margin-right: auto; margin-top: 10px; margin-bottom: 10px;"/>`
+        );
+      }
+
+      // adds click event listener to allow selection of avatar
+      for (let i = 0; i < url_list.length; i += 1) {
+        $(`#image_${i}`).click(() => {
+          $("#avatar_placeholder").empty();
+          $("#avatar_placeholder").append(
+            `<img src="${url_list[i]}" alt="Avatar Image"/>`
+          );
+          $("#choose_avatar").modal("hide");
+        });
+      }
+    })
+    .then(() => {
+      // if user has no avatar in database for selection
+      if (url_list.length == 0) {
+        $("#avatar_list").append(`<p>You currently have no avatars.</p>`);
+      }
+      $("#choose_avatar").modal("toggle");
+    });
 });
 
 // toggles the exercise recommendation modal

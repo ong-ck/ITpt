@@ -221,7 +221,8 @@
             </div>
             <div class="modal-body">
               <p style="text-align: center;">You have won the following avatar!</p>
-              <img id="avatar_won_placeholder" src="" alt="Avatar won placeholder" style="display: block; margin-left: auto; margin-right: auto;" />
+              <img id="avatar_won_placeholder" src="" alt="Avatar won placeholder"
+                style="display: block; margin-left: auto; margin-right: auto;" />
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -237,7 +238,7 @@
         <div class="div1">
           <!-- Avatar Image -->
           <div id="avatar_placeholder">
-            <img src="https://i.ibb.co/fXXwskQ/Yellow-Square-Round-Straight.png" alt="Yellow-Square-Round-Straight">
+            <p>You currently have no avatars! Click me to choose your preferred avatar!</p>
           </div>
 
           <!-- Choosing Avatar Modal -->
@@ -245,11 +246,13 @@
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="infoLabel">Choose available avatars</h5>
+                  <h5 class="modal-title" id="infoLabel">Choose your preferred avatars!</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                  <p>Some text</p>
+                <div id="avatar_list" class="modal-body">
+                  <ul>
+
+                  </ul>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
