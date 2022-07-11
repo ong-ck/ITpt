@@ -334,9 +334,46 @@ $("#rewards_button").click(function () {
     addDoc(collection(db, "users", user_id, "credits"), {
       amount: -5,
     });
+
+    /**
+     * Users gets a random avatar and a popup confirmation
+     */
+    // variables to be used
+    let numOfAvatar = 0;
+    let avatarIndex = null;
+    let url = null;
+
+    const numOfAvatarSnapshot = getDoc(doc(db, "avatars", "numOfAvatars"))
+      .then((doc) => {
+        numOfAvatar = doc.data()["count"]; // gets total number of avatars available
+        avatarIndex = Math.floor(Math.random() * numOfAvatar); // gets a random avatar index
+      })
+      .then(() => {
+        // add avatar obtained to user database
+        const avatarSnapshot = getDoc(doc(db, "avatars", String(avatarIndex)))
+          .then((doc) => {
+            // get avatar info from database
+            console.log(doc.data());
+            url = doc.data()["url"];
+          })
+          .then(() => {
+            // add avatar info into user database
+            setDoc(doc(db, "users", user_id, "avatars", String(avatarIndex)), {
+              url: url,
+            });
+          })
+          .then(() => {
+            $("#avatar_won_placeholder").attr("src", String(url));
+            $("#avatar_win").modal("toggle");
+          });
+      });
+  } else if (user_id == null) {
+    alert("Please sign in!");
   } else {
     alert("You do not have enough credits!");
   }
+
+  // refresh rewards page to show updated credits
   $("#home_link").click();
   $("#rewards_link").click();
 });
@@ -466,7 +503,7 @@ $("#recommend").click(function () {
     $("#pushup_easy_tablink").removeClass("active");
     $("#pushup_med_tablink").removeClass("active");
     $("#pushup_hard_tablink").removeClass("active");
-    
+
     $("#pushup").show();
     $("#situp").hide();
     $("#run").hide();
@@ -491,9 +528,9 @@ $("#recommend").click(function () {
 
       $("#pushup_easy_rec").show();
       $("#pushup_med_rec").hide();
-      $("#pushup_hard_rec").hide()
+      $("#pushup_hard_rec").hide();
       $("#pushup_easy_1").hide();
-      $("#pushup_easy_2").hide();;
+      $("#pushup_easy_2").hide();
     });
 
     $("#pushup_easy_1_btn").click(function () {
@@ -565,7 +602,6 @@ $("#recommend").click(function () {
       $("#pushup_hard_2").show();
       $("#pushup_hard_1").hide();
     });
-
   });
 
   // opens the situp tab
@@ -693,7 +729,7 @@ $("#recommend").click(function () {
     $("#run_easy_rec").hide();
     $("#run_med_rec").hide();
     $("#run_hard_rec").hide();
-    
+
     $("#run_easy_1").hide();
     $("#run_easy_2").hide();
     $("#run_med_1").hide();
