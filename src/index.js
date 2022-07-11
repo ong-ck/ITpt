@@ -190,7 +190,7 @@ function initCalendar(allEvents) {
       right: "exportCalendar refreshCalendar",
     },
     selectable: true,
-    editable: true,
+    eventStartEditable: true,
     events: allEvents,
     customButtons: {
       //Export calendar
@@ -432,6 +432,13 @@ $("#recommend").click(function () {
 
   // opens the pushup tab
   $("#pushup_tablink").click(function () {
+    $("#pushup_tablink").addClass("active");
+    $("#situp_tablink").removeClass("active");
+    $("#run_tablink").removeClass("active");
+    $("#pushup_easy_tablink").removeClass("active");
+    $("#pushup_med_tablink").removeClass("active");
+    $("#pushup_hard_tablink").removeClass("active");
+    
     $("#pushup").show();
     $("#situp").hide();
     $("#run").hide();
@@ -440,27 +447,108 @@ $("#recommend").click(function () {
     $("#pushup_med_rec").hide();
     $("#pushup_hard_rec").hide();
 
+    $("#pushup_easy_1").hide();
+    $("#pushup_easy_2").hide();
+    $("#pushup_med_1").hide();
+    $("#pushup_med_2").hide();
+    $("#pushup_hard_1").hide();
+    $("#pushup_hard_2").hide();
+
     $("#pushup_easy_tablink").click(function () {
+      $("#pushup_easy_tablink").addClass("active");
+      $("#pushup_med_tablink").removeClass("active");
+      $("#pushup_hard_tablink").removeClass("active");
+      $("#pushup_easy_1_btn").removeClass("active");
+      $("#pushup_easy_2_btn").removeClass("active");
+
       $("#pushup_easy_rec").show();
       $("#pushup_med_rec").hide();
-      $("#pushup_hard_rec").hide();
+      $("#pushup_hard_rec").hide()
+      $("#pushup_easy_1").hide();
+      $("#pushup_easy_2").hide();;
+    });
+
+    $("#pushup_easy_1_btn").click(function () {
+      $("#pushup_easy_1_btn").addClass("active");
+      $("#pushup_easy_2_btn").removeClass("active");
+      $("#pushup_easy_1").show();
+      $("#pushup_easy_2").hide();
+    });
+
+    $("#pushup_easy_2_btn").click(function () {
+      $("#pushup_easy_2_btn").addClass("active");
+      $("#pushup_easy_1_btn").removeClass("active");
+      $("#pushup_easy_2").show();
+      $("#pushup_easy_1").hide();
     });
 
     $("#pushup_med_tablink").click(function () {
+      $("#pushup_easy_tablink").removeClass("active");
+      $("#pushup_med_tablink").addClass("active");
+      $("#pushup_hard_tablink").removeClass("active");
+      $("#pushup_med_1_btn").removeClass("active");
+      $("#pushup_med_2_btn").removeClass("active");
+
       $("#pushup_easy_rec").hide();
       $("#pushup_med_rec").show();
       $("#pushup_hard_rec").hide();
+      $("#pushup_med_1").hide();
+      $("#pushup_med_2").hide();
+    });
+
+    $("#pushup_med_1_btn").click(function () {
+      $("#pushup_med_1_btn").addClass("active");
+      $("#pushup_med_2_btn").removeClass("active");
+      $("#pushup_med_1").show();
+      $("#pushup_med_2").hide();
+    });
+
+    $("#pushup_med_2_btn").click(function () {
+      $("#pushup_med_2_btn").addClass("active");
+      $("#pushup_med_1_btn").removeClass("active");
+      $("#pushup_med_2").show();
+      $("#pushup_med_1").hide();
     });
 
     $("#pushup_hard_tablink").click(function () {
+      $("#pushup_easy_tablink").removeClass("active");
+      $("#pushup_med_tablink").removeClass("active");
+      $("#pushup_hard_tablink").addClass("active");
+      $("#pushup_hard_1_btn").removeClass("active");
+      $("#pushup_hard_2_btn").removeClass("active");
+
       $("#pushup_easy_rec").hide();
       $("#pushup_med_rec").hide();
       $("#pushup_hard_rec").show();
+      $("#pushup_hard_1").hide();
+      $("#pushup_hard_2").hide();
     });
+
+    $("#pushup_hard_1_btn").click(function () {
+      $("#pushup_hard_1_btn").addClass("active");
+      $("#pushup_hard_2_btn").removeClass("active");
+      $("#pushup_hard_1").show();
+      $("#pushup_hard_2").hide();
+    });
+
+    $("#pushup_hard_2_btn").click(function () {
+      $("#pushup_hard_2_btn").addClass("active");
+      $("#pushup_hard_1_btn").removeClass("active");
+      $("#pushup_hard_2").show();
+      $("#pushup_hard_1").hide();
+    });
+
   });
 
   // opens the situp tab
   $("#situp_tablink").click(function () {
+    $("#pushup_tablink").removeClass("active");
+    $("#situp_tablink").addClass("active");
+    $("#run_tablink").removeClass("active");
+    $("#situp_easy_tablink").removeClass("active");
+    $("#situp_med_tablink").removeClass("active");
+    $("#situp_hard_tablink").removeClass("active");
+
     $("#pushup").hide();
     $("#situp").show();
     $("#run").hide();
@@ -469,27 +557,107 @@ $("#recommend").click(function () {
     $("#situp_med_rec").hide();
     $("#situp_hard_rec").hide();
 
+    $("#situp_easy_1").hide();
+    $("#situp_easy_2").hide();
+    $("#situp_med_1").hide();
+    $("#situp_med_2").hide();
+    $("#situp_hard_1").hide();
+    $("#situp_hard_2").hide();
+
     $("#situp_easy_tablink").click(function () {
+      $("#situp_easy_tablink").addClass("active");
+      $("#situp_med_tablink").removeClass("active");
+      $("#situp_hard_tablink").removeClass("active");
+      $("#situp_easy_1_btn").removeClass("active");
+      $("#situp_easy_2_btn").removeClass("active");
+
       $("#situp_easy_rec").show();
       $("#situp_med_rec").hide();
       $("#situp_hard_rec").hide();
+      $("#situp_easy_1").hide();
+      $("#situp_easy_2").hide();
+    });
+
+    $("#situp_easy_1_btn").click(function () {
+      $("#situp_easy_1_btn").addClass("active");
+      $("#situp_easy_2_btn").removeClass("active");
+      $("#situp_easy_1").show();
+      $("#situp_easy_2").hide();
+    });
+
+    $("#situp_easy_2_btn").click(function () {
+      $("#situp_easy_2_btn").addClass("active");
+      $("#situp_easy_1_btn").removeClass("active");
+      $("#situp_easy_2").show();
+      $("#situp_easy_1").hide();
     });
 
     $("#situp_med_tablink").click(function () {
+      $("#situp_easy_tablink").removeClass("active");
+      $("#situp_med_tablink").addClass("active");
+      $("#situp_hard_tablink").removeClass("active");
+      $("#situp_med_1_btn").removeClass("active");
+      $("#situp_med_2_btn").removeClass("active");
+
       $("#situp_easy_rec").hide();
       $("#situp_med_rec").show();
       $("#situp_hard_rec").hide();
+      $("#situp_med_1").hide();
+      $("#situp_med_2").hide();
+    });
+
+    $("#situp_med_1_btn").click(function () {
+      $("#situp_med_1_btn").addClass("active");
+      $("#situp_med_2_btn").removeClass("active");
+      $("#situp_med_1").show();
+      $("#situp_med_2").hide();
+    });
+
+    $("#situp_med_2_btn").click(function () {
+      $("#situp_med_2_btn").addClass("active");
+      $("#situp_med_1_btn").removeClass("active");
+      $("#situp_med_2").show();
+      $("#situp_med_1").hide();
     });
 
     $("#situp_hard_tablink").click(function () {
+      $("#situp_easy_tablink").removeClass("active");
+      $("#situp_med_tablink").removeClass("active");
+      $("#situp_hard_tablink").addClass("active");
+      $("#situp_hard_1_btn").removeClass("active");
+      $("#situp_hard_2_btn").removeClass("active");
+
       $("#situp_easy_rec").hide();
       $("#situp_med_rec").hide();
       $("#situp_hard_rec").show();
+      $("#situp_hard_1").hide();
+      $("#situp_hard_2").hide();
+    });
+
+    $("#situp_hard_1_btn").click(function () {
+      $("#situp_hard_1_btn").addClass("active");
+      $("#situp_hard_2_btn").removeClass("active");
+      $("#situp_hard_1").show();
+      $("#situp_hard_2").hide();
+    });
+
+    $("#situp_hard_2_btn").click(function () {
+      $("#situp_hard_2_btn").addClass("active");
+      $("#situp_hard_1_btn").removeClass("active");
+      $("#situp_hard_2").show();
+      $("#situp_hard_1").hide();
     });
   });
 
   // opens the 2.4km run tab
   $("#run_tablink").click(function () {
+    $("#pushup_tablink").removeClass("active");
+    $("#situp_tablink").removeClass("active");
+    $("#run_tablink").addClass("active");
+    $("#run_easy_tablink").removeClass("active");
+    $("#run_med_tablink").removeClass("active");
+    $("#run_hard_tablink").removeClass("active");
+
     $("#pushup").hide();
     $("#situp").hide();
     $("#run").show();
@@ -497,23 +665,96 @@ $("#recommend").click(function () {
     $("#run_easy_rec").hide();
     $("#run_med_rec").hide();
     $("#run_hard_rec").hide();
+    
+    $("#run_easy_1").hide();
+    $("#run_easy_2").hide();
+    $("#run_med_1").hide();
+    $("#run_med_2").hide();
+    $("#run_hard_1").hide();
+    $("#run_hard_2").hide();
 
     $("#run_easy_tablink").click(function () {
+      $("#run_easy_tablink").addClass("active");
+      $("#run_med_tablink").removeClass("active");
+      $("#run_hard_tablink").removeClass("active");
+      $("#run_easy_1_btn").removeClass("active");
+      $("#run_easy_2_btn").removeClass("active");
+
       $("#run_easy_rec").show();
       $("#run_med_rec").hide();
       $("#run_hard_rec").hide();
+      $("#run_easy_1").hide();
+      $("#run_easy_2").hide();
+    });
+
+    $("#run_easy_1_btn").click(function () {
+      $("#run_easy_1_btn").addClass("active");
+      $("#run_easy_2_btn").removeClass("active");
+      $("#run_easy_1").show();
+      $("#run_easy_2").hide();
+    });
+
+    $("#run_easy_2_btn").click(function () {
+      $("#run_easy_2_btn").addClass("active");
+      $("#run_easy_1_btn").removeClass("active");
+      $("#run_easy_2").show();
+      $("#run_easy_1").hide();
     });
 
     $("#run_med_tablink").click(function () {
+      $("#run_easy_tablink").removeClass("active");
+      $("#run_med_tablink").addClass("active");
+      $("#run_hard_tablink").removeClass("active");
+      $("#run_med_1_btn").removeClass("active");
+      $("#run_med_2_btn").removeClass("active");
+
       $("#run_easy_rec").hide();
       $("#run_med_rec").show();
       $("#run_hard_rec").hide();
+      $("#run_med_1").hide();
+      $("#run_med_2").hide();
+    });
+
+    $("#run_med_1_btn").click(function () {
+      $("#run_med_1_btn").addClass("active");
+      $("#run_med_2_btn").removeClass("active");
+      $("#run_med_1").show();
+      $("#run_med_2").hide();
+    });
+
+    $("#run_med_2_btn").click(function () {
+      $("#run_med_2_btn").addClass("active");
+      $("#run_med_1_btn").removeClass("active");
+      $("#run_med_2").show();
+      $("#run_med_1").hide();
     });
 
     $("#run_hard_tablink").click(function () {
+      $("#run_easy_tablink").removeClass("active");
+      $("#run_med_tablink").removeClass("active");
+      $("#run_hard_tablink").addClass("active");
+      $("#run_hard_1_btn").removeClass("active");
+      $("#run_hard_2_btn").removeClass("active");
+
       $("#run_easy_rec").hide();
       $("#run_med_rec").hide();
       $("#run_hard_rec").show();
+      $("#run_hard_1").hide();
+      $("#run_hard_2").hide();
+    });
+
+    $("#run_hard_1_btn").click(function () {
+      $("#run_hard_1_btn").addClass("active");
+      $("#run_hard_2_btn").removeClass("active");
+      $("#run_hard_1").show();
+      $("#run_hard_2").hide();
+    });
+
+    $("#run_hard_2_btn").click(function () {
+      $("#run_hard_2_btn").addClass("active");
+      $("#run_hard_1_btn").removeClass("active");
+      $("#run_hard_2").show();
+      $("#run_hard_1").hide();
     });
   });
 });
