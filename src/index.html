@@ -311,7 +311,7 @@
 
               <!-- Pushup Exercise Recommedation Page -->
               <div id="pushup" class="tabcontent">
-                <h3>Pushup Recommendation</h3>
+                <h4>Pushup Recommendation</h4>
                 <p>Choose a difficulty level</p>
 
                 <!-- Tab to toggle between exercise difficulty level -->
@@ -322,14 +322,119 @@
                 </div>
 
                 <!-- Pushup recommedation by difficulty -->
-                <div id="pushup_easy_rec" class="tabcontent">Here is the description for Pushup Easy</div>
-                <div id="pushup_med_rec" class="tabcontent">Here is the description for Pushup Medium</div>
-                <div id="pushup_hard_rec" class="tabcontent">Here is the description for Pushup Hard</div>
+                <div id="pushup_easy_rec" class="tabcontent">
+                  <h6>Difficulty: Easy</h6>
+                  <p align="justify">These exercises are recommended for people who are weak at push ups (push up score lower than 10).
+                  The aim is to train the user's base strength and technique to work their way up to more difficult 
+                  variations in the future.</p>
+
+                  <!-- Pushup exercises -->
+                  <div class="tab">
+                    <button id="pushup_easy_1_btn" class="tablinks">Inclined Push Ups</button>
+                    <button id="pushup_easy_2_btn" class="tablinks">Standard Push Ups</button>
+                  </div>
+
+                  <!-- Push Ups exercise 1: Inclined Push Ups -->
+                  <div id="pushup_easy_1" class="tabcontent">
+                    <p align="justify"><strong>Description: </strong>Start by placing your hands shoulder-width apart on an elevated surface.
+                    Ensure that your body forms a straight line. Slowly bend your elbows and lower your chest. Next, push yourself up while
+                    maintaining your body in a straight line.</p>
+                    <button type="button" class="btn btn-primary" onClick="parent.open('https://www.youtube.com/watch?v=cfns5VDVVvk&ab_channel=TrainWithAdby')">
+                    See Demonstration</button>
+                    <p></p>
+                    <p><strong>Number of reps: </strong>3 sets of 15-20 reps.</p>
+                    <p align="justify"><strong>Addtional Information: </strong>Decrease the elevation or increase the number of reps to increase the difficulty
+                    of this exercise.</p>
+                  </div>
+
+                  <!-- Push Ups exercise 2: Standard Push Ups -->
+                  <div id="pushup_easy_2" class="tabcontent">
+                    <p align="justify"><strong>Description: </strong>Start by placing your hands shoulder-width apart. Ensure that your body forms 
+                      a straight line. Slowly bend your elbows and lower your chest. Next, push yourself up while maintaining your body in a straight 
+                      line.</p>
+                      <button type="button" class="btn btn-primary" onClick="parent.open('https://www.youtube.com/watch?v=IODxDxX7oi4&ab_channel=Calisthenicmovement')">
+                      See Demonstration</button>
+                      <p></p>
+                      <p><strong>Number of reps: </strong>3 sets of 15-20 reps.</p>
+                      <p align="justify"><strong>Addtional Information: </strong>Increase/ decrease the distance between your arms to increase the difficulty
+                      of this exercise.</p>
+                  </div>
+                </div>
+
+                <div id="pushup_med_rec" class="tabcontent">
+                  <h6>Difficulty: Medium</h6>
+                  <p align="justify">These exercises are recommended for people who are moderate at push ups (push up score between 10 and 20).
+                  The aim is to train the user's strength and endurance to allow them to complete more repetitions.</p>
+
+                  <!-- Pushup exercises -->
+                  <div class="tab">
+                    <button id="pushup_med_1_btn" class="tablinks">Floor Push Ups</button>
+                    <button id="pushup_med_2_btn" class="tablinks">Decline Push Ups</button>
+                  </div>
+
+                  <!-- Push Ups exercise 1: Floor Push Ups -->
+                  <div id="pushup_med_1" class="tabcontent">
+                    <p align="justify"><strong>Description: </strong>Start by placing your hands shoulder-width apart on an elevated surface.
+                    Ensure that your body forms a straight line. Slowly bend your elbows and lower your chest. When your chest touches the floor,
+                    lift your palms off the floor. Next, push yourself up while maintaining your body in a straight line.</p>
+                    <button type="button" class="btn btn-primary" onClick="parent.open('https://www.youtube.com/watch?v=lVNzuIArliA&ab_channel=Howcast')">
+                    See Demonstration</button>
+                    <p></p>
+                    <p><strong>Number of reps: </strong>3 sets of 15-20 reps.</p>
+                    <p align="justify"><strong>Addtional Information: </strong>Increase the number of reps to increase the difficulty of this exercise.</p>
+                  </div>
+
+                  <!-- Push Ups exercise 2: Decline Push Ups -->
+                  <div id="pushup_med_2" class="tabcontent">
+                    <p align="justify"><strong>Description: </strong>Start by placing your hands shoulder-width apart and place your legs on an 
+                    elevated surface. Ensure that your body forms a straight line. Slowly bend your elbows and lower your chest. Next, push 
+                    yourself up while maintaining your body in a straight line.</p>
+                    <button type="button" class="btn btn-primary" onClick="parent.open('https://www.youtube.com/watch?v=SKPab2YC8BE&ab_channel=ScottHermanFitness')">
+                    See Demonstration</button>
+                    <p></p>
+                    <p><strong>Number of reps: </strong>3 sets of 15-20 reps.</p>
+                    <p align="justify"><strong>Addtional Information: </strong>Increase the elevation or increase the number of reps to increase the difficulty
+                    of this exercise.</p>
+                  </div>
+                </div>
+                <div id="pushup_hard_rec" class="tabcontent">
+                  <h6>Difficulty: Hard</h6>
+                  <p align="justify">These exercises are recommended for people who are good at push ups (push up score above 20).
+                  The aim is to train the user's endurance to squeeze out the last few reps to achieve the maximum score.</p>
+
+                  <!-- Pushup exercises -->
+                  <div class="tab">
+                    <button id="pushup_hard_1_btn" class="tablinks">Staggered Push Ups</button>
+                    <button id="pushup_hard_2_btn" class="tablinks">Tabata (Push Ups)</button>
+                  </div>
+
+                  <!-- Push Ups exercise 1: Staggered Push Ups -->
+                  <div id="pushup_hard_1" class="tabcontent">
+                    <p align="justify"><strong>Description: </strong>Start by placing your hands shoulder-width apart on an elevated surface.
+                    Position one hand in front of the other. Ensure that your body forms a straight line. Slowly bend your elbows and lower your chest.
+                    Next, push yourself up while maintaining your body in a straight line. Then, swap the positions of your hands and repeat.</p>
+                    <button type="button" class="btn btn-primary" onClick="parent.open('https://www.youtube.com/watch?v=odAdPR3ypSs&ab_channel=Exercises.com.au')">
+                    See Demonstration</button>
+                    <p></p>
+                    <p><strong>Number of reps: </strong>3 sets of 15-20 reps.</p>
+                    <p align="justify"><strong>Addtional Information: </strong>Increase the number of reps to increase the difficulty of this exercise.</p>
+                  </div>
+
+                  <!-- Push Ups exercise 2: Tabata (Push Ups) -->
+                  <div id="pushup_hard_2" class="tabcontent">
+                    <p align="justify"><strong>Description: </strong>Do a Push Ups to a 20s work 10s rest cycle. Maximum effort.</p>
+                    <button type="button" class="btn btn-primary" onClick="parent.open('https://www.youtube.com/watch?v=VHYvoEeJh8Y&ab_channel=TabataSongs')">
+                    Tabata Timer</button>
+                    <p></p>
+                    <p><strong>Number of reps: </strong>1 set.</p>
+                    <p align="justify"><strong>Addtional Information: </strong>Vary the push up types to increase the difficulty of this exercise.</p>
+                  </div>
+                </div>
               </div>
 
               <!-- Situp Exercise Recommedation Page -->
               <div id="situp" class="tabcontent">
-                <h3>Situp Recommedation</h3>
+                <h4>Situp Recommedation</h4>
                 <p>Choose a difficulty level</p>
 
                 <!-- Tab to toggle between exercise difficulty level -->
@@ -340,14 +445,110 @@
                 </div>
 
                 <!-- Situp recommedation by difficulty -->
-                <div id="situp_easy_rec" class="tabcontent">Here is the description for Situp Easy</div>
-                <div id="situp_med_rec" class="tabcontent">Here is the description for Situp Medium</div>
-                <div id="situp_hard_rec" class="tabcontent">Here is the description for Situp Hard</div>
+                <div id="situp_easy_rec" class="tabcontent">
+                  <h6>Difficulty: Easy</h6>
+                  <p align="justify">These exercises are recommended for people who are weak at sit ups (sit up score lower than 10).
+                  The aim is to train the user's base strength and technique to work their way up to more difficult 
+                  variations in the future.</p>
+
+                  <!-- Sit Up exercises -->
+                  <div class="tab">
+                    <button id="situp_easy_1_btn" class="tablinks">Elevated Crunches</button>
+                    <button id="situp_easy_2_btn" class="tablinks">Leg Raise</button>
+                  </div>
+
+                  <!-- Sit Ups exercise 1: Elevated Crunches -->
+                  <div id="situp_easy_1" class="tabcontent">
+                    <p align="justify"><strong>Description: </strong>Start by lying on your back. Place both hands by the side for stability. Raise both legs up and bend
+                    your knees 90 degrees. Engage your core to lift yourself up so that your elbows touch your knees.</p>
+                    <button type="button" class="btn btn-primary" onClick="parent.open('https://www.youtube.com/watch?v=21KDa2T42kE&ab_channel=ProGymWorkout')">
+                    See Demonstration</button>
+                    <p></p>
+                    <p><strong>Number of reps: </strong>3 sets of 15-20 reps.</p>
+                    <p align="justify"><strong>Addtional Information: </strong>Increase the number of reps to increase the difficulty of this exercise.</p>
+                  </div>
+
+                  <!-- Sit Ups exercise 2: Leg Raise-->
+                  <div id="situp_easy_2" class="tabcontent">
+                    <p align="justify"><strong>Description: </strong>Start by lying on your back. Place your hands by your side for stability. While keeping both
+                    legs straight, raise them up and slowly lower them back down again without touching the ground.</p>
+                    <button type="button" class="btn btn-primary" onClick="parent.open('https://www.youtube.com/watch?v=l4kQd9eWclE&t=2s&ab_channel=Howcast')">
+                    See Demonstration</button>
+                    <p></p>
+                    <p><strong>Number of reps: </strong>3 sets of 15-20 reps.</p>
+                    <p align="justify"><strong>Addtional Information: </strong>Increase the number of reps to increase the difficulty of this exercise.</p>
+                  </div>
+                </div>
+                <div id="situp_med_rec" class="tabcontent">
+                  <h6>Difficulty: Medium</h6>
+                  <p align="justify">These exercises are recommended for people who are moderate at sit ups (sit up score between 10 and 20).
+                  The aim is to train the user's strength and endurance to allow them to complete more repetitions.</p>
+
+                  <!-- Sit Up exercises -->
+                  <div class="tab">
+                    <button id="situp_med_1_btn" class="tablinks">Flutter Kicks</button>
+                    <button id="situp_med_2_btn" class="tablinks">Reverse Crunches</button>
+                  </div>
+
+                  <!-- Sit Ups exercise 1: Elevated Crunches -->
+                  <div id="situp_med_1" class="tabcontent">
+                    <p align="justify"><strong>Description: </strong>Start by lying on your back. Place both hands below your tailbone. Ensure both legs are about
+                    45 degees off the floor. Lift one leg higher than the other. Continuously switch the positions of both legs.</p>
+                    <button type="button" class="btn btn-primary" onClick="parent.open('https://www.youtube.com/watch?v=ANVdMDaYRts&ab_channel=ScottHermanFitness')">
+                    See Demonstration</button>
+                    <p></p>
+                    <p><strong>Number of reps: </strong>3 sets of 10-15 counts of 4.</p>
+                    <p align="justify"><strong>Addtional Information: </strong>Increase the number of reps to increase the difficulty of this exercise.</p>
+                  </div>
+
+                  <!-- Sit Ups exercise 2: Reverse Crunches-->
+                  <div id="situp_med_2" class="tabcontent">
+                    <p align="justify"><strong>Description: </strong>Start by lying on your back. Place your hands by your side for stability. Bend your legs
+                    towards your chest and thrust your legs to the sky. Slowly lower your legs to your chest and extend them out again.</p>
+                    <button type="button" class="btn btn-primary" onClick="parent.open('https://www.youtube.com/watch?v=zY6XsuBXoqg&ab_channel=Fitand50')">
+                    See Demonstration</button>
+                    <p></p>
+                    <p><strong>Number of reps: </strong>3 sets of 15-20 reps.</p>
+                    <p align="justify"><strong>Addtional Information: </strong>Increase the number of reps to increase the difficulty of this exercise.</p>
+                  </div>
+                </div>
+                <div id="situp_hard_rec" class="tabcontent">
+                  <h6>Difficulty: Hard</h6>
+                  <p align="justify">These exercises are recommended for people who are good at sit ups (sit up score above 20).
+                  The aim is to train the user's endurance to squeeze out the last few reps to achieve the maximum score.</p>
+
+                  <!-- Sit Up exercises -->
+                  <div class="tab">
+                    <button id="situp_hard_1_btn" class="tablinks">Hanging Leg Raise</button>
+                    <button id="situp_hard_2_btn" class="tablinks">Tabata (Sit Ups)</button>
+                  </div>
+
+                  <!-- Sit Ups exercise 1: Hanging Leg Raise -->
+                  <div id="situp_hard_1" class="tabcontent">
+                    <p align="justify"><strong>Description: </strong>Start by hanging on a pull up bar. Raise your knees to your chest and slowly
+                    lower them back down again.</p>
+                    <button type="button" class="btn btn-primary" onClick="parent.open('https://www.youtube.com/watch?v=Pr1ieGZ5atk&ab_channel=ATHLEAN-X%E2%84%A2')">
+                    See Demonstration</button>
+                    <p></p>
+                    <p><strong>Number of reps: </strong>3 sets of 15-20 reps.</p>
+                    <p align="justify"><strong>Addtional Information: </strong>Straighten your legs or increase the number of reps to increase the difficulty of this exercise.</p>
+                  </div>
+
+                  <!-- Sit Ups exercise 2: Tabata (Sit Ups) -->
+                  <div id="situp_hard_2" class="tabcontent">
+                    <p align="justify"><strong>Description: </strong>Do any Sit Up exercise to a 20s work 10s rest cycle. Maximum effort.</p>
+                    <button type="button" class="btn btn-primary" onClick="parent.open('https://www.youtube.com/watch?v=VHYvoEeJh8Y&ab_channel=TabataSongs')">
+                    Tabata Timer</button>
+                    <p></p>
+                    <p><strong>Number of reps: </strong>1 set.</p>
+                    <p align="justify"><strong>Addtional Information: </strong>Vary the exercise types to increase the difficulty of this exercise.</p>
+                  </div>
+                </div>
               </div>
 
               <!-- 2.4km Run Exercise Recommedation Page -->
               <div id="run" class="tabcontent">
-                <h3>2.4km Run Recommedation</h3>
+                <h4>2.4km Run Recommedation</h4>
                 <p>Choose a difficulty level</p>
 
                 <!-- Tab to toggle between exercise difficulty level -->
@@ -358,9 +559,90 @@
                 </div>
 
                 <!-- Pushup recommedation by difficulty -->
-                <div id="run_easy_rec" class="tabcontent">Here is the description for 2.4km Run Easy</div>
-                <div id="run_med_rec" class="tabcontent">Here is the description for 2.4km Run Medium</div>
-                <div id="run_hard_rec" class="tabcontent">Here is the description for 2.4km Run Hard</div>
+                <div id="run_easy_rec" class="tabcontent">
+                  <h6>Difficulty: Easy</h6>
+                  <p align="justify">These exercises are recommended for people who are weak at running (2.4km score lower than 25).
+                  The aim is to train the user's stamina and running technique to improve their endurance for more difficult 
+                  exercises in the future.</p>
+
+                  <!-- Run exercises -->
+                  <div class="tab">
+                    <button id="run_easy_1_btn" class="tablinks">Long Distance Run</button>
+                    <button id="run_easy_2_btn" class="tablinks">400m Intervals</button>
+                  </div>
+
+                  <!-- Run exercise 1: Long Distance -->
+                  <div id="run_easy_1" class="tabcontent">
+                    <p align="justify"><strong>Description: </strong>Run a distance of 3km and above depending on your comfort level at a suitable pace.
+                    Pay special attention to your running form.</p>
+                    <button type="button" class="btn btn-primary" onClick="parent.open('https://www.youtube.com/watch?v=brFHyOtTwH4&ab_channel=GlobalTriathlonNetwork')">
+                    See Running Form</button>
+                  </div>
+
+                  <!-- Run exercise 2: 400m Intervals -->
+                  <div id="run_easy_2" class="tabcontent">
+                    <p align="justify"><strong>Description: </strong>Run a distance of 400m within a specific time with a 1 : 1 work rest cycle.
+                    (E.g. If you are aiming for a 9 min 2.4km, you should aim to complete each round in 1 min 30 sec and your rest would also
+                    be 1 min 30 sec).</p>
+                    <p></p>
+                    <p><strong>Number of sets: </strong>7 x 400m.</p>
+                  </div>
+                </div>
+                <div id="run_med_rec" class="tabcontent">
+                  <h6>Difficulty: Medium</h6>
+                  <p align="justify">These exercises are recommended for people who are moderate at running (2.4km score between 25 and 40).
+                  The aim is to train the user's speed and stamina to improve their run time.</p>
+
+                  <!-- Run exercises -->
+                  <div class="tab">
+                    <button id="run_med_1_btn" class="tablinks">Fartlek</button>
+                    <button id="run_med_2_btn" class="tablinks">800m Intervals</button>
+                  </div>
+
+                  <!-- Run exercise 1: Fartlek -->
+                  <div id="run_med_1" class="tabcontent">
+                    <p align="justify"><strong>Description: </strong>Run at your maximum speed for 60 seconds then transit to a 60 seconds slow jog.</p>
+                    <p><strong>Number of sets: </strong>8 Sets.</p>
+                  </div>
+
+                  <!-- Run exercise 2: 800m Intervals -->
+                  <div id="run_med_2" class="tabcontent">
+                    <p align="justify"><strong>Description: </strong>Run a distance of 800m within a specific time with a 1 : 1 work rest cycle.
+                      (E.g. If you are aiming for a 9 min 2.4km, you should aim to complete each round in 3 min and your rest would also
+                      be 3 min).</p>
+                    <p></p>
+                    <p><strong>Number of sets: </strong>4 x 800m.</p>
+                  </div>
+                </div>
+                <div id="run_hard_rec" class="tabcontent">
+                  <h6>Difficulty: Hard</h6>
+                  <p align="justify">These exercises are recommended for people who are good at running (2.4km score above 40).
+                  This focuses on speed and lactate threshold training to allowing users to maintain a faster pace and push for
+                  maximum points.</p>
+
+                  <!-- Run exercises -->
+                  <div class="tab">
+                    <button id="run_hard_1_btn" class="tablinks">Lactate Threshold</button>
+                    <button id="run_hard_2_btn" class="tablinks">1200m Intervals</button>
+                  </div>
+
+                  <!-- Run exercise 1: Lactate Threshold -->
+                  <div id="run_hard_1" class="tabcontent">
+                    <p align="justify"><strong>Description: </strong>Run a distance of 1200m within a specific time with a 1 : 0.3 work rest cycle.
+                      (E.g. If you are aiming for a 9 min 2.4km, you should aim to complete each round in 4 min 30 sec and your rest would also
+                      be 1 min 30 sec). </p>
+                    <p><strong>Number of sets: </strong>3 x 1200m.</p>
+                  </div>
+
+                  <!-- Run exercise 2: 1200m Intervals -->
+                  <div id="run_hard_2" class="tabcontent">
+                    <p align="justify"><strong>Description: </strong>Run a distance of 1200m within a specific time with a 1 : 1 work rest cycle.
+                      (E.g. If you are aiming for a 9 min 2.4km, you should aim to complete each round in 4 min 30 sec and your rest would also
+                      be 4 min 30 sec). </p>
+                    <p></p>
+                    <p><strong>Number of sets: </strong>3 x 1200m.</p>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="modal-footer">
