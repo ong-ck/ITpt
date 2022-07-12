@@ -1,4 +1,3 @@
-
 <div id="top"></div>
 
 <!-- PROJECT LOGO -->
@@ -44,12 +43,17 @@
         <li><a href="#core-features">Core Features</a></li>
         <li><a href="#tech-stack">Tech Stack</a></li>
         <li><a href="#architecture-diagram">Architecture Diagram</a></li>
+        <li><a href="#database-structure">Database Structure</a></li>
         <li><a href="#software-engineering-practices">Software Engineering Practices</a></li>
         <li><a href="#mockup">Mockup</a></li>
-        <li><a href="#technical-proof">Technical Proof</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
+    <li>
+    <a href="#usage">Usage</a>
+    <ul>
+    <li><a href="#technical-proof-of-concept">Technical Proof of Concept</a></li>
+    </ul>
+    </li>
     <li>
     <a href="#evaluation">Evaluation</a>
     <ul>
@@ -62,7 +66,6 @@
 	    <ul>
 	    <li><a href="#scope-of-project">Scope of Project</a></li>
         <li><a href="#development-plan">Development Plan</a></li>
-        <li><a href="#changelog">Changelog</a></li>
         </ul>
     </li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
@@ -75,7 +78,7 @@
 
 ### Level of Achievement
 
-<center>Vostok</center>
+<center>Gemini</center>
 
 ### Description
 
@@ -107,7 +110,7 @@
 
 * <p align="justify"><u>In-built IPPT Calculator</u>. Users are able to calculate their IPPT scores using the calculator whenever they need. It displays the points breakdown for each exercise, together with the total score and the corresponding achievement. Furthermore, the IPPT calculator provides feedback to the users on the number of additional reps needed/ amount of time to cut for them to improve their score for each station by one point.</p>
 
-* <p align="justify"><u>Gamification</u> (In progress). Points will be given after the users complete each of the activities that set for themselves, with which they can purchase avatars to customise their profile page. As such, users can be incentivised to work towards their fitness goals as they seek to gather customizable items purchasable by their collected points.</p>
+* <p align="justify"><u>Gamification</u>. Points will be given after the users complete each of the activities that set for themselves, with which they can purchase avatars to customise their profile page. As such, users can be incentivised to work towards their fitness goals as they seek to gather customizable items purchasable by their collected points.</p>
 
 ### Tech Stack
 
@@ -128,6 +131,8 @@
 ### Architecture Diagram
 
 <img src="images/readme/architecture_diagram.png" alt="Architecture Diagram">
+
+### Database Structure
 
 ### Software Engineering Practices
 
@@ -245,6 +250,8 @@ A Website that helps users plan their fitness schedule to meet their fitness goa
 	* Users can view a set of exercises to help them improve each station.
 	* They can then add them to the calendar.
 
+See the [open issues](https://github.com/ong-ck/ITpt/issues) for a full list of proposed features (and known issues).
+
 ### Development Plan
 
 <table>
@@ -304,7 +311,6 @@ A Website that helps users plan their fitness schedule to meet their fitness goa
 </tbody>
 </table>
 
-See the [open issues](https://github.com/ong-ck/ITpt/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -314,5 +320,6 @@ See the [open issues](https://github.com/ong-ck/ITpt/issues) for a full list of 
 
 * [Readme Template referenced from othneildrew](https://github.com/othneildrew/Best-README-Template)
 * [w3schools](https://www.w3schools.com/default.asp)
+* [HubSpot HTML Dropdown Example](https://blog.hubspot.com/website/html-dropdown)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
