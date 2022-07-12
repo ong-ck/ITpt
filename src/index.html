@@ -110,6 +110,56 @@
       </div>
     </div>
 
+    <!--Calendar instructions-->
+    <div id="instructions_modal" class="modal fade bd-example-modal-lg" tabindex="-1" aria-labelledby="eventForm"
+    aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">How to use the calendar</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <!-- Tab to toggle between tasks -->
+            <div class="tab">
+              <button id="insert_tablink" class="tablinks">Insert an Activity</button>
+              <button id="reschedule_tablink" class="tablinks">Reschedule an Activity</button>
+              <button id="delete_tablink" class="tablinks">Delete an Activity</button>
+            </div>
+
+            <!-- Insert an Activity -->
+            <div id="insert_activity" class="tabcontent">
+              <ol>
+                <li>Click on the day you want to insert an activity.</li>
+                <li>Key in the name of the activity</li>
+                <li>Key in the time of the activity in 24 hrs format (e.g. 0800)</li>
+                <li>Key in the details of the activity.</li>
+              </ol>
+            </div>
+
+            <!-- Reschedule an Activity -->
+            <div id="reschedule_activity" class="tabcontent">
+              <ol>
+                <li>Drag the activity to the new date.</li>
+                <li>Click on the activity again to verify the changes.</li>
+              </ol>
+            </div>
+
+            <!-- Delete an Activity -->
+            <div id="delete_activity" class="tabcontent">
+              <ol>
+                <li>Click on the activity to view its details.</li>
+                <li>Click on "delete activity" button to delete the activity.</li>
+              </ol>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!--Calendar-->
     <div class="home">
       <div id="calendar" class="body_center container" style="height: 600px; width: 100%"></div>
@@ -120,28 +170,7 @@
 
       <!--Calendar instructions-->
       <br>
-      <div id="calendar_instructions">
-        <h2>How to use:</h2>
-        <h4>Inserting an activity:</h4>
-        <ol>
-          <li>Click on the day you want to insert an activity.</li>
-          <li>Key in the name of the activity</li>
-          <li>Key in the time of the activity in 24 hrs format (e.g. 0800)</li>
-          <li>Key in the details of the activity.</li>
-        </ol>
-        <p></p>
-        <h4>Rescheduling the activity:</h4>
-        <ol>
-          <li>Drag the activity to the new date.</li>
-          <li>Click on the activity again to verify the changes.</li>
-        </ol>
-        <p></p>
-        <h4>Deleting an activity:</h4>
-        <ol>
-          <li>Click on the activity to view its details.</li>
-          <li>Click on "delete activity" button to delete the activity.</li>
-        </ol>
-      </div>
+      <button id="view_instructions" type="button" class="btn btn-primary">How to use the Calendar</button>
     </div>
 
     <!-- IPPT Calculator -->
@@ -263,6 +292,11 @@
 
         </div>
         <div class="div2">
+          <h5>User Credits:</h5>
+          <p style="display: inline;">Current Credits:</p>
+          <p id="credits_num" style="display: inline;">0</p>
+        </div>
+        <div class="div3">
           <h5>IPPT Goal:</h5>
           <p style="display: inline;">Current Goal:</p>
           <p id="goal_num" style="display: inline;">0</p>
@@ -270,7 +304,7 @@
           <button id="save_goal" type="button" class="btn btn-primary" style="background-color: green;">Update Ippt
             Goal</button>
         </div>
-        <div class="div3">
+        <div class="div4">
           <h5>IPPT Goal Progress:</h5>
           <div>
             <div id="currentPointsLabel">60 Points</div>
@@ -279,11 +313,6 @@
             </div>
             <div id="goalLabel">85 Point(s)</div>
           </div>
-        </div>
-        <div class="div4">
-          <h5>User Credits:</h5>
-          <p style="display: inline;">Current Credits:</p>
-          <p id="credits_num" style="display: inline;">0</p>
         </div>
         <div class="div5">
           <h5>High Score For Each Station:</h5>
@@ -309,9 +338,12 @@
                 </tr>
               </tbody>
             </table>
-            <button id="recommend" type="button" class="btn btn-primary"
-              style="background-color: green; margin-top: 10px;">Recommend Me!</button>
           </div>
+        </div>
+        <div class="div6">
+          <h5>Recommended Exercise</h5>
+          <p align="justify">Here are some exercise to help you achieve your IPPT Goal based on your current fitness level</p>
+          <button id="recommend" type="button" class="btn btn-primary" style="background-color: green">View Recommended Exercise</button>
         </div>
       </div>
 

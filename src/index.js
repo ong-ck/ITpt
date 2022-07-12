@@ -324,6 +324,44 @@ function initCalendar(allEvents) {
   calendar.render();
 }
 
+//Calendar Instructions
+$("#view_instructions").click(function() {
+  $("#instructions_modal").modal("toggle");
+  $("#insert_activity").hide();
+  $("#reschedule_activity").hide();
+  $("#delete_activity").hide();
+  $('#insert_tablink').removeClass('active');
+  $('#reschedule_tablink').removeClass('active');
+  $('#delete_tablink').removeClass('active');
+
+  $('#insert_tablink').click(function() {
+    $("#insert_activity").show();
+    $("#reschedule_activity").hide();
+    $("#delete_activity").hide();
+    $('#insert_tablink').addClass('active');
+    $('#reschedule_tablink').removeClass('active');
+    $('#delete_tablink').removeClass('active');
+  });
+
+  $('#reschedule_tablink').click(function() {
+    $("#insert_activity").hide();
+    $("#reschedule_activity").show();
+    $("#delete_activity").hide();
+    $('#insert_tablink').removeClass('active');
+    $('#reschedule_tablink').addClass('active');
+    $('#delete_tablink').removeClass('active');
+  });
+
+  $('#delete_tablink').click(function() {
+    $("#insert_activity").hide();
+    $("#reschedule_activity").hide();
+    $("#delete_activity").show();
+    $('#insert_tablink').removeClass('active');
+    $('#reschedule_tablink').removeClass('active');
+    $('#delete_tablink').addClass('active');
+  });
+});
+
 /**
  * Rewards Page Game
  */
@@ -399,7 +437,7 @@ function updateProfile() {
     }
     $("#goal_num")
       .empty()
-      .prepend(ippt_goal + " Points");
+      .prepend(ippt_goal + " Point(s)");
     console.log(ippt_goal);
   });
 
