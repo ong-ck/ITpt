@@ -187,7 +187,7 @@ function initCalendar(allEvents) {
     headerToolbar: {
       left: "prev,next today",
       center: "title",
-      right: "exportCalendar refreshCalendar",
+      right: "exportCalendar refreshCalendar howToUse",
     },
     selectable: true,
     eventStartEditable: true,
@@ -204,6 +204,46 @@ function initCalendar(allEvents) {
         text: "Refresh",
         click: function () {
           calendar.changeView("dayGridMonth");
+        },
+      },
+      howToUse: {
+        text: "Instructions",
+        click: function () {
+          //Calendar Instructions
+          $("#instructions_modal").modal("toggle");
+          $("#insert_activity").hide();
+          $("#reschedule_activity").hide();
+          $("#delete_activity").hide();
+          $('#insert_tablink').removeClass('active');
+          $('#reschedule_tablink').removeClass('active');
+          $('#delete_tablink').removeClass('active');
+
+          $('#insert_tablink').click(function() {
+            $("#insert_activity").show();
+            $("#reschedule_activity").hide();
+            $("#delete_activity").hide();
+            $('#insert_tablink').addClass('active');
+            $('#reschedule_tablink').removeClass('active');
+            $('#delete_tablink').removeClass('active');
+          });
+
+          $('#reschedule_tablink').click(function() {
+            $("#insert_activity").hide();
+            $("#reschedule_activity").show();
+            $("#delete_activity").hide();
+            $('#insert_tablink').removeClass('active');
+            $('#reschedule_tablink').addClass('active');
+            $('#delete_tablink').removeClass('active');
+          });
+
+          $('#delete_tablink').click(function() {
+            $("#insert_activity").hide();
+            $("#reschedule_activity").hide();
+            $("#delete_activity").show();
+            $('#insert_tablink').removeClass('active');
+            $('#reschedule_tablink').removeClass('active');
+            $('#delete_tablink').addClass('active');
+          });
         },
       },
     },
@@ -323,44 +363,6 @@ function initCalendar(allEvents) {
   });
   calendar.render();
 }
-
-//Calendar Instructions
-$("#view_instructions").click(function() {
-  $("#instructions_modal").modal("toggle");
-  $("#insert_activity").hide();
-  $("#reschedule_activity").hide();
-  $("#delete_activity").hide();
-  $('#insert_tablink').removeClass('active');
-  $('#reschedule_tablink').removeClass('active');
-  $('#delete_tablink').removeClass('active');
-
-  $('#insert_tablink').click(function() {
-    $("#insert_activity").show();
-    $("#reschedule_activity").hide();
-    $("#delete_activity").hide();
-    $('#insert_tablink').addClass('active');
-    $('#reschedule_tablink').removeClass('active');
-    $('#delete_tablink').removeClass('active');
-  });
-
-  $('#reschedule_tablink').click(function() {
-    $("#insert_activity").hide();
-    $("#reschedule_activity").show();
-    $("#delete_activity").hide();
-    $('#insert_tablink').removeClass('active');
-    $('#reschedule_tablink').addClass('active');
-    $('#delete_tablink').removeClass('active');
-  });
-
-  $('#delete_tablink').click(function() {
-    $("#insert_activity").hide();
-    $("#reschedule_activity").hide();
-    $("#delete_activity").show();
-    $('#insert_tablink').removeClass('active');
-    $('#reschedule_tablink').removeClass('active');
-    $('#delete_tablink').addClass('active');
-  });
-});
 
 /**
  * Rewards Page Game
