@@ -51,7 +51,8 @@ describe("homepage", () => {
   });
 
   it("calendar instructions are visible", () => {
-    cy.get("#calendar_instructions").should("be.visible");
+    cy.get("#view_instructions").click();
+    cy.get("#instructions_modal").should("be.visible");
   });
 });
 
