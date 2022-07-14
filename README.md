@@ -1,3 +1,5 @@
+
+
 <div id="top"></div>
 
 <!-- PROJECT LOGO -->
@@ -57,7 +59,7 @@
     <li>
     <a href="#evaluation">Evaluation</a>
     <ul>
-	    <li><a href="#testing">Testing</a></li>
+	    <li><a href="#testing-plan">Testing Plan</a></li>
         <li><a href="#interpretation-of-results">Interpretation of results</a></li>
     </ul>
     </li>
@@ -173,7 +175,31 @@ To access the website, simply go to https://www.itpt.ml (or https://itpt-d53e0.w
 <!-- EVALUATION-->
 ## Evaluation
 
-### Testing
+### Testing Plan
+
+#### Introduction
+
+In order to ensure that ITpt is working as intended based on the features proposed, this testing plan is created to ensure that rigorous and structured testing is implemented.
+
+The testing plan specifies the objectives and tasks, scope, testing strategy, test schedule, control procedure, features tested/not tested and tools used to test the website.
+
+#### Objectives and Tasks
+
+The objective of the testing plan is to ensure that the user interface (UI) and user experience (UX) provided by ITpt meets the proposed description and features.
+
+Expected tasks:
+* Ensuring that the UI is showing up properly
+* Ensuring that navigation within ITpt provides the expected UX
+* Ensuring that ITpt is compatible with various browsers
+* Ensuring that ITpt is able to perform within expectations with increased user numbers
+* Ensuring that all updates to ITpt are tested
+* Seeking user opinions for improvements
+
+#### Scope
+
+The testing plan covers the frontend UI and UX and the backend capabilities of ITpt that are in direct interaction with the users.
+
+#### Testing Strategy
 
 * Unit & GUI Testing
 	* <p align="justify"><a href="https://www.cypress.io/">Cypress</a> was used to execute Unit & GUI Testing.</p>
@@ -185,13 +211,53 @@ To access the website, simply go to https://www.itpt.ml (or https://itpt-d53e0.w
 	* <p align="justify"><a href="https://www.powermapper.com/products/sortsite/checks/browser-compatibility/">PowerMapper</a> was used to determine the compatibility of our website to numerous browsers.</p>
 <br /><img src="./images/readme/compatibility_testing.png" alt="Compatibility Testing Results">
 
-* Volumn & Stress Testing
+* Volume & Stress Testing
 	* <p align="justify">The website was checked on whether it can handle large amount of data and multiple users concurrently.</p>
 	* <p align="justify"><a href="https://www.webpagetest.org/">Webpagetest</a> was also used to run a performance test on the website.</p>
 <br /><img src="./images/readme/performance_testing.png" alt="Performance Testing Results">
 
+* Regression Testing
+	* <p align="justify">Use of Github Actions to create a Continuous Integration / Continuous Development (CI/CD) Pipeline that continuously test and deploy ITpt whenever a new feature is added</p>
+
 * Usability Testing
 	* <p align="justify">Use of Google Forms to gather feedback from users. The results from the google form can be found <a href="https://docs.google.com/spreadsheets/d/1qMynrZXA_k1VouUbMau5k2STGvG7DffJsFqBFAwsb7s/edit?usp=sharing">here</a>.</p>
+
+#### Test Schedule
+
+<table>
+<thead>
+  <tr>
+    <th>Test Strategy</th>
+    <th>Test Frequency</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Unit &amp; GUI Testing (together with Regression Testing)</td>
+    <td>After every code change</td>
+  </tr>
+  <tr>
+    <td>Compatibility Testing</td>
+    <td>After every feature update</td>
+  </tr>
+  <tr>
+    <td>Volume &amp; Stress Testing</td>
+    <td>After every feature update</td>
+  </tr>
+  <tr>
+    <td>Usability Testing</td>
+    <td>After every milestone feature update</td>
+  </tr>
+</tbody>
+</table>
+
+#### Tools used
+
+* [Cypress](https://www.cypress.io/)
+* [PowerMapper](https://www.powermapper.com/products/sortsite/checks/browser-compatibility/)
+* [Webpagetest](https://www.webpagetest.org/)
+* [Google Forms](https://www.google.com/forms/about/)
+* [Github Actions](https://github.com/features/actions)
 
 ### Interpretation of results
 
