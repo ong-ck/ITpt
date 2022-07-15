@@ -136,6 +136,8 @@
 
 ### Database Structure
 
+<img src="images/readme/database_structure.png" alt="Database Structure">
+
 ### Software Engineering Practices
 
 * Version Control
@@ -217,7 +219,7 @@ The testing plan covers the frontend UI and UX and the backend capabilities of I
 <br /><img src="./images/readme/performance_testing.png" alt="Performance Testing Results">
 
 * Regression Testing
-	* <p align="justify">Use of Github Actions to create a Continuous Integration / Continuous Development (CI/CD) Pipeline that continuously test and deploy ITpt whenever a new feature is added</p>
+	* <p align="justify">Use of Github Actions to create a Continuous Integration / Continuous Development (CI/CD) Pipeline that continuously test and deploy ITpt whenever a new feature is added.</p>
 
 * Usability Testing
 	* <p align="justify">Use of Google Forms to gather feedback from users. The results from the google form can be found <a href="https://docs.google.com/spreadsheets/d/1qMynrZXA_k1VouUbMau5k2STGvG7DffJsFqBFAwsb7s/edit?usp=sharing">here</a>.</p>
