@@ -16,11 +16,11 @@
 /* Page containers */
 .center {
   margin: auto;
-  width: 50%;
+  width: 100%;
 }
 
 .body_center {
-  border: 3px solid green;
+  border: 3px solid grey;
   padding: 10px;
 }
 
@@ -35,8 +35,15 @@ select {
   box-sizing: border-box;
 }
 
+@media screen and (max-width: 800px) {
+  #calendar {
+    font-size: 50%;
+  }
+}
+
 #calendar {
   margin: auto;
+  height: 85vh;
 }
 
 /* Calculator Results page */

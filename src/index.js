@@ -296,7 +296,7 @@ function initCalendar(allEvents) {
         }
       }
     },
-
+    
     //Select and Delete events
     eventClick: function (info) {
       let a = calendar.getEventById(info.event.id);
