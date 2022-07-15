@@ -157,7 +157,8 @@
 
 <img src="images/readme/homepage_mockup.png" alt="Homepage Mockup"><br />
 <img src="images/readme/calculator_mockup.png" alt="IPPT Calculator Mockup"><br />
-<img src="images/readme/results_mockup.png" alt="IPPT Calculator Results Page Mockup">
+<img src="images/readme/results_mockup.png" alt="IPPT Calculator Results Page Mockup"><br />
+<img src="images/readme/profilepage_mockup.jpeg" alt="Profile Page Mockup">
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -169,10 +170,25 @@
 
 The following are screenshots of the website.
 
+#### Homepage
 <img src="images/readme/homepage.png" alt="Homepage"><br />
+<img src="images/readme/calendar_instructions.png" alt="Calendar Instructions"><br />
+<img src="images/readme/calendar_add_event.png" alt="Calendar Add Event"><br />
 <img src="images/readme/calendar_event_details_popup.png" alt="Calendar Event Details Popup"><br />
+
+#### Calculator
 <img src="images/readme/calculator.png" alt="IPPT Calculator"><br />
-<img src="images/readme/results.png" alt="IPPT Calculator Results Page">
+<img src="images/readme/results.png" alt="IPPT Calculator Results Page"><br />
+
+#### Rewards
+<img src="images/readme/rewards.png" alt="ITpt Rewards Page"><br />
+<img src="images/readme/get_avatar.png" alt="ITpt Rewards Get Avatar"><br />
+
+#### Profile
+<img src="images/readme/profilepage.png" alt="Profile Page"><br />
+<img src="images/readme/profilepage_with_avatar.png" alt="Profile Page With Avatar"><br />
+<img src="images/readme/update_ippt_goal.png" alt="Profile Page Update IPPT Goal"><br />
+<img src="images/readme/exercise_recommendation.png" alt="Profile Page Exercise Recommendation"><br />
 
 To access the website, simply go to https://www.itpt.ml (or https://itpt-d53e0.web.app/).
 
