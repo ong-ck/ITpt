@@ -247,6 +247,19 @@ function initCalendar(allEvents) {
         },
       },
     },
+    views: {
+      fiveDays: {
+          type: 'dayGridWeek',
+          duration: {days: 7},
+      },
+    },
+    windowResize: function(view) {
+      if (window.innerWidth >= 768 ) {
+          calendar.changeView('dayGridMonth');
+      } else {
+          calendar.changeView('fiveDays');
+      }
+    },
 
     //Add events
     select: function (info) {
