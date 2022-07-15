@@ -301,6 +301,8 @@ function initCalendar(allEvents) {
     eventClick: function (info) {
       let a = calendar.getEventById(info.event.id);
 
+      //User is signed in
+      if (user_id != null) {
       //Update the Start Date of the activity
       setDoc(doc(db, "users", user_id, "activities", info.event.id), {
         extendedProps: {
@@ -311,6 +313,7 @@ function initCalendar(allEvents) {
         start: moment(info.event.start).format("YYYY-MM-DD"),
         title: info.event.title,
       });
+    }
 
       //Updates details in event popup
       $("#infoLabel").empty().prepend(info.event.title);
