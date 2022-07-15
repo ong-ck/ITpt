@@ -1,9 +1,11 @@
+// ensure webpage loads
 describe("load webpage", () => {
   it("passes", () => {
     cy.visit("https://itpt-d53e0.web.app/");
   });
 });
 
+// testing homepage components
 describe("homepage", () => {
   beforeEach(() => {
     cy.visit("https://itpt-d53e0.web.app/");
@@ -53,9 +55,21 @@ describe("homepage", () => {
   it("calendar instructions are visible", () => {
     cy.get(".fc-howToUse-button").click();
     cy.get("#instructions_modal").should("be.visible");
+    cy.get("#insert_tablink").click();
+    cy.get("#insert_activity").should("be.visible");
+    cy.get("#reschedule_tablink").click();
+    cy.get("#reschedule_activity").should("be.visible");
+    cy.get("#delete_tablink").click();
+    cy.get("#delete_activity").should("be.visible");
+  });
+
+  it("calendar can resize on mobile", () => {
+    cy.viewport("iphone-x");
+    cy.get("#calendar").should('have.css', 'font-size', '8px'); // manual test shows font-size as 8px
   });
 });
 
+// testing calculator page components
 describe("calculator", () => {
   beforeEach(() => {
     cy.visit("https://itpt-d53e0.web.app/");
@@ -86,5 +100,22 @@ describe("calculator", () => {
     cy.get("input[type='submit'").click();
     cy.get("#points").should("have.text", "97 POINTS");
     cy.get("#gold").should("be.visible");
+  });
+});
+
+// testing rewards page components
+describe("rewards", () => {
+  beforeEach(() => {
+    cy.visit("https://itpt-d53e0.web.app/");
+    cy.wait(500);
+    cy.get("#rewards_link").click();
+  });
+
+  it("rewards game is visible", () => {
+    cy.get(".rewards_game").should("be.visible");
+  });
+
+  it("get avatar button is visible", () => {
+    cy.get("#rewards_button").should("be.visible");
   });
 });
