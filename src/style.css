@@ -43,7 +43,6 @@ select {
 
 #calendar {
   margin: auto;
-  aspect-ratio: 1 / 2;
   height: 85vh;
 }
 
