@@ -1,5 +1,3 @@
-
-
 <div id="top"></div>
 
 <!-- PROJECT LOGO -->
@@ -144,9 +142,16 @@
 	* <p align="justify">Changes to the source code are tracked and managed through the use of Github. Storing the source code in a remote repository allows us to work separately on different features, while maintaining the original version of the source code.</p>
 	* <p align="justify">New features implemented are pushed into a different branch to be deconflicted before merging into the main branch for the website to update.</p>
 * Code Organisation
-	* <p align="justify">Source code written for the website are documented to ensure that we will be able to understand the code, thus allowing us to be able to maintain and develop the code efficiently.</p>
+	* <p align="justify">Codes are organised by components to reduce complexity and allowing for easier debugging. This also enhances readability of the code.</p>
 * Coding Standards
 	* <p align="justify">HTML, JavaScript and CSS codes were written with reference to <a href="https://www.w3schools.com">w3schools</a>. Following proper standards when writing code allows us to ensure code readability and efficiency.</p>
+* Code Documentation
+	* <p align="justify">Source code written for the website are documented following the JSDoc 3 Standards to ensure that we will be able to understand the code, thus allowing us to be able to maintain and develop the code efficiently.</p>
+* Git Issues
+	* <p align="justify">Problems and updates related to the project were added as an issue in Git Issues. The issues added were labelled based on the type. Assignees were also assigned to each issue to distribute the work needed for greater efficiency.</p>
+	* <p align="justify">Milestones were also set to contain the issues and provide a deadline for the issues to be resolved in time.</p>
+* Continuous Integration / Continuous Development (CI/CD) Pipeline
+	* <p align="justify">Web application is automatically tested and deployed using Github Actions whenever a new commit/merge occurs. This ensures that the web application is running properly whenever a new update is implemented.</p>
 
 ### Mockup
 
@@ -219,7 +224,7 @@ The testing plan covers the frontend UI and UX and the backend capabilities of I
 <br /><img src="./images/readme/performance_testing.png" alt="Performance Testing Results">
 
 * Regression Testing
-	* <p align="justify">Use of Github Actions to create a Continuous Integration / Continuous Development (CI/CD) Pipeline that continuously test and deploy ITpt whenever a new feature is added.</p>
+	* <p align="justify">Use of Github Actions to create a Continuous Integration / Continuous Development (CI/CD) Pipeline that continuously test and deploy ITpt whenever a new feature is added</p>
 
 * Usability Testing
 	* <p align="justify">Use of Google Forms to gather feedback from users. The results from the google form can be found <a href="https://docs.google.com/spreadsheets/d/1qMynrZXA_k1VouUbMau5k2STGvG7DffJsFqBFAwsb7s/edit?usp=sharing">here</a>.</p>
@@ -388,6 +393,8 @@ See the [open issues](https://github.com/ong-ck/ITpt/issues) for a full list of 
 
 * [Readme Template referenced from othneildrew](https://github.com/othneildrew/Best-README-Template)
 * [w3schools](https://www.w3schools.com/default.asp)
+* [ICS Export Example by Jon Collette](https://codepen.io/jcollette/pen/ErELqY)
 * [HubSpot HTML Dropdown Example](https://blog.hubspot.com/website/html-dropdown)
+* [Tutorials Point Test Plan Example](https://www.tutorialspoint.com/test-plan-template-sample-document-with-web-application-example)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
