@@ -370,6 +370,31 @@ function initCalendar(allEvents) {
 /**
  * Rewards Page Game
  */
+
+//Instructions
+$('#rewards_instruct_button').click(function() {
+  $("#rewards_instruct_modal").modal("toggle");
+  $("#summon_avatar").hide();
+  $("#select_avatar").hide();
+  $('#summon_tablink').removeClass('active');
+  $('#select_tablink').removeClass('active');
+});
+
+$('#summon_tablink').click(function() {
+  $("#summon_avatar").show();
+  $("#select_avatar").hide();
+  $('#summon_tablink').addClass('active');
+  $('#select_tablink').removeClass('active');
+});
+
+$('#select_tablink').click(function() {
+  $("#summon_avatar").hide();
+  $("#select_avatar").show();
+  $('#summon_tablink').removeClass('active');
+  $('#select_tablink').addClass('active');
+});
+
+//Summon Avatar
 $("#rewards_button").click(function () {
   // check if user has enough credits to use
   if (parseInt($("#rewards_credits").text()) > 0) {
