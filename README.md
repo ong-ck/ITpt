@@ -10,7 +10,7 @@
 <h3 align="center">ITpt</h3>
 
   <p align="center">
-    ITPT is a fitness tracking website that helps users plan and track their workouts to reach their fitness goals. 
+    ITpt is a fitness tracking website that helps users plan and track their workouts to reach their fitness goals. 
     <br />
     <a href="https://github.com/ong-ck/ITpt"><strong>Explore the docs »</strong></a>
     <br />
@@ -82,11 +82,11 @@
 
 ### Description
 
-<p align="justify">ITPT is a fitness tracking website that targets fitness enthusiasts. To prepare NSman and NSFs for their yearly IPPT, ITPT offers users a personalised training experience where they are able to customise their training plan to fit their fitness level and training tempo. It also features an in-built IPPT score calculator for them to calculate their scores to track their progress.</p>
+<p align="justify">ITpt is a fitness tracking website that targets fitness enthusiasts. To prepare NSman and NSFs for their yearly IPPT, ITpt offers users a personalised training experience where they are able to customise their training plan to fit their fitness level and training tempo. It also features an in-built IPPT score calculator for them to calculate their scores to track their progress.</p>
 
 ### Motivation
 
-<p align="justify">Many of the males in Singapore are required to take the IPPT annually. Failing to pass your IPPT within the given window will condemn you to 10 mandatory seasons of NS Fitness Improvement Training in addition to missing out on monetary awards. While there are many fitness apps and training programmes online, they are often not tailored for the IPPT. In addition, these apps do not come with an IPPT calculator. Therefore users have to find another website to calculate their IPPT score. For ITPT, we have decided to combine the 2 above to create a fitness training website to prepare users for their IPPT. It would recommend exercises to help users improve their score in each station and have an in-build IPPT calculator for greater convenience. Allowing users to seamlessly transition between planning and tracking their workout.</p>
+<p align="justify">Many of the males in Singapore are required to take the IPPT annually. Failing to pass your IPPT within the given window will condemn you to 10 mandatory seasons of NS Fitness Improvement Training in addition to missing out on monetary awards. While there are many fitness apps and training programmes online, they are often not tailored for the IPPT. In addition, these apps do not come with an IPPT calculator. Therefore users have to find another website to calculate their IPPT score. For ITpt, we have decided to combine the 2 above to create a fitness training website to prepare users for their IPPT. It would recommend exercises to help users improve their score in each station and have an in-build IPPT calculator for greater convenience. Allowing users to seamlessly transition between planning and tracking their workout.</p>
 
 ### User Stories
 
@@ -111,6 +111,10 @@
 * <p align="justify"><u>In-built IPPT Calculator</u>. Users are able to calculate their IPPT scores using the calculator whenever they need. It displays the points breakdown for each exercise, together with the total score and the corresponding achievement. Furthermore, the IPPT calculator provides feedback to the users on the number of additional reps needed/ amount of time to cut for them to improve their score for each station by one point.</p>
 
 * <p align="justify"><u>Gamification</u>. Points will be given after the users complete each of the activities that set for themselves, with which they can purchase avatars to customise their profile page. As such, users can be incentivised to work towards their fitness goals as they seek to gather customizable items purchasable by their collected points.</p>
+
+* <p align="justify"><u>User Profile</u>. Stores information related to the user such as the avatars owned, credits, IPPT goal and IPPT scores. It also allows users to set their IPPT goal, and tracks their progress toward achieving their desired IPPT scores and their personal best for each station.</p>
+
+* <p align="justify"><u>Mobile Supported</u>. Users are able to continue using ITpt while on their mobile browsers. This gives users the convenience and flexibility in the usage of the website as they can utilise ITpt while on the phone or on their computer.</p>
 
 ### Tech Stack
 
@@ -241,9 +245,10 @@ The testing plan covers the frontend UI and UX and the backend capabilities of I
 
 * Regression Testing
 	* <p align="justify">Use of Github Actions to create a Continuous Integration / Continuous Development (CI/CD) Pipeline that continuously test and deploy ITpt whenever a new feature is added</p>
+<br /><img src="./images/readme/ci_cd_pipeline.png" alt="CI/CD Pipeline by Github Actions">
 
 * Usability Testing
-	* <p align="justify">Use of Google Forms to gather feedback from users. The results from the google form can be found <a href="https://docs.google.com/spreadsheets/d/1qMynrZXA_k1VouUbMau5k2STGvG7DffJsFqBFAwsb7s/edit?usp=sharing">here</a>.</p>
+	* <p align="justify">Use of Google Forms to gather feedback from users. The results from the google form can be found <a href="https://docs.google.com/spreadsheets/d/1e2TFJL_ZvzwGjvU5aadc3qu0C8DuJmQj2ZBGgqXZj78/edit?usp=sharing">here</a>.</p>
 
 #### Test Schedule
 
@@ -285,13 +290,15 @@ The testing plan covers the frontend UI and UX and the backend capabilities of I
 ### Interpretation of results
 
 * Improvements to Fitness Calendar
-	* <p align="justify">The survey indicates that our users are having difficulty with using out fitness planner. Thus we added instructions to the bottom of the page.</p>
-* Highlight Important Functionalities
-	* <p align="justify">From the survey, users feel that the more important functions are the Calculator and the monthly view in the Fitness Calendar.</p>
+	* <p align="justify">Survey results shows that that the function to toggle between daily and weekly view were unnecessary as a typical person would not exercise more than once a day. As such we removed the function and added a calendar refresh function.</p>
+* Increased Functionalities
+  * <p align="justify">Survey from the previous milestone shows that the website needs more features so that users will recommend it to others. Thus, we added a profile page to track user's IPPT progress and IPPT rewards to encourage them to get a better score.</p>
 * Improvements to User Interface
-	* <p align="justify">While the general feedback are positive, improvements could be made to the layout of the elements on the page for a better user experience.</p>
+	* <p align="justify">We made improvements to the layout of the elements and used a more descriptive name for buttons. There were also feedback that the tables were harder to read. Thus we made modifications to our CSS to make it more readable.</p>
 * Improvements to User Experience
-	* <p align="justify">The survey indicates that we need to increase the functionalities of the website so that users will be more willing to recommend it to their friends.</p>
+	* <p align="justify">We made our website more mobile friendly as it would be more convenient for users to access it on their phones. We also added an instructions page for functions that are not common (e.g Calendar and ITPT rewards).</p>
+* Highlight Important Functionalities
+	* <p align="justify">After removing certain functions from the previous milestone, the survey results indicates that the remaining and newly added functions are necessary and helpful for users as they use the app to try improve their IPPT score.</p>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
