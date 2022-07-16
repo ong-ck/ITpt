@@ -214,31 +214,31 @@
         <h1 id="silver" style="display: none; color: silver;">SILVER</h1>
         <h1 id="pass" style="display: none; color: green;">PASS</h1>
         <h1 id="fail" style="display: none; color: red;">FAIL</h1>
-        <table class="tg">
+        <table class="tg"  style="width: 80%;  margin: 0;">
           <thead>
             <tr>
-              <th class="tg-0lab">Age</th>
-              <th id="age" class="tg-0lax" colspan="3">22</th>
+              <th class="tg-8wkz">Age</th>
+              <th id="age" class="tg-37t9" colspan="3">22</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td class="tg-0lab">Push Ups</td>
-              <td id="pushup_num" class="tg-0lax">54</td>
-              <td id="pushup_points" class="tg-0lax">23 Points</td>
-              <td id="pushup_rec" class="tg-0lax">1 more rep to 24 Points</td>
+              <td class="tg-8wkz">Push Ups</td>
+              <td id="pushup_num" class="tg-37t9">54</td>
+              <td id="pushup_points" class="tg-37t9">23 Points</td>
+              <td id="pushup_rec" class="tg-ik00">1 more rep to 24 Points</td>
             </tr>
             <tr>
-              <td class="tg-0lab">Sit Ups</td>
-              <td id="situp_num" class="tg-0lax">52</td>
-              <td id="situp_points" class="tg-0lax">23 Points</td>
-              <td id="situp_rec" class="tg-0lax">3 more reps to 24 Points</td>
+              <td class="tg-8wkz">Sit Ups</td>
+              <td id="situp_num" class="tg-37t9">52</td>
+              <td id="situp_points" class="tg-37t9">23 Points</td>
+              <td id="situp_rec" class="tg-ik00">3 more reps to 24 Points</td>
             </tr>
             <tr>
-              <td class="tg-0lab">2.4 km Run</td>
-              <td id="run_num" class="tg-0lax">10:00</td>
-              <td id="run_points" class="tg-0lax">42 Points</td>
-              <td id="run_rec" class="tg-0lax">10s to 43 Points</td>
+              <td class="tg-8wkz">2.4 km Run</td>
+              <td id="run_num" class="tg-37t9">10:00</td>
+              <td id="run_points" class="tg-37t9">42 Points</td>
+              <td id="run_rec" class="tg-ik00">10s to 43 Points</td>
             </tr>
           </tbody>
         </table>
@@ -259,6 +259,8 @@
           <p id="rewards_credits" style="display: inline;">Please sign in!</p>
         </div>
         <img src="https://i.ibb.co/XXzKTjZ/Question-Mark.png" alt="Question-Mark">
+        <button id="rewards_instruct_button" type="button" class="btn btn-primary">How to use ITpt Rewards</button>
+        <br>
         <button id="rewards_button" type="button" class="btn btn-primary">Get Avatar!</button>
       </div>
 
@@ -281,7 +283,51 @@
           </div>
         </div>
       </div>
+
+      <!--Rewards instructions-->
+      <div id="rewards_instruct_modal" class="modal fade bd-example-modal-lg" tabindex="-1" aria-labelledby="eventForm"
+      aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">How to use ITpt Rewards</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <!-- Tab to toggle between tasks -->
+              <div class="tab">
+                <button id="summon_tablink" class="tablinks">Summoning an Avatar</button>
+                <button id="select_tablink" class="tablinks">Selecting an Avatar</button>
+              </div>
+
+              <!-- Summon -->
+              <div id="summon_avatar" class="tabcontent">
+                <ol>
+                  <li>Your current credits are show in the "Current Credits:" field.</li>
+                  <li>You must have at least 5 credits to summon an Avatar.</li>
+                  <li>Complete avtivities in your exercise calendar to earn credits.</li>
+                  <li>When you have sufficient credits, click on the "Get Avatar" button below to summon your avatar.</li>
+                </ol>
+              </div>
+
+              <!-- Select -->
+              <div id="select_avatar" class="tabcontent">
+                <ol>
+                  <li>Go to your User Profile page by clicking on the drop down menu on the top right.</li>
+                  <li>Click on the text at the top of the profile page.</li>
+                  <li>Click on the Avatar you want to select for your profile.</li>
+                </ol>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+
+
 
     <!-- Profile Page -->
     <div class="profile body_center container">
@@ -342,21 +388,21 @@
             <table class="tg" style="width: 80%;  margin: 0;">
               <thead>
                 <tr>
-                  <th class="tg-0lax">Push Up</th>
-                  <th id="profile_pushup_num" class="tg-0lax">45</th>
-                  <th id="profile_pushup_points" class="tg-0lax">21 Points</th>
+                  <th class="tg-8wkz">Push Up</th>
+                  <th id="profile_pushup_num" class="tg-37t9">45</th>
+                  <th id="profile_pushup_points" class="tg-37t9">21 Points</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td class="tg-0lax">Sit Up</td>
-                  <td id="profile_situp_num" class="tg-0lax">45</td>
-                  <td id="profile_situp_points" class="tg-0lax">21 Points</td>
+                  <td class="tg-8wkz">Sit Up</td>
+                  <td id="profile_situp_num" class="tg-37t9">45</td>
+                  <td id="profile_situp_points" class="tg-37t9">21 Points</td>
                 </tr>
                 <tr>
-                  <td class="tg-0lax">2.4km Run</td>
-                  <td id="profile_run_num" class="tg-0lax">12 : 00</td>
-                  <td id="profile_run_points" class="tg-0lax">35 Points</td>
+                  <td class="tg-8wkz">2.4km Run</td>
+                  <td id="profile_run_num" class="tg-37t9">12 : 00</td>
+                  <td id="profile_run_points" class="tg-37t9">35 Points</td>
                 </tr>
               </tbody>
             </table>
