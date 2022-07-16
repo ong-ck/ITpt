@@ -1,4 +1,3 @@
-
 <div id="top"></div>
 
 <!-- PROJECT LOGO -->
@@ -11,7 +10,7 @@
 <h3 align="center">ITpt</h3>
 
   <p align="center">
-    ITPT is a fitness tracking website that helps users plan and track their workouts to reach their fitness goals. 
+    ITpt is a fitness tracking website that helps users plan and track their workouts to reach their fitness goals. 
     <br />
     <a href="https://github.com/ong-ck/ITpt"><strong>Explore the docs »</strong></a>
     <br />
@@ -44,16 +43,21 @@
         <li><a href="#core-features">Core Features</a></li>
         <li><a href="#tech-stack">Tech Stack</a></li>
         <li><a href="#architecture-diagram">Architecture Diagram</a></li>
+        <li><a href="#database-structure">Database Structure</a></li>
         <li><a href="#software-engineering-practices">Software Engineering Practices</a></li>
         <li><a href="#mockup">Mockup</a></li>
-        <li><a href="#technical-proof">Technical Proof</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
+    <li>
+    <a href="#usage">Usage</a>
+    <ul>
+    <li><a href="#technical-proof-of-concept">Technical Proof of Concept</a></li>
+    </ul>
+    </li>
     <li>
     <a href="#evaluation">Evaluation</a>
     <ul>
-	    <li><a href="#testing">Testing</a></li>
+	    <li><a href="#testing-plan">Testing Plan</a></li>
         <li><a href="#interpretation-of-results">Interpretation of results</a></li>
     </ul>
     </li>
@@ -62,7 +66,6 @@
 	    <ul>
 	    <li><a href="#scope-of-project">Scope of Project</a></li>
         <li><a href="#development-plan">Development Plan</a></li>
-        <li><a href="#changelog">Changelog</a></li>
         </ul>
     </li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
@@ -75,15 +78,15 @@
 
 ### Level of Achievement
 
-<center>Vostok</center>
+<center>Apollo 11</center>
 
 ### Description
 
-<p align="justify">ITPT is a fitness tracking website that targets fitness enthusiasts. To prepare NSman and NSFs for their yearly IPPT, ITPT offers users a personalised training experience where they are able to customise their training plan to fit their fitness level and training tempo. It also features an in-built IPPT score calculator for them to calculate their scores to track their progress.</p>
+<p align="justify">ITpt is a fitness tracking website that targets fitness enthusiasts. To prepare NSman and NSFs for their yearly IPPT, ITpt offers users a personalised training experience where they are able to customise their training plan to fit their fitness level and training tempo. It also features an in-built IPPT score calculator for them to calculate their scores to track their progress.</p>
 
 ### Motivation
 
-<p align="justify">Many of the males in Singapore are required to take the IPPT annually. Failing to pass your IPPT within the given window will condemn you to 10 mandatory seasons of NS Fitness Improvement Training in addition to missing out on monetary awards. While there are many fitness apps and training programmes online, they are often not tailored for the IPPT. In addition, these apps do not come with an IPPT calculator. Therefore users have to find another website to calculate their IPPT score. For ITPT, we have decided to combine the 2 above to create a fitness training website to prepare users for their IPPT. It would recommend exercises to help users improve their score in each station and have an in-build IPPT calculator for greater convenience. Allowing users to seamlessly transition between planning and tracking their workout.</p>
+<p align="justify">Many of the males in Singapore are required to take the IPPT annually. Failing to pass your IPPT within the given window will condemn you to 10 mandatory seasons of NS Fitness Improvement Training in addition to missing out on monetary awards. While there are many fitness apps and training programmes online, they are often not tailored for the IPPT. In addition, these apps do not come with an IPPT calculator. Therefore users have to find another website to calculate their IPPT score. For ITpt, we have decided to combine the 2 above to create a fitness training website to prepare users for their IPPT. It would recommend exercises to help users improve their score in each station and have an in-build IPPT calculator for greater convenience. Allowing users to seamlessly transition between planning and tracking their workout.</p>
 
 ### User Stories
 
@@ -107,7 +110,11 @@
 
 * <p align="justify"><u>In-built IPPT Calculator</u>. Users are able to calculate their IPPT scores using the calculator whenever they need. It displays the points breakdown for each exercise, together with the total score and the corresponding achievement. Furthermore, the IPPT calculator provides feedback to the users on the number of additional reps needed/ amount of time to cut for them to improve their score for each station by one point.</p>
 
-* <p align="justify"><u>Gamification</u> (In progress). Points will be given after the users complete each of the activities that set for themselves, with which they can purchase avatars to customise their profile page. As such, users can be incentivised to work towards their fitness goals as they seek to gather customizable items purchasable by their collected points.</p>
+* <p align="justify"><u>Gamification</u>. Points will be given after the users complete each of the activities that set for themselves, with which they can purchase avatars to customise their profile page. As such, users can be incentivised to work towards their fitness goals as they seek to gather customizable items purchasable by their collected points.</p>
+
+* <p align="justify"><u>User Profile</u>. Stores information related to the user such as the avatars owned, credits, IPPT goal and IPPT scores. It also allows users to set their IPPT goal, and tracks their progress toward achieving their desired IPPT scores and their personal best for each station.</p>
+
+* <p align="justify"><u>Mobile Supported</u>. Users are able to continue using ITpt while on their mobile browsers. This gives users the convenience and flexibility in the usage of the website as they can utilise ITpt while on the phone or on their computer.</p>
 
 ### Tech Stack
 
@@ -129,21 +136,33 @@
 
 <img src="images/readme/architecture_diagram.png" alt="Architecture Diagram">
 
+### Database Structure
+
+<img src="images/readme/database_structure.png" alt="Database Structure">
+
 ### Software Engineering Practices
 
 * Version Control
 	* <p align="justify">Changes to the source code are tracked and managed through the use of Github. Storing the source code in a remote repository allows us to work separately on different features, while maintaining the original version of the source code.</p>
 	* <p align="justify">New features implemented are pushed into a different branch to be deconflicted before merging into the main branch for the website to update.</p>
 * Code Organisation
-	* <p align="justify">Source code written for the website are documented to ensure that we will be able to understand the code, thus allowing us to be able to maintain and develop the code efficiently.</p>
+	* <p align="justify">Codes are organised by components to reduce complexity and allowing for easier debugging. This also enhances readability of the code.</p>
 * Coding Standards
 	* <p align="justify">HTML, JavaScript and CSS codes were written with reference to <a href="https://www.w3schools.com">w3schools</a>. Following proper standards when writing code allows us to ensure code readability and efficiency.</p>
+* Code Documentation
+	* <p align="justify">Source code written for the website are documented following the JSDoc 3 Standards to ensure that we will be able to understand the code, thus allowing us to be able to maintain and develop the code efficiently.</p>
+* Git Issues
+	* <p align="justify">Problems and updates related to the project were added as an issue in Git Issues. The issues added were labelled based on the type. Assignees were also assigned to each issue to distribute the work needed for greater efficiency.</p>
+	* <p align="justify">Milestones were also set to contain the issues and provide a deadline for the issues to be resolved in time.</p>
+* Continuous Integration / Continuous Development (CI/CD) Pipeline
+	* <p align="justify">Web application is automatically tested and deployed using Github Actions whenever a new commit/merge occurs. This ensures that the web application is running properly whenever a new update is implemented.</p>
 
 ### Mockup
 
 <img src="images/readme/homepage_mockup.png" alt="Homepage Mockup"><br />
 <img src="images/readme/calculator_mockup.png" alt="IPPT Calculator Mockup"><br />
-<img src="images/readme/results_mockup.png" alt="IPPT Calculator Results Page Mockup">
+<img src="images/readme/results_mockup.png" alt="IPPT Calculator Results Page Mockup"><br />
+<img src="images/readme/profilepage_mockup.jpeg" alt="Profile Page Mockup">
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -155,10 +174,25 @@
 
 The following are screenshots of the website.
 
+#### Homepage
 <img src="images/readme/homepage.png" alt="Homepage"><br />
+<img src="images/readme/calendar_instructions.png" alt="Calendar Instructions"><br />
+<img src="images/readme/calendar_add_event.png" alt="Calendar Add Event"><br />
 <img src="images/readme/calendar_event_details_popup.png" alt="Calendar Event Details Popup"><br />
+
+#### Calculator
 <img src="images/readme/calculator.png" alt="IPPT Calculator"><br />
-<img src="images/readme/results.png" alt="IPPT Calculator Results Page">
+<img src="images/readme/results.png" alt="IPPT Calculator Results Page"><br />
+
+#### Rewards
+<img src="images/readme/rewards.png" alt="ITpt Rewards Page"><br />
+<img src="images/readme/get_avatar.png" alt="ITpt Rewards Get Avatar"><br />
+
+#### Profile
+<img src="images/readme/profilepage.png" alt="Profile Page"><br />
+<img src="images/readme/profilepage_with_avatar.png" alt="Profile Page With Avatar"><br />
+<img src="images/readme/update_ippt_goal.png" alt="Profile Page Update IPPT Goal"><br />
+<img src="images/readme/exercise_recommendation.png" alt="Profile Page Exercise Recommendation"><br />
 
 To access the website, simply go to https://www.itpt.ml (or https://itpt-d53e0.web.app/).
 
@@ -168,7 +202,31 @@ To access the website, simply go to https://www.itpt.ml (or https://itpt-d53e0.w
 <!-- EVALUATION-->
 ## Evaluation
 
-### Testing
+### Testing Plan
+
+#### Introduction
+
+In order to ensure that ITpt is working as intended based on the features proposed, this testing plan is created to ensure that rigorous and structured testing is implemented.
+
+The testing plan specifies the objectives and tasks, scope, testing strategy, test schedule, control procedure, features tested/not tested and tools used to test the website.
+
+#### Objectives and Tasks
+
+The objective of the testing plan is to ensure that the user interface (UI) and user experience (UX) provided by ITpt meets the proposed description and features.
+
+Expected tasks:
+* Ensuring that the UI is showing up properly
+* Ensuring that navigation within ITpt provides the expected UX
+* Ensuring that ITpt is compatible with various browsers
+* Ensuring that ITpt is able to perform within expectations with increased user numbers
+* Ensuring that all updates to ITpt are tested
+* Seeking user opinions for improvements
+
+#### Scope
+
+The testing plan covers the frontend UI and UX and the backend capabilities of ITpt that are in direct interaction with the users.
+
+#### Testing Strategy
 
 * Unit & GUI Testing
 	* <p align="justify"><a href="https://www.cypress.io/">Cypress</a> was used to execute Unit & GUI Testing.</p>
@@ -180,24 +238,67 @@ To access the website, simply go to https://www.itpt.ml (or https://itpt-d53e0.w
 	* <p align="justify"><a href="https://www.powermapper.com/products/sortsite/checks/browser-compatibility/">PowerMapper</a> was used to determine the compatibility of our website to numerous browsers.</p>
 <br /><img src="./images/readme/compatibility_testing.png" alt="Compatibility Testing Results">
 
-* Volumn & Stress Testing
+* Volume & Stress Testing
 	* <p align="justify">The website was checked on whether it can handle large amount of data and multiple users concurrently.</p>
 	* <p align="justify"><a href="https://www.webpagetest.org/">Webpagetest</a> was also used to run a performance test on the website.</p>
 <br /><img src="./images/readme/performance_testing.png" alt="Performance Testing Results">
 
+* Regression Testing
+	* <p align="justify">Use of Github Actions to create a Continuous Integration / Continuous Development (CI/CD) Pipeline that continuously test and deploy ITpt whenever a new feature is added</p>
+<br /><img src="./images/readme/ci_cd_pipeline.png" alt="CI/CD Pipeline by Github Actions">
+
 * Usability Testing
-	* <p align="justify">Use of Google Forms to gather feedback from users. The results from the google form can be found <a href="https://docs.google.com/spreadsheets/d/1qMynrZXA_k1VouUbMau5k2STGvG7DffJsFqBFAwsb7s/edit?usp=sharing">here</a>.</p>
+	* <p align="justify">Use of Google Forms to gather feedback from users. The results from the google form can be found <a href="https://docs.google.com/spreadsheets/d/1e2TFJL_ZvzwGjvU5aadc3qu0C8DuJmQj2ZBGgqXZj78/edit?usp=sharing">here</a>.</p>
+
+#### Test Schedule
+
+<table>
+<thead>
+  <tr>
+    <th>Test Strategy</th>
+    <th>Test Frequency</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Unit &amp; GUI Testing (together with Regression Testing)</td>
+    <td>After every code change</td>
+  </tr>
+  <tr>
+    <td>Compatibility Testing</td>
+    <td>After every feature update</td>
+  </tr>
+  <tr>
+    <td>Volume &amp; Stress Testing</td>
+    <td>After every feature update</td>
+  </tr>
+  <tr>
+    <td>Usability Testing</td>
+    <td>After every milestone feature update</td>
+  </tr>
+</tbody>
+</table>
+
+#### Tools used
+
+* [Cypress](https://www.cypress.io/)
+* [PowerMapper](https://www.powermapper.com/products/sortsite/checks/browser-compatibility/)
+* [Webpagetest](https://www.webpagetest.org/)
+* [Google Forms](https://www.google.com/forms/about/)
+* [Github Actions](https://github.com/features/actions)
 
 ### Interpretation of results
 
 * Improvements to Fitness Calendar
-	* <p align="justify">The survey indicates that our users are having difficulty with using out fitness planner. Thus we added instructions to the bottom of the page.</p>
-* Highlight Important Functionalities
-	* <p align="justify">From the survey, users feel that the more important functions are the Calculator and the monthly view in the Fitness Calendar.</p>
+	* <p align="justify">Survey results shows that that the function to toggle between daily and weekly view were unnecessary as a typical person would not exercise more than once a day. As such we removed the function and added a calendar refresh function.</p>
+* Increased Functionalities
+  * <p align="justify">Survey from the previous milestone shows that the website needs more features so that users will recommend it to others. Thus, we added a profile page to track user's IPPT progress and IPPT rewards to encourage them to get a better score.</p>
 * Improvements to User Interface
-	* <p align="justify">While the general feedback are positive, improvements could be made to the layout of the elements on the page for a better user experience.</p>
+	* <p align="justify">We made improvements to the layout of the elements and used a more descriptive name for buttons. There were also feedback that the tables were harder to read. Thus we made modifications to our CSS to make it more readable.</p>
 * Improvements to User Experience
-	* <p align="justify">The survey indicates that we need to increase the functionalities of the website so that users will be more willing to recommend it to their friends.</p>
+	* <p align="justify">We made our website more mobile friendly as it would be more convenient for users to access it on their phones. We also added an instructions page for functions that are not common (e.g Calendar and ITPT rewards).</p>
+* Highlight Important Functionalities
+	* <p align="justify">After removing certain functions from the previous milestone, the survey results indicates that the remaining and newly added functions are necessary and helpful for users as they use the app to try improve their IPPT score.</p>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -244,6 +345,8 @@ A Website that helps users plan their fitness schedule to meet their fitness goa
 * Recommended exercises to improve for each station in the IPPT.
 	* Users can view a set of exercises to help them improve each station.
 	* They can then add them to the calendar.
+
+See the [open issues](https://github.com/ong-ck/ITpt/issues) for a full list of proposed features (and known issues).
 
 ### Development Plan
 
@@ -304,7 +407,6 @@ A Website that helps users plan their fitness schedule to meet their fitness goa
 </tbody>
 </table>
 
-See the [open issues](https://github.com/ong-ck/ITpt/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -314,5 +416,8 @@ See the [open issues](https://github.com/ong-ck/ITpt/issues) for a full list of 
 
 * [Readme Template referenced from othneildrew](https://github.com/othneildrew/Best-README-Template)
 * [w3schools](https://www.w3schools.com/default.asp)
+* [ICS Export Example by Jon Collette](https://codepen.io/jcollette/pen/ErELqY)
+* [HubSpot HTML Dropdown Example](https://blog.hubspot.com/website/html-dropdown)
+* [Tutorials Point Test Plan Example](https://www.tutorialspoint.com/test-plan-template-sample-document-with-web-application-example)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
