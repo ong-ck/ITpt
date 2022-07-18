@@ -132,6 +132,16 @@
 	* <p align="justify">Firebase Authentication will be used to implement the login feature of the website, letting users login to the website using their google accounts.</p>
 	* <p align="justify">Firebase Cloud Firestore will be used as the database of the website, storing the user data (such as the calendar events). This allows for a customised experience for the users.</p>
 
+### Design Decisions.
+
+* <p align="justify"><u>Fitness Calendar</u>. We wanted our Fitness Calendar to be simple to use. Therefore we decided to use descriptive buttons and design the calendar in a way that it gives the user the correct perceived affordance. For example, clicking on the date creates an event on the date. To reschedule an event the user can simply drag and drop the event onto another date.</p>
+
+* <p align="justify"><u>IPPT Calculator</u>. From past experiences with using IPPT calculators online, there is this ambiguity when keying in the IPPT scores. For example, for the 2.4km run most IPPT calculators only allows users to select their time in 10s intervals. Therefore, users might not know if they should take the upper limit or lower limit when inputing their run time. Therefore for ITpt, we decided to allow the user to key in their exact timing to remove this ambiguity.</p>
+
+* <p align="justify"><u>User Profile</u>. Most online IPPT calculator do not allow users to save their results. Therefore we decided to create a user profile to help keep track of our user's IPPT score. This function also compliments our Fitness Calendar. By keeping track of their personal best attempt for each station, users can then identify their weaker station and place more emphasis on them when planning their workout using our fitness calendar. The status bar also gives the user a visual representation of how far they are form achieving their goal and serves as another form of motivation. </p>
+
+* <p align="justify"><u>ITpt Rewards</u>. We wanted to encourage our users to complete their activities diligently. Therefore we made the avatar generation random so that the user would be tempted to keep trying to get their desired avatar. In doing so, they would also be completing more exercies in their fitness plan.</p>
+
 ### Architecture Diagram
 
 <img src="images/readme/architecture_diagram.png" alt="Architecture Diagram">
