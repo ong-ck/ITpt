@@ -42,6 +42,7 @@
       <ul>
         <li><a href="#core-features">Core Features</a></li>
         <li><a href="#tech-stack">Tech Stack</a></li>
+        <li><a href="#design">Design</a></li>
         <li><a href="#architecture-diagram">Architecture Diagram</a></li>
         <li><a href="#database-structure">Database Structure</a></li>
         <li><a href="#software-engineering-practices">Software Engineering Practices</a></li>
@@ -132,8 +133,13 @@
 	* <p align="justify">Firebase Authentication will be used to implement the login feature of the website, letting users login to the website using their google accounts.</p>
 	* <p align="justify">Firebase Cloud Firestore will be used as the database of the website, storing the user data (such as the calendar events). This allows for a customised experience for the users.</p>
 
-### Design Decisions.
+### Design
 
+#### Activity Diagram
+
+<img src="images/readme/activity_diagram.png" alt="Activity Diagram">
+
+#### Design Decisions
 * <p align="justify"><u>Fitness Calendar</u>. We wanted our Fitness Calendar to be simple to use. Therefore we decided to use descriptive buttons and design the calendar in a way that it gives the user the correct perceived affordance. For example, clicking on the date creates an event on the date. To reschedule an event the user can simply drag and drop the event onto another date.</p>
 
 <table>
