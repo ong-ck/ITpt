@@ -177,8 +177,8 @@
 <tbody>
   <tr>
     <td>Complexity</td>
-    <td align="justify">Not complex to replicate the scoreing table found on the </td>
-    <td align="justify">Slightly more complex to group the differenct scores together into the same groups and to ensure that all cases are covered.</td>
+    <td align="justify">Not complex to replicate the scoring table found on the NS portal.</td>
+    <td align="justify">Slightly more complex to group the different scores together into the same groups and to ensure that all cases are covered.</td>
   </tr>
   <tr>
     <td>Extensibility</td>
@@ -201,6 +201,38 @@
 * <p align="justify"><u>User Profile</u>. Most online IPPT calculator do not allow users to save their results. Therefore we decided to create a user profile to help keep track of our user's IPPT score. This function also compliments our Fitness Calendar. By keeping track of their personal best attempt for each station, users can then identify their weaker station and place more emphasis on them when planning their workout using our fitness calendar. The status bar also gives the user a visual representation of how far they are form achieving their goal and serves as another form of motivation. </p>
 
 * <p align="justify"><u>ITpt Rewards</u>. We wanted to encourage our users to complete their activities diligently. Therefore we made the avatar generation random so that the user would be tempted to keep trying to get their desired avatar. In doing so, they would also be completing more exercies in their fitness plan.</p>
+
+<table>
+<thead>
+  <tr>
+    <th>Criteria</th>
+    <th>Approach 1 (Store pre-made avatar images on database and pull from it as needed)</th>
+    <th>Approach 2 (Generate avatar images using avatar parts on the spot in the website as the user gets avatar and push to database)</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Complexity</td>
+    <td align="justify">Approach is not complex as the generation of images is done outside of the website using image drawing tools.</td>
+    <td align="justify">Approach is more complex as code needs to be written to combine pre-made avatar parts (face, eyes, mouth, etc).</td>
+  </tr>
+  <tr>
+    <td>Extensibility</td>
+    <td align="justify">Easily extensible as the avatar images are all stored in the database. New images only need to be added into the database to allow the users to obtain them in the game.</td>
+    <td align="justify">Generally extensible as new parts for the avatar images can be added into the website for the user to be able to generate other avatar images.</td>
+  </tr>
+  <tr>
+    <td>Performance (Time)</td>
+    <td align="justify">Fast, as the images url can be pulled from the database and appended into the user's profile.</td>
+    <td align="justify">Slow, as time is needed for the website to generate the avatar and push to the database, before pulling from it again to display in the user's profile.</td>
+  </tr>
+  <tr>
+    <td>Performance (Space)</td>
+    <td align="justify">Only need to store the avatar image's name and url on the database.</td>
+    <td align="justify">Need to store the varying avatar parts as well as the generated avatar. Since each user can generate different avatars, more space will be needed to store each user's avatars.</td>
+  </tr>
+</tbody>
+</table>
 
 
 
