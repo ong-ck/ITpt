@@ -136,11 +136,67 @@
 
 * <p align="justify"><u>Fitness Calendar</u>. We wanted our Fitness Calendar to be simple to use. Therefore we decided to use descriptive buttons and design the calendar in a way that it gives the user the correct perceived affordance. For example, clicking on the date creates an event on the date. To reschedule an event the user can simply drag and drop the event onto another date.</p>
 
-* <p align="justify"><u>IPPT Calculator</u>. From past experiences with using IPPT calculators online, there is this ambiguity when keying in the IPPT scores. For example, for the 2.4km run most IPPT calculators only allows users to select their time in 10s intervals. Therefore, users might not know if they should take the upper limit or lower limit when inputing their run time. Therefore for ITpt, we decided to allow the user to key in their exact timing to remove this ambiguity.</p>
+<table>
+<thead>
+  <tr>
+    <th>Criteria</th>
+    <th>Approach 1 (FullCalendar)</th>
+    <th>Approach 2 (MindFusion)</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Complexity</td>
+    <td align="justify">Relatively complex as we need to use the moment.js library to manipulate the event date and time.</td>
+    <td align="justify">Not as complex. It comes with an inbuilt function to create and edit time without using the moment.js library.</td>
+  </tr>
+  <tr>
+    <td>Extensibility</td>
+    <td align="justify">Wide range of functions that can be used to manipulate the event object and Calendar interface. Allow for custom fields for events and buttons on the calendar. This makes it easy for us to add new functions and gives us more control of calendar.</td>
+    <td align="justify">Not as much functionalities in the free version as FullCalendar. We were also not able to easily manipulate the calendar interface and event objects.</td>
+  </tr>
+</tbody>
+</table>
+
+* <p align="justify"><u>IPPT Calculator</u>. From past experiences with using IPPT calculators online, there is this ambiguity when keying in the IPPT scores. For example, for the 2.4km run most IPPT calculators only allows users to select their time in 10s intervals. Therefore, users might not know if they should take the upper limit or lower limit when inputing their run time. Therefore for ITpt, we decided to allow the user to key in their exact timing to remove this ambiguity. Unfortunately there was not formula to calculate the the IPPT scores of each station. Therefore we could only reference the IPPT scoring tables found on the NS portal, leaving us with 2 approaches.</p>
+
+<table>
+<thead>
+  <tr>
+    <th>Criteria</th>
+    <th>Approach 1 (Using a 2D array as the score sheet)</th>
+    <th>Approach 2 (Using if-else statements)</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Complexity</td>
+    <td align="justify">Not complex to replicate the scoreing table found on the </td>
+    <td align="justify">Slightly more complex to group the differenct scores together into the same groups and to ensure that all cases are covered.</td>
+  </tr>
+  <tr>
+    <td>Extensibility</td>
+    <td align="justify">Easy to add functionalities (e.g. number of addtional reps to get the next point) by iterating through the array.</td>
+    <td align="justify">Slightly harder as we would need to loop through the entire if-else statement to get the reps needed to get the next highest point.</td>
+  </tr>
+  <tr>
+    <td>Performance (Time)</td>
+    <td align="justify">Fast, with the age and reps as inputs we are able to generate the scores in O(1) time.</td>
+    <td align="justify">Slower as we would need to iterate through each case to reach get to the correct score.</td>
+  </tr>
+  <tr>
+    <td>Performance (Space)</td>
+    <td align="justify">Takes up more spaces to store the 2D array. O(n*m) where n is the number of reps from 0 to 60 and m is the number of age groups.</td>
+    <td align="justify">Takes up less space as we do not need to use additional memory to store the information.</td>
+  </tr>
+</tbody>
+</table>
 
 * <p align="justify"><u>User Profile</u>. Most online IPPT calculator do not allow users to save their results. Therefore we decided to create a user profile to help keep track of our user's IPPT score. This function also compliments our Fitness Calendar. By keeping track of their personal best attempt for each station, users can then identify their weaker station and place more emphasis on them when planning their workout using our fitness calendar. The status bar also gives the user a visual representation of how far they are form achieving their goal and serves as another form of motivation. </p>
 
 * <p align="justify"><u>ITpt Rewards</u>. We wanted to encourage our users to complete their activities diligently. Therefore we made the avatar generation random so that the user would be tempted to keep trying to get their desired avatar. In doing so, they would also be completing more exercies in their fitness plan.</p>
+
+
 
 ### Architecture Diagram
 
